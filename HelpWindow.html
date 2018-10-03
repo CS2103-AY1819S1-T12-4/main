@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 4 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>SaveIt - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>AddressBook Level 4 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="header"><h1>SaveIt - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>T12-04</code>      Since: <code>Sep 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -17,7 +17,7 @@
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
 <li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
 <li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
+<li><a href="#locating-persons-by-name-code-serach-code">3.5. Locating persons by name: <code>serach</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
 <li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
@@ -25,8 +25,14 @@
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#refactor-tag-code-refactortag-code">3.13. Refactor Tag: <code>refactorTag</code></a></li>
+<li><a href="#saving-the-data">3.14. Saving the data</a></li>
+<li><a href="#autosuggestion-of-existing-tags">3.15. Autosuggestion of (existing) Tags</a></li>
+<li><a href="#command-highlight">3.16. Command highlight</a></li>
+<li><a href="#team-based-creating-switching-projects-coming-in-v2-0">3.17. Team based - Creating / Switching projects [coming in v2.0]</a></li>
+<li><a href="#team-based-data-access-from-cloud-coming-in-v2-0">3.18. Team based - Data access from cloud [coming in v2.0]</a></li>
+<li><a href="#highlight-the-page-highlight-coming-in-v2-0">3.19. Highlight the page : highlight [coming in v2.0]</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -38,7 +44,10 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 4 (AB4) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB4 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Developers usually search google to find solutions to issue/problems, however, bookmarking a certain webpage (where the solution is found) does not tell the user much about what was searched (to find that solution in the first place). It is likely that if the developer encounters the same issue/problem again, instead of searching through their bookmarks, they would search google and go through all of the links again.</p>
+</div>
+<div class="paragraph">
+<p><strong>SaveIt</strong> is geared at keeping track of the issues that the user finds and to link it with the solution found on google. More importantly, SaveIt is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, SaveIt can help you search the same issue that save previously faster than traditional GUI apps.</p>
 </div>
 </div>
 </div>
@@ -51,13 +60,45 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>saveit.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+</li>
+<li>
+<p>Type the command in the command box and press Enter to execute it.
+e.g. typing help and pressing Enter will open the help window.</p>
+</li>
+<li>
+<p>Some example commands you can try:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>list</code></strong> : lists all issues recorded</p>
+</li>
+<li>
+<p><strong><code>add</code></strong> : add i/ISSUE_STATEMENT s/SOLUTION_LINK1 s/SOLUTION_LINK2 t/TAG1 t/TAG2 : records an issue with the following links where solutions to the issue were found. The issues can be tagged to help with organization and ease of search.</p>
+</li>
+<li>
+<p><strong><code>search</code></strong> :  Search ISSUE : searches the records for a certain issue (case-insensitive)</p>
+</li>
+<li>
+<p><strong><code>edit</code></strong> : edit INDEX i/NEW_ISSUE s/NEW_SOLUTION_LINK1 s/NEW_SOLUTION_LINK2…  : edits the details of the 2nd issue in the current list</p>
+</li>
+<li>
+<p><strong><code>delete</code></strong> :  delete 3 : deletes the 3rd issue shown in the current list</p>
+</li>
+<li>
+<p><strong><code>exit</code></strong> : .  exit : exits the app</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Refer to Section 3, “Features” for details of each command.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
@@ -105,7 +146,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add i/ISSUE</code>, <code>ISSUE</code> is a parameter which can be used as <code>add i/Segment Fault</code>.</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
@@ -114,7 +155,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>i/ISSUE_STATEMENT s/SOLUTION_LINK, s/SOUTION_LINK i/ISSUE_STATEMENT</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -129,8 +170,45 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds a person to the address book<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add i/ISSUE_STATEMENT s/SOLUTION_LINK1 s/SOLUTION_LINK2 r/REMARK t/TAG&#8230;&#8203;</code></p>
+</div>
+<div class="ulist TIP">
+<ul class="TIP">
+<li>
+<p>An issue can have any number of tags (including 0)</p>
+</li>
+<li>
+<p>An issue can have any number of solutions (including 0)</p>
+</li>
+<li>
+<p>An issue can have any number of remarks (including 0)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add i/Undefined Variable s/www.example1a.com s/www.example1b.com</code></p>
+</li>
+<li>
+<p><code>add i/Segment Fault s/www.example2.com t/JAVA</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all issues in the issue bookmark according to either chronological order or frequency order. Users can also choose to list part of issues.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -139,40 +217,61 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+<div class="paragraph">
+<p>The default result of list command is listing all issues in a chronological order.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>list p2 chr</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
+<p>Listing issues from page 2 (No.11 - No.20) in a chronological order.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>list freq</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>According to frequency order</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Edits an existing person in the issue list.<br>
+Format: <code>edit INDEX i/NEW_ISSUE s/NEW_SOLUTION_LINK1 s/NEW_SOLUTION_LINK2 t/TAG1 r/REMARK1​</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -185,14 +284,16 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of the person will be removed i.e adding of solutions is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the issue solutions by typing <code>s/</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -200,44 +301,65 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>edit 1 r/use String instead of Byte[]</code></p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>Edits the solution of the 1st bug encountered is to use a string instead of a Byte array.</code></p>
+</li>
+<li>
+<p><code>Edit 2 i/solved s/</code></p>
+</li>
+<li>
+<p><code>Edits the description of the second issue to be marked as solved and clears all existing solutions.</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="locating-persons-by-name-code-serach-code"><a class="link" href="#locating-persons-by-name-code-serach-code">3.5. Locating persons by name: <code>serach</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Search issue by tags, issue statement or remarks.
+Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p>The search is case insensitive. e.g hans will match Hans</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+<p>The order of the keywords does not matter. e.g. ‘kill port’ will match ‘port kill’</p>
 </li>
 <li>
-<p>Only the name is searched.</p>
+<p>Searches through the issue statement, tags or remarks.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+<p>Only full words will be matched e.g. Han will not match Hans</p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Issues matching at least one keyword will be returned (i.e. OR search). e.g. Hans Bo will return the page and relevant remarks</p>
+</li>
+<li>
+<p>Search results will be ordered based on the following priority:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Issue match &gt; Tag match</p>
 </li>
 </ul>
 </div>
+</li>
+</ul>
 </div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -258,25 +380,32 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <div class="sect2">
 <h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
+<p>Deletes the specified issue from the issue tracker.<br>
 Format: <code>delete INDEX</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the issue at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed issue list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -284,14 +413,30 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+<p><code>list chr</code><br></p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p><code>delete 2</code><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the 2nd issue in the issue tracker.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>search Undefined</code><br></p>
+</li>
+<li>
+<p><code>delete 1</code><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the 1st issue in the results of the find command.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -299,25 +444,32 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
-<p>Selects the person identified by the index number used in the displayed person list.<br>
+<p>Selects the issue identified by the index number used in the displayed issue list.
 Format: <code>select INDEX</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
+<p>Selects the issue and loads the first solution link of the issue at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed issue list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -325,14 +477,22 @@ Format: <code>select INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
+<p><code>list chr</code></p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
+<p><code>select 2</code></p>
+</li>
+<li>
+<p><code>Selects the 2nd issue in the issue list.</code></p>
+</li>
+<li>
+<p><code>find Undefined</code></p>
+</li>
+<li>
+<p><code>select 1</code></p>
+</li>
+<li>
+<p><code>Selects the 1st issue in the results of the find command.</code></p>
 </li>
 </ul>
 </div>
@@ -340,7 +500,7 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
+<p>Lists all the commands that you have entered in reverse chronological order.
 Format: <code>history</code></p>
 </div>
 <div class="admonitionblock note">
@@ -361,7 +521,7 @@ Format: <code>history</code></p>
 <div class="sect2">
 <h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
+<p>Restores the issue tracker to the state before the previous undoable command was executed.
 Format: <code>undo</code></p>
 </div>
 <div class="admonitionblock note">
@@ -385,12 +545,12 @@ Format: <code>undo</code></p>
 <ul>
 <li>
 <p><code>delete 1</code><br>
-<code>list</code><br>
+<code>list chr</code><br>
 <code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
 </li>
 <li>
 <p><code>select 1</code><br>
-<code>list</code><br>
+<code>list chr</code><br>
 <code>undo</code><br>
 The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
 </li>
@@ -438,7 +598,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
+<p>Clears all entries from the issue tracker.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
@@ -450,14 +610,135 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="refactor-tag-code-refactortag-code"><a class="link" href="#refactor-tag-code-refactortag-code">3.13. Refactor Tag: <code>refactorTag</code></a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>To rename or remove a certain tag (for all entries with that tag).</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>refactorTag java javascript</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Changes all entries tagged [java] to be tagged [javascript]</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Format: <code>refactorTag java [null]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Removes the tag [java] from all the entries</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.14. Saving the data</a></h3>
+<div class="paragraph">
+<p>Issue bookmark data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="autosuggestion-of-existing-tags"><a class="link" href="#autosuggestion-of-existing-tags">3.15. Autosuggestion of (existing) Tags</a></h3>
+<div class="paragraph">
+<p>To prevent the user from creating many similar tags / duplicates, whenever the user creates a record with a tag, or modifies a record’s tag, the application searches for similar tags in the system and prompts the user with a list of similar tags.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>add i/NEW_ISSUE t/java</p>
+</li>
+<li>
+<p>Similar tags have been found that have matched with [java], do you mean?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Javascript</p>
+</li>
+<li>
+<p>Java9</p>
+</li>
+<li>
+<p>No, i would like to create a new tag [java]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>tag 1 : chooses to replace [java] with [javascript]</p>
+</li>
+<li>
+<p>tag 3 : chooses to create a new tag [java]</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-highlight"><a class="link" href="#command-highlight">3.16. Command highlight</a></h3>
+<div class="paragraph">
+<p>Since some commands are quite long, some keywords and parameters are identified to help users to distinguish different information that they input.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><span class="red">add</span> <span class="aqua">i/ISSUE_STATEMENT</span> <span class="Green">s/SOLUTION_LINK1</span> <span class="Green">s/SOLUTION_LINK2</span> <span class="blue">r/REMARK</span> <span class="fuchsia">t/TAG</span>…​</p>
+</div>
+<div class="paragraph">
+<p><span class="red">edit</span> <span class="lime">INDEX</span> <span class="aqua">i/NEW_ISSUE</span> <span class="Green">s/NEW_SOLUTION_LINK1</span> <span class="Green">s/NEW_SOLUTION_LINK2</span> <span class="fuchsia">t/TAG1</span> <span class="Maroon">r/REMARK1​</span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="team-based-creating-switching-projects-coming-in-v2-0"><a class="link" href="#team-based-creating-switching-projects-coming-in-v2-0">3.17. Team based - Creating / Switching projects [coming in v2.0]</a></h3>
+<div class="paragraph">
+<p>Records are organized into projects, that way, each project only stores information (bugs/issues) relevant to that project.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="team-based-data-access-from-cloud-coming-in-v2-0"><a class="link" href="#team-based-data-access-from-cloud-coming-in-v2-0">3.18. Team based - Data access from cloud [coming in v2.0]</a></h3>
+<div class="paragraph">
+<p>Developers usually work in teams, and since they are working on the same code base, it is likely that they will encounter the same issues. Developers can be added into projects (mentioned in 3.16), and have access to the same recorded issues that others have added. The data will be hosted on a cloud server so that any updates are accessible by other developers straight away.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating projects: new cs2103project</p>
+</li>
+<li>
+<p>Viewing projects: projects</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1. cs2103project</p>
+</li>
+<li>
+<p>2. cs1010sproject</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Switching projects: switch 1 OR switch cs2103project</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="highlight-the-page-highlight-coming-in-v2-0"><a class="link" href="#highlight-the-page-highlight-coming-in-v2-0">3.19. Highlight the page : highlight [coming in v2.0]</a></h3>
+<div class="paragraph">
+<p>Highlight the certain part of the page that show on the window, use a annotation box.
+Format: <code>highlight</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.20. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -479,8 +760,8 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add</strong> <code>add i/ISSUE_STATEMENT s/SOLUTION_LINK1 s/SOLUTION_LINK2 [r/REMARK] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add i/exception thrown not handled s/add catch statement below it s/Link:www.https://stackoverflow.com/questions/…</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -490,12 +771,12 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>Edit</strong> : <code>edit INDEX [i/ISSUE_STATEMENT] [s/SOLUTION_LINK1] [s/SOLUTION_LINK2]</code><br>
+e.g. <code>edit 2 i/exception thrown not handled s/issue solved</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Search</strong> : <code>search KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>Search BST</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -516,7 +797,13 @@ e.g.<code>select 2</code></p>
 <li>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
+<li>
+<p><strong>Highlight</strong> : <code>highlight</code></p>
+</li>
+<li>
+<p><strong>Exit</strong> : exit</p>
+</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-03 07:12:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 15:01:12 UTC</div></div></div></body></html>

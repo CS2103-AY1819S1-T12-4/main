@@ -1,45 +1,74 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Address Book (Level 4)</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>SaveIt</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Address Book (Level 4)</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>SaveIt</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://travis-ci.org/se-edu/addressbook-level4"><span class="image"><img src="https://travis-ci.org/se-edu/addressbook-level4.svg?branch=master" alt="Build Status"></span></a>
-<a href="https://ci.appveyor.com/project/damithc/addressbook-level4"><span class="image"><img src="https://ci.appveyor.com/api/projects/status/3boko2x2vr5cc3w2?svg=true" alt="Build status"></span></a>
-<a href="https://coveralls.io/github/se-edu/addressbook-level4?branch=master"><span class="image"><img src="https://coveralls.io/repos/github/se-edu/addressbook-level4/badge.svg?branch=master" alt="Coverage Status"></span></a>
-<a href="https://www.codacy.com/app/damith/addressbook-level4?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=se-edu/addressbook-level4&amp;utm_campaign=Badge_Grade"><span class="image"><img src="https://api.codacy.com/project/badge/Grade/fc0b7775cf7f4fdeaf08776f3d8e364a" alt="Codacy Badge"></span></a>
-<a href="https://gitter.im/se-edu/Lobby"><span class="image"><img src="https://badges.gitter.im/se-edu/Lobby.svg" alt="Gitter chat"></span></a></p>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="600">
+<img src="docs/images/Ui.png" alt="Ui" width="600">
 </div>
+</div>
+<div class="paragraph">
+<p>SaveIt is a desktop application written in Java</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>This is a desktop Address Book application. It has a GUI but most of the user interactions happen using a CLI (Command Line Interface).</p>
-</li>
-<li>
-<p>It is a Java sample application intended for students learning Software Engineering while using Java as the main programming language.</p>
-</li>
-<li>
-<p>It is <strong>written in OOP fashion</strong>. It provides a <strong>reasonably well-written</strong> code example that is <strong>significantly bigger</strong> (around 6 KLoC)than what students usually write in beginner-level SE modules.</p>
-</li>
-<li>
-<p>What&#8217;s different from <a href="https://github.com/se-edu/addressbook-level3">level 3</a>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>A more sophisticated GUI that includes a list  panel and an in-built Browser.</p>
-</li>
-<li>
-<p>More test cases, including automated GUI testing.</p>
-</li>
-<li>
-<p>Support for <em>Build Automation</em> using Gradle and for <em>Continuous Integration</em> using Travis CI.</p>
+<p>It provides a platform for you to keep track of issues that you encounter and the corresponding solutions that you found on through your search engine.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>This application is geared towards programmers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To help keep track of bugs/error messages encountered and searched on google (or any other search engine).</p>
+</li>
+<li>
+<p>To save the webpage of the corresponding solution(s) found</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>While programming, it is quite often that we run into similar problems that we have encountered before. Yet, we might not always remember the solution (or where we found it) and go on searching for it again.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Traditional browsers have bookmarks which allow you to keep track of webpages that you might want to visit later, however, they have a few drawbacks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>They do not provide enough context to why the page was bookmarked (besides allowing you to set the title for the url)</p>
+</li>
+<li>
+<p>It becomes hard to manage when the list gets large, and having nested folders makes things complicated.</p>
+</li>
+<li>
+<p>It is not possible to map multiple solutions (url links) to a single issue (unless you create a folder)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The aforementioned reasons make it infeasible to keep track of issues/bugs using bookmarks</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>SaveIt helps to bridge this gap by:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Providing a platform to map issues to their solution(s)</p>
+</li>
+<li>
+<p>Providing an internal search functionality to find similar issues and their solutions straight away</p>
+</li>
+<li>
+<p>The storage and search functionalities are further enhanced with a tagging system for further categorization</p>
 </li>
 </ul>
 </div>
@@ -48,6 +77,9 @@
 <div class="sect1">
 <h2 id="site-map"><a class="link" href="#site-map">Site Map</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>You might find these useful in getting started.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -55,9 +87,6 @@
 </li>
 <li>
 <p><a href="DeveloperGuide.html">Developer Guide</a></p>
-</li>
-<li>
-<p><a href="LearningOutcomes.html">Learning Outcomes</a></p>
 </li>
 <li>
 <p><a href="AboutUs.html">About Us</a></p>
@@ -75,8 +104,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Some parts of this sample application were inspired by the excellent <a href="http://code.makery.ch/library/javafx-8-tutorial/">Java FX tutorial</a> by
-<em>Marco Jakob</em>.</p>
+<p>The source code for this application was obtained from <a href="https://github.com/se-edu/addressbook-level4">Addressbook Level 4</a>, and subsequently repackaged as a new application.</p>
 </li>
 <li>
 <p>Libraries used: <a href="https://github.com/TestFX/TestFX">TextFX</a>, <a href="https://bitbucket.org/controlsfx/controlsfx/">ControlsFX</a>, <a href="https://github.com/FasterXML/jackson">Jackson</a>, <a href="https://github.com/google/guava">Guava</a>, <a href="https://github.com/junit-team/junit5">JUnit5</a></p>
@@ -90,4 +118,4 @@
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-03 07:12:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 15:01:12 UTC</div></div></div></body></html>
