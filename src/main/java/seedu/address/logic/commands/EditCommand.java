@@ -25,26 +25,26 @@ import seedu.address.model.issue.Remark;
 import seedu.address.model.issue.Tag;
 
 /**
- * Edits the details of an existing issue in the address book.
+ * Edits the details of an existing issue in the saveIt.
  */
 public class EditCommand extends Command {
 
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the issue identified "
-            + "by the index number used in the displayed issue list. "
-            + "Existing values will be overwritten by the input values.\n"
-            + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_STATEMENT + "ISSUE_STATEMENT] "
-            + "[" + PREFIX_DESCRIPTION + "Description] "
-            + "[" + PREFIX_REMARK + "REMARK] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
-            + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_DESCRIPTION + "91234567 ";
+        + "by the index number used in the displayed issue list. "
+        + "Existing values will be overwritten by the input values.\n"
+        + "Parameters: INDEX (must be a positive integer) "
+        + "[" + PREFIX_STATEMENT + "ISSUE_STATEMENT] "
+        + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
+        + "[" + PREFIX_REMARK + "REMARK] "
+        + "[" + PREFIX_TAG + "TAG]...\n"
+        + "Example: " + COMMAND_WORD + " 1 "
+        + PREFIX_DESCRIPTION + "91234567 ";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Issue: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This issue already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This issue already exists in the saveIt.";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -113,7 +113,7 @@ public class EditCommand extends Command {
         // state check
         EditCommand e = (EditCommand) other;
         return index.equals(e.index)
-                && editPersonDescriptor.equals(e.editPersonDescriptor);
+            && editPersonDescriptor.equals(e.editPersonDescriptor);
     }
 
     /**
@@ -203,9 +203,9 @@ public class EditCommand extends Command {
             EditPersonDescriptor e = (EditPersonDescriptor) other;
 
             return getName().equals(e.getName())
-                    && getDescription().equals(e.getDescription())
-                    && getAddress().equals(e.getAddress())
-                    && getTags().equals(e.getTags());
+                && getDescription().equals(e.getDescription())
+                && getAddress().equals(e.getAddress())
+                && getTags().equals(e.getTags());
         }
     }
 }
