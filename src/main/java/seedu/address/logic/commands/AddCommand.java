@@ -12,7 +12,7 @@ import seedu.address.model.Issue;
 import seedu.address.model.Model;
 
 /**
- * Adds a issue to the address book.
+ * Adds an issue to the address book.
  */
 public class AddCommand extends Command {
 
