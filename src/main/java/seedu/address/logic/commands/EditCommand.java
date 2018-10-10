@@ -47,18 +47,18 @@ public class EditCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON = "This issue already exists in the saveIt.";
 
     private final Index index;
-    private final EditPersonDescriptor editPersonDescriptor;
+    private final EditIssueDescriptor editIssueDescriptor;
 
     /**
      * @param index of the issue in the filtered issue list to edit
-     * @param editPersonDescriptor details to edit the issue with
+     * @param editIssueDescriptor details to edit the issue with
      */
-    public EditCommand(Index index, EditPersonDescriptor editPersonDescriptor) {
+    public EditCommand(Index index, EditIssueDescriptor editIssueDescriptor) {
         requireNonNull(index);
-        requireNonNull(editPersonDescriptor);
+        requireNonNull(editIssueDescriptor);
 
         this.index = index;
-        this.editPersonDescriptor = new EditPersonDescriptor(editPersonDescriptor);
+        this.editIssueDescriptor = new EditIssueDescriptor(editIssueDescriptor);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class EditCommand extends Command {
         }
 
         Issue issueToEdit = lastShownList.get(index.getZeroBased());
-        Issue editedIssue = createEditedPerson(issueToEdit, editPersonDescriptor);
+        Issue editedIssue = createEditedPerson(issueToEdit, editIssueDescriptor);
 
         if (!issueToEdit.isSameIssue(editedIssue) && model.hasPerson(editedIssue)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
@@ -85,15 +85,15 @@ public class EditCommand extends Command {
 
     /**
      * Creates and returns a {@code Issue} with the details of {@code issueToEdit}
-     * edited with {@code editPersonDescriptor}.
+     * edited with {@code editIssueDescriptor}.
      */
-    private static Issue createEditedPerson(Issue issueToEdit, EditPersonDescriptor editPersonDescriptor) {
+    private static Issue createEditedPerson(Issue issueToEdit, EditIssueDescriptor editIssueDescriptor) {
         assert issueToEdit != null;
 
-        IssueStatement updatedName = editPersonDescriptor.getName().orElse(issueToEdit.getStatement());
-        Description updatedDescription = editPersonDescriptor.getDescription().orElse(issueToEdit.getDescription());
-        Remark updatedAddress = editPersonDescriptor.getAddress().orElse(issueToEdit.getAddress());
-        Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(issueToEdit.getTags());
+        IssueStatement updatedName = editIssueDescriptor.getName().orElse(issueToEdit.getStatement());
+        Description updatedDescription = editIssueDescriptor.getDescription().orElse(issueToEdit.getDescription());
+        Remark updatedAddress = editIssueDescriptor.getAddress().orElse(issueToEdit.getAddress());
+        Set<Tag> updatedTags = editIssueDescriptor.getTags().orElse(issueToEdit.getTags());
 
         return new Issue(updatedName, updatedDescription, updatedAddress, updatedTags);
     }
@@ -113,26 +113,26 @@ public class EditCommand extends Command {
         // state check
         EditCommand e = (EditCommand) other;
         return index.equals(e.index)
-            && editPersonDescriptor.equals(e.editPersonDescriptor);
+            && editIssueDescriptor.equals(e.editIssueDescriptor);
     }
 
     /**
      * Stores the details to edit the issue with. Each non-empty field value will replace the
      * corresponding field value of the issue.
      */
-    public static class EditPersonDescriptor {
+    public static class EditIssueDescriptor {
         private IssueStatement name;
         private Description description;
         private Remark address;
         private Set<Tag> tags;
 
-        public EditPersonDescriptor() {}
+        public EditIssueDescriptor() {}
 
         /**
          * Copy constructor.
          * A defensive copy of {@code tags} is used internally.
          */
-        public EditPersonDescriptor(EditPersonDescriptor toCopy) {
+        public EditIssueDescriptor(EditIssueDescriptor toCopy) {
             setName(toCopy.name);
             setDescription(toCopy.description);
             setAddress(toCopy.address);
@@ -195,12 +195,12 @@ public class EditCommand extends Command {
             }
 
             // instanceof handles nulls
-            if (!(other instanceof EditPersonDescriptor)) {
+            if (!(other instanceof EditIssueDescriptor)) {
                 return false;
             }
 
             // state check
-            EditPersonDescriptor e = (EditPersonDescriptor) other;
+            EditIssueDescriptor e = (EditIssueDescriptor) other;
 
             return getName().equals(e.getName())
                 && getDescription().equals(e.getDescription())

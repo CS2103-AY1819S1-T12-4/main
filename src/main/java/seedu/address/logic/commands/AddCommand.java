@@ -27,9 +27,9 @@ public class AddCommand extends Command {
         + "Example: " + COMMAND_WORD + " "
         + PREFIX_STATEMENT + "John Doe "
         + PREFIX_DESCRIPTION + "98765432 "
-        + PREFIX_REMARK + "311, Clementi Ave 2, #02-25 "
-        + PREFIX_TAG + "friends "
-        + PREFIX_TAG + "owesMoney";
+        + PREFIX_REMARK + "This is an algorithm problem"
+        + PREFIX_TAG + "algorithm"
+        + PREFIX_TAG + "java";
 
     public static final String MESSAGE_SUCCESS = "New issue added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This issue already exists in the saveIt";
