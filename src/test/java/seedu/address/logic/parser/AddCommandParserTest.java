@@ -16,8 +16,8 @@ import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_WHITESPACE;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -51,7 +51,7 @@ public class AddCommandParserTest {
         assertParseSuccess(parser, NAME_DESC_AMY + NAME_DESC_BOB + DESCRIPTION_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedIssue));
 
-        // multiple phones - last phone accepted
+        // multiple descriptionss - last descriptions accepted
         assertParseSuccess(parser, NAME_DESC_BOB + DESCRIPTION_DESC_AMY + DESCRIPTION_DESC_BOB
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedIssue));
 
@@ -82,8 +82,8 @@ public class AddCommandParserTest {
         assertParseFailure(parser, VALID_NAME_BOB + DESCRIPTION_DESC_BOB + ADDRESS_DESC_BOB,
                 expectedMessage);
 
-        // missing phone prefix
-        assertParseFailure(parser, NAME_DESC_BOB + VALID_PHONE_BOB + ADDRESS_DESC_BOB,
+        // missing description prefix
+        assertParseFailure(parser, NAME_DESC_BOB + VALID_DESCRIPTION_BOB + ADDRESS_DESC_BOB,
                 expectedMessage);
 
         // missing address prefix
@@ -91,7 +91,7 @@ public class AddCommandParserTest {
                 expectedMessage);
 
         // all prefixes missing
-        assertParseFailure(parser, VALID_NAME_BOB + VALID_PHONE_BOB + VALID_ADDRESS_BOB,
+        assertParseFailure(parser, VALID_NAME_BOB + VALID_DESCRIPTION_BOB + VALID_ADDRESS_BOB,
                 expectedMessage);
     }
 
@@ -102,7 +102,7 @@ public class AddCommandParserTest {
         assertParseFailure(parser, INVALID_NAME_DESC + DESCRIPTION_DESC_BOB + ADDRESS_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, IssueStatement.MESSAGE_ISSUE_STATEMENT_CONSTRAINTS);
 
-        // invalid phone
+        // invalid descriptions
         assertParseFailure(parser, NAME_DESC_BOB + INVALID_DESCRIPTION_DESC + ADDRESS_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Description.MESSAGE_DESCRIPTION_CONSTRAINTS);
 

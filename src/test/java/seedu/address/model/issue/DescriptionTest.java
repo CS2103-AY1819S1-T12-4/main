@@ -16,28 +16,28 @@ public class DescriptionTest {
     }
 
     @Test
-    public void constructor_invalidPhone_throwsIllegalArgumentException() {
-        String invalidPhone = "";
-        Assert.assertThrows(IllegalArgumentException.class, () -> new Description(invalidPhone));
+    public void constructor_invalidDescription_throwsIllegalArgumentException() {
+        String invalidDescription = "";
+        Assert.assertThrows(IllegalArgumentException.class, () -> new Description(invalidDescription));
     }
 
     @Test
     @Ignore
-    public void isValidPhone() {
-        // null phone number
+    public void isValidDescription() {
+        // null descriptions number
         Assert.assertThrows(NullPointerException.class, () -> Description.isValidDescription(null));
 
-        // invalid phone numbers
+        // invalid descriptions numbers
         assertFalse(Description.isValidDescription("")); // empty string
         assertFalse(Description.isValidDescription(" ")); // spaces only
         assertFalse(Description.isValidDescription("91")); // less than 3 numbers
-        assertFalse(Description.isValidDescription("phone")); // non-numeric
+        assertFalse(Description.isValidDescription("descriptions")); // non-numeric
         assertFalse(Description.isValidDescription("9011p041")); // alphabets within digits
         assertFalse(Description.isValidDescription("9312 1534")); // spaces within digits
 
-        // valid phone numbers
+        // valid descriptions numbers
         assertTrue(Description.isValidDescription("911")); // exactly 3 numbers
         assertTrue(Description.isValidDescription("93121534"));
-        assertTrue(Description.isValidDescription("124293842033123")); // long phone numbers
+        assertTrue(Description.isValidDescription("124293842033123")); // long descriptions numbers
     }
 }

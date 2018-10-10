@@ -113,7 +113,7 @@ public class FindCommandSystemTest extends SaveItSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find phone number of issue in address book -> 0 persons found */
+        /* Case: find description number of issue in address book -> 0 persons found */
         command = FindCommand.COMMAND_WORD + " " + DANIEL.getDescription().value;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();

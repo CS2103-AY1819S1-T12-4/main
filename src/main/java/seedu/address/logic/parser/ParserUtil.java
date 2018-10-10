@@ -57,11 +57,11 @@ public class ParserUtil {
      */
     public static Description parseDescription(String description) throws ParseException {
         requireNonNull(description);
-        String trimmedPhone = description.trim();
-        if (!Description.isValidDescription(trimmedPhone)) {
+        String trimmedDescription = description.trim();
+        if (!Description.isValidDescription(trimmedDescription)) {
             throw new ParseException(Description.MESSAGE_DESCRIPTION_CONSTRAINTS);
         }
-        return new Description(trimmedPhone);
+        return new Description(trimmedDescription);
     }
 
     /**

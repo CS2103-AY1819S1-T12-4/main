@@ -100,7 +100,7 @@ public class IssueListPanelTest extends GuiUnitTest {
         for (int i = 0; i < personCount; i++) {
             builder.append("<persons>\n");
             builder.append("<name>").append(i).append("a</name>\n");
-            builder.append("<phone>000</phone>\n");
+            builder.append("<description>000</description>\n");
             builder.append("<address>a</address>\n");
             builder.append("</persons>\n");
         }

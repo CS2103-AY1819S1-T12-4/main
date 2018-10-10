@@ -26,7 +26,7 @@ public class XmlAdaptedPerson {
     @XmlElement(required = true)
     private String name;
     @XmlElement(required = true)
-    private String phone;
+    private String description;
     @XmlElement(required = true)
     private String address;
 
@@ -42,9 +42,9 @@ public class XmlAdaptedPerson {
     /**
      * Constructs an {@code XmlAdaptedPerson} with the given issue details.
      */
-    public XmlAdaptedPerson(String name, String phone, String address, List<XmlAdaptedTag> tagged) {
+    public XmlAdaptedPerson(String name, String description, String address, List<XmlAdaptedTag> tagged) {
         this.name = name;
-        this.phone = phone;
+        this.description = description;
         this.address = address;
         if (tagged != null) {
             this.tagged = new ArrayList<>(tagged);
@@ -58,7 +58,7 @@ public class XmlAdaptedPerson {
      */
     public XmlAdaptedPerson(Issue source) {
         name = source.getStatement().issue;
-        phone = source.getDescription().value;
+        description = source.getDescription().value;
         address = source.getAddress().value;
         tagged = source.getTags().stream()
                 .map(XmlAdaptedTag::new)
@@ -85,14 +85,14 @@ public class XmlAdaptedPerson {
         }
         final IssueStatement modelName = new IssueStatement(name);
 
-        if (phone == null) {
+        if (description == null) {
             throw new IllegalValueException(
                 String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
         }
-        if (!Description.isValidDescription(phone)) {
+        if (!Description.isValidDescription(description)) {
             throw new IllegalValueException(Description.MESSAGE_DESCRIPTION_CONSTRAINTS);
         }
-        final Description modelDescription = new Description(phone);
+        final Description modelDescription = new Description(description);
 
         if (address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
@@ -118,7 +118,7 @@ public class XmlAdaptedPerson {
 
         XmlAdaptedPerson otherPerson = (XmlAdaptedPerson) other;
         return Objects.equals(name, otherPerson.name)
-                && Objects.equals(phone, otherPerson.phone)
+                && Objects.equals(description, otherPerson.description)
                 && Objects.equals(address, otherPerson.address)
                 && tagged.equals(otherPerson.tagged);
     }

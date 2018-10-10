@@ -49,8 +49,8 @@ public class EditPersonDescriptorBuilder {
     /**
      * Sets the {@code Description} of the {@code EditIssueDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withPhone(String phone) {
-        descriptor.setDescription(new Description(phone));
+    public EditPersonDescriptorBuilder withDescription(String descriptions) {
+        descriptor.setDescription(new Description(descriptions));
         return this;
     }
 
