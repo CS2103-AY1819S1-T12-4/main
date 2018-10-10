@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!-- Issue with missing name field -->
 <issue>
-    <phone>9482424</phone>
+    <description>9482424</description>
     <address>4th street</address>
     <tagged>friends</tagged>
 </issue>

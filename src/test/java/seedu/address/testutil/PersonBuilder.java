@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.Issue;
+import seedu.address.model.issue.Description;
 import seedu.address.model.issue.IssueStatement;
-import seedu.address.model.issue.Phone;
 import seedu.address.model.issue.Remark;
 import seedu.address.model.issue.Tag;
 import seedu.address.model.util.SampleDataUtil;
@@ -20,13 +20,13 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
     private IssueStatement name;
-    private Phone phone;
+    private Description description;
     private Remark address;
     private Set<Tag> tags;
 
     public PersonBuilder() {
         name = new IssueStatement(DEFAULT_NAME);
-        phone = new Phone(DEFAULT_PHONE);
+        description = new Description(DEFAULT_PHONE);
         address = new Remark(DEFAULT_ADDRESS);
         tags = new HashSet<>();
     }
@@ -36,7 +36,7 @@ public class PersonBuilder {
      */
     public PersonBuilder(Issue issueToCopy) {
         name = issueToCopy.getStatement();
-        phone = issueToCopy.getPhone();
+        description = issueToCopy.getDescription();
         address = issueToCopy.getAddress();
         tags = new HashSet<>(issueToCopy.getTags());
     }
@@ -66,15 +66,15 @@ public class PersonBuilder {
     }
 
     /**
-     * Sets the {@code Phone} of the {@code Issue} that we are building.
+     * Sets the {@code Description} of the {@code Issue} that we are building.
      */
-    public PersonBuilder withPhone(String phone) {
-        this.phone = new Phone(phone);
+    public PersonBuilder withPhone(String description) {
+        this.description = new Description(description);
         return this;
     }
 
     public Issue build() {
-        return new Issue(name, phone, address, tags);
+        return new Issue(name, description, address, tags);
     }
 
 }

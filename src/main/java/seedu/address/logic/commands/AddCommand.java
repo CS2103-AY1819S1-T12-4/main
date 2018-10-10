@@ -21,7 +21,7 @@ public class AddCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a issue to the address book. "
             + "Parameters: "
             + PREFIX_STATEMENT + "ISSUE_STATEMENT "
-            + PREFIX_PHONE + "PHONE "
+            + PREFIX_PHONE + "DESCRIPTION "
             + PREFIX_REMARK + "REMARK "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "

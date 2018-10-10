@@ -3,13 +3,13 @@
     <!-- Valid Issue -->
     <issues>
         <name>Hans Muster</name>
-        <phone isPrivate="false">9482424</phone>
+        <description isPrivate="false">9482424</description>
         <address isPrivate="false">4th street</address>
     </issues>
-    <!-- Issue with invalid phone field -->
+    <!-- Issue with invalid description field -->
     <issues>
         <name>Hans Muster</name>
-        <phone isPrivate="false">948asdf2424</phone>
+        <description isPrivate="false">948asdf2424</description>
         <address isPrivate="false">4th street</address>
     </issues>
 </saveit>

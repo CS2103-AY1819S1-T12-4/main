@@ -3,7 +3,7 @@
 
     <issues>
         <name>Alice Pauline</name>
-        <phone>94351253</phone>
+        <description>94351253</description>
         <address>123, Jurong West Ave 6, #08-111</address>
         <tagged>friends</tagged>
     </issues>
@@ -11,7 +11,7 @@
     <!-- Issue with same identity as Alice Pauline -->
     <issues>
         <name>Alice Pauline</name>
-        <phone>94351253</phone>
+        <description>94351253</description>
         <address>4th street</address>
     </issues>
 

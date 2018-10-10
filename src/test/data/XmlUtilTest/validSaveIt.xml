@@ -2,47 +2,47 @@
 <saveit>
     <issues>
         <name>Hans Muster</name>
-        <phone isPrivate="false">9482424</phone>
+        <description isPrivate="false">9482424</description>
         <address isPrivate="false">4th street</address>
     </issues>
     <issues>
         <name>Ruth Mueller</name>
-        <phone isPrivate="false">87249245</phone>
+        <description isPrivate="false">87249245</description>
         <address isPrivate="false">81th street</address>
     </issues>
     <issues>
         <name>Heinz Kurz</name>
-        <phone isPrivate="false">95352563</phone>
+        <description isPrivate="false">95352563</description>
         <address isPrivate="false">wall street</address>
     </issues>
     <issues>
         <name>Cornelia Meier</name>
-        <phone isPrivate="false">87652533</phone>
+        <description isPrivate="false">87652533</description>
         <address isPrivate="false">10th street</address>
     </issues>
     <issues>
         <name>Werner Meyer</name>
-        <phone isPrivate="false">9482224</phone>
+        <description isPrivate="false">9482224</description>
         <address isPrivate="false">michegan ave</address>
     </issues>
     <issues>
         <name>Lydia Kunz</name>
-        <phone isPrivate="false">9482427</phone>
+        <description isPrivate="false">9482427</description>
         <address isPrivate="false">little tokyo</address>
     </issues>
     <issues>
         <name>Anna Best</name>
-        <phone isPrivate="false">9482442</phone>
+        <description isPrivate="false">9482442</description>
         <address isPrivate="false">4th street</address>
     </issues>
     <issues>
         <name>Stefan Meier</name>
-        <phone isPrivate="false">8482424</phone>
+        <description isPrivate="false">8482424</description>
         <address isPrivate="false">little india</address>
     </issues>
     <issues>
         <name>Martin Mueller</name>
-        <phone isPrivate="false">8482131</phone>
+        <description isPrivate="false">8482131</description>
         <address isPrivate="false">chicago ave</address>
     </issues>
 </saveit>

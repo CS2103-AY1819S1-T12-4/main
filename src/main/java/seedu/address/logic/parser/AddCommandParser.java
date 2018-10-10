@@ -12,8 +12,8 @@ import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Issue;
+import seedu.address.model.issue.Description;
 import seedu.address.model.issue.IssueStatement;
-import seedu.address.model.issue.Phone;
 import seedu.address.model.issue.Remark;
 import seedu.address.model.issue.Tag;
 
@@ -37,11 +37,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         IssueStatement name = ParserUtil.parseName(argMultimap.getValue(PREFIX_STATEMENT).get());
-        Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
+        Description description = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Remark address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_REMARK).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Issue issue = new Issue(name, phone, address, tagList);
+        Issue issue = new Issue(name, description, address, tagList);
 
         return new AddCommand(issue);
     }

@@ -3,7 +3,7 @@
     <!-- Issue with invalid name field -->
     <issues>
         <name>Ha!ns Mu@ster</name>
-        <phone isPrivate="false">9482424</phone>
+        <description isPrivate="false">9482424</description>
         <address isPrivate="false">4th street</address>
     </issues>
 </saveit>

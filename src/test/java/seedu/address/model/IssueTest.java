@@ -34,7 +34,7 @@ public class IssueTest {
         // null -> returns false
         assertFalse(ALICE.isSameIssue(null));
 
-        // different phone -> returns false
+        // different description -> returns false
         Issue editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
         assertFalse(ALICE.isSameIssue(editedAlice));
 
@@ -42,7 +42,7 @@ public class IssueTest {
         editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
         assertFalse(ALICE.isSameIssue(editedAlice));
 
-        // same name, same phone, different attributes -> returns true
+        // same name, same description, different attributes -> returns true
         editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSameIssue(editedAlice));
@@ -70,7 +70,7 @@ public class IssueTest {
         Issue editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
-        // different phone -> returns false
+        // different description -> returns false
         editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 

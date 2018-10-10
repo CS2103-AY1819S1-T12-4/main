@@ -19,8 +19,8 @@ import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Issue;
 import seedu.address.model.Model;
+import seedu.address.model.issue.Description;
 import seedu.address.model.issue.IssueStatement;
-import seedu.address.model.issue.Phone;
 import seedu.address.model.issue.Remark;
 import seedu.address.model.issue.Tag;
 
@@ -36,7 +36,7 @@ public class EditCommand extends Command {
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_STATEMENT + "ISSUE_STATEMENT] "
-            + "[" + PREFIX_PHONE + "PHONE] "
+            + "[" + PREFIX_PHONE + "DESCRIPTION] "
             + "[" + PREFIX_REMARK + "REMARK] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
@@ -91,11 +91,11 @@ public class EditCommand extends Command {
         assert issueToEdit != null;
 
         IssueStatement updatedName = editPersonDescriptor.getName().orElse(issueToEdit.getStatement());
-        Phone updatedPhone = editPersonDescriptor.getPhone().orElse(issueToEdit.getPhone());
+        Description updatedDescription = editPersonDescriptor.getDescription().orElse(issueToEdit.getDescription());
         Remark updatedAddress = editPersonDescriptor.getAddress().orElse(issueToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(issueToEdit.getTags());
 
-        return new Issue(updatedName, updatedPhone, updatedAddress, updatedTags);
+        return new Issue(updatedName, updatedDescription, updatedAddress, updatedTags);
     }
 
     @Override
@@ -122,7 +122,7 @@ public class EditCommand extends Command {
      */
     public static class EditPersonDescriptor {
         private IssueStatement name;
-        private Phone phone;
+        private Description description;
         private Remark address;
         private Set<Tag> tags;
 
@@ -134,7 +134,7 @@ public class EditCommand extends Command {
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
             setName(toCopy.name);
-            setPhone(toCopy.phone);
+            setDescription(toCopy.description);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
         }
@@ -143,7 +143,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, address, tags);
+            return CollectionUtil.isAnyNonNull(name, description, address, tags);
         }
 
         public void setName(IssueStatement name) {
@@ -154,12 +154,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(name);
         }
 
-        public void setPhone(Phone phone) {
-            this.phone = phone;
+        public void setDescription(Description description) {
+            this.description = description;
         }
 
-        public Optional<Phone> getPhone() {
-            return Optional.ofNullable(phone);
+        public Optional<Description> getDescription() {
+            return Optional.ofNullable(description);
         }
 
         public void setAddress(Remark address) {
@@ -203,7 +203,7 @@ public class EditCommand extends Command {
             EditPersonDescriptor e = (EditPersonDescriptor) other;
 
             return getName().equals(e.getName())
-                    && getPhone().equals(e.getPhone())
+                    && getDescription().equals(e.getDescription())
                     && getAddress().equals(e.getAddress())
                     && getTags().equals(e.getTags());
         }

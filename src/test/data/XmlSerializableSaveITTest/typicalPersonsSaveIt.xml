@@ -3,41 +3,41 @@
 <saveit>
     <issues>
         <name>Alice Pauline</name>
-        <phone>94351253</phone>
+        <description>94351253</description>
 s        <address>123, Jurong West Ave 6, #08-111</address>
         <tagged>friends</tagged>
     </issues>
     <issues>
         <name>Benson Meier</name>
-        <phone>98765432</phone>
+        <description>98765432</description>
 s        <address>311, Clementi Ave 2, #02-25</address>
         <tagged>owesMoney</tagged>
         <tagged>friends</tagged>
     </issues>
     <issues>
         <name>Carl Kurz</name>
-        <phone>95352563</phone>
+        <description>95352563</description>
 s        <address>wall street</address>
     </issues>
     <issues>
         <name>Daniel Meier</name>
-        <phone>87652533</phone>
+        <description>87652533</description>
 s        <address>10th street</address>
         <tagged>friends</tagged>
     </issues>
     <issues>
         <name>Elle Meyer</name>
-        <phone>9482224</phone>
+        <description>9482224</description>
 s        <address>michegan ave</address>
     </issues>
     <issues>
         <name>Fiona Kunz</name>
-        <phone>9482427</phone>
+        <description>9482427</description>
 s        <address>little tokyo</address>
     </issues>
     <issues>
         <name>George Best</name>
-        <phone>9482442</phone>
+        <description>9482442</description>
 s        <address>4th street</address>
     </issues>
 </saveit>

@@ -31,7 +31,7 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label phone;
+    private Label description;
     @FXML
     private Label address;
     @FXML
@@ -42,7 +42,7 @@ public class PersonCard extends UiPart<Region> {
         this.issue = issue;
         id.setText(displayedIndex + ". ");
         name.setText(issue.getStatement().issue);
-        phone.setText(issue.getPhone().value);
+        description.setText(issue.getDescription().value);
         address.setText(issue.getAddress().value);
         issue.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
