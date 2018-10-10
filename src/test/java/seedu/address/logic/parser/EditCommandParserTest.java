@@ -169,7 +169,8 @@ public class EditCommandParserTest {
             + TAG_DESC_FRIEND + DESCRIPTION_DESC_AMY + ADDRESS_DESC_AMY + TAG_DESC_FRIEND
             + DESCRIPTION_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND;
 
-        EditCommand.EditIssueDescriptor descriptor = new EditPersonDescriptorBuilder().withDescription(VALID_DESCRIPTION_BOB)
+        EditCommand.EditIssueDescriptor descriptor
+            = new EditPersonDescriptorBuilder().withDescription(VALID_DESCRIPTION_BOB)
             .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
             .build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
