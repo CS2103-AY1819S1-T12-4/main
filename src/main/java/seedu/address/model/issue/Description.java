@@ -5,33 +5,33 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.util.AppUtil;
 
 /**
- * Represents a Issue's description number in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidPhone(String)}
+ * Represents a Issue's description in the saveIt.
+ * Guarantees: immutable; is valid as declared in {@link #isValidDescription(String)}
  */
 public class Description {
 
 
     public static final String MESSAGE_DESCRIPTION_CONSTRAINTS =
-            "Description numbers should only contain numbers, and it should be at least 3 digits long";
-    public static final String PHONE_VALIDATION_REGEX = "\\d{3,}";
+        "Issue description should only contain alphanumeric characters and spaces, and it should not be blank";
+    public static final String DESCRIPTION_VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
     public final String value;
 
     /**
      * Constructs a {@code Description}.
      *
-     * @param description A valid description number.
+     * @param description A valid description.
      */
     public Description(String description) {
         requireNonNull(description);
-        AppUtil.checkArgument(isValidPhone(description), MESSAGE_DESCRIPTION_CONSTRAINTS);
+        AppUtil.checkArgument(isValidDescription(description), MESSAGE_DESCRIPTION_CONSTRAINTS);
         value = description;
     }
 
     /**
-     * Returns true if a given string is a valid description number.
+     * Returns true if a given string is a valid descriptions number.
      */
-    public static boolean isValidPhone(String test) {
-        return test.matches(PHONE_VALIDATION_REGEX);
+    public static boolean isValidDescription(String test) {
+        return test.matches(DESCRIPTION_VALIDATION_REGEX);
     }
 
     @Override

@@ -48,8 +48,8 @@ public class EditPersonDescriptorBuilder {
     /**
      * Sets the {@code Description} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withPhone(String description) {
-        descriptor.setDescription(new Description(description));
+    public EditPersonDescriptorBuilder withDescription(String descriptions) {
+        descriptor.setDescription(new Description(descriptions));
         return this;
     }
 

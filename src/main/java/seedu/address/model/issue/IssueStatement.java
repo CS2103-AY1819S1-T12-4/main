@@ -33,7 +33,7 @@ public class IssueStatement {
     }
 
     /**
-     * Returns true if a given string is a valid name.
+     * Returns true if a given string is a valid issuestatement.
      */
     public static boolean isValidIssueStatement(String test) {
         return test.matches(ISSUE_STATEMENT_VALIDATION_REGEX);

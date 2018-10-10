@@ -5,7 +5,7 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.util.AppUtil;
 
 /**
- * Represents a Issue's address in the address book.
+ * Represents a Issue's remark in the saveIt.
  * Guarantees: immutable; is valid as declared in {@link #isValidRemark(String)}
  */
 public class Remark {
@@ -14,7 +14,7 @@ public class Remark {
             "Remarks can take any values, and it should not be blank";
 
     /*
-     * The first character of the address must not be a whitespace,
+     * The first character of the remark must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String REMARK_VALIDATION_REGEX = "[^\\s].*";
