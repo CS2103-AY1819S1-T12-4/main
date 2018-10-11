@@ -124,7 +124,7 @@ public class AddCommandSystemTest extends SaveItSystemTest {
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
 
         /* Case: add a duplicate issue except with different address -> rejected */
-        toAdd = new PersonBuilder(HOON).withAddress(VALID_ADDRESS_BOB).build();
+        toAdd = new PersonBuilder(HOON).withDescription(VALID_ADDRESS_BOB).build();
         command = PersonUtil.getAddCommand(toAdd);
         assertCommandFailure(command, AddCommand.MESSAGE_DUPLICATE_PERSON);
 

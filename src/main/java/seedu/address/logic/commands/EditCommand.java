@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SOLUTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATEMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
@@ -20,6 +21,7 @@ import seedu.address.model.Issue;
 import seedu.address.model.Model;
 import seedu.address.model.issue.Description;
 import seedu.address.model.issue.IssueStatement;
+import seedu.address.model.issue.Solution;
 import seedu.address.model.issue.Tag;
 
 /**
@@ -35,6 +37,7 @@ public class EditCommand extends Command {
         + "Parameters: INDEX (must be a positive integer) "
         + "[" + PREFIX_STATEMENT + "ISSUE_STATEMENT] "
         + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
+        + "[" + PREFIX_SOLUTION + "SOLUTION_LINK REMARK] "
         + "[" + PREFIX_TAG + "TAG]...\n"
         + "Example: " + COMMAND_WORD + " 1 "
         + PREFIX_DESCRIPTION + "Python ";
@@ -89,9 +92,10 @@ public class EditCommand extends Command {
 
         IssueStatement updatedName = editIssueDescriptor.getName().orElse(issueToEdit.getStatement());
         Description updatedDescription = editIssueDescriptor.getDescription().orElse(issueToEdit.getDescription());
+        Set<Solution> updatedSolutions = editIssueDescriptor.getSolutions().orElse(issueToEdit.getSolutions());
         Set<Tag> updatedTags = editIssueDescriptor.getTags().orElse(issueToEdit.getTags());
 
-        return new Issue(updatedName, updatedDescription, updatedTags);
+        return new Issue(updatedName, updatedDescription, updatedSolutions, updatedTags);
     }
 
     @Override
@@ -118,6 +122,7 @@ public class EditCommand extends Command {
      */
     public static class EditIssueDescriptor {
         private IssueStatement name;
+        private Set<Solution> solutions;
         private Description description;
         private Set<Tag> tags;
 
@@ -129,6 +134,7 @@ public class EditCommand extends Command {
          */
         public EditIssueDescriptor(EditIssueDescriptor toCopy) {
             setName(toCopy.name);
+            setSolutions(toCopy.solutions);
             setDescription(toCopy.description);
             setTags(toCopy.tags);
         }
@@ -154,6 +160,14 @@ public class EditCommand extends Command {
 
         public Optional<Description> getDescription() {
             return Optional.ofNullable(description);
+        }
+
+        public void setSolutions(Set<Solution> solutions) {
+            this.solutions = (solutions != null) ? new HashSet<>(solutions) : null;
+        }
+
+        public Optional<Set<Solution>> getSolutions() {
+            return (solutions != null) ? Optional.of(Collections.unmodifiableSet(solutions)) : Optional.empty();
         }
 
         /**

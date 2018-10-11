@@ -9,8 +9,16 @@ import seedu.address.model.issue.solution.SolutionLink;
  * Represents a Issue's solution in saveit.
  */
 public class Solution {
-    private SolutionLink solutionLink;
-    private Remark remark;
+
+    public static final String MESSAGE_SOLUTION_CONSTRAINTS = "Solutions names should be alphanumeric";
+
+    public static final String SOLUTION_VALIDATION_REGEX = "\\p{Alnum}+";
+
+    public final String solutionName;
+
+    public final SolutionLink solutionLink;
+
+    public final Remark remark;
 
     /**
      * Construct a new Solution.
@@ -21,6 +29,7 @@ public class Solution {
     public Solution(String solutionLink, String remark) {
         this.solutionLink = new SolutionLink(solutionLink);
         this.remark = new Remark(remark);
+        this.solutionName = solutionLink + " " + remark;
     }
 
     public SolutionLink getLink() {
@@ -31,14 +40,16 @@ public class Solution {
         return remark;
     }
 
+    /**
+     * Returns true if a given string is a valid solution name.
+     */
+    public static boolean isValidSolution(String test) {
+        return test.matches(SOLUTION_VALIDATION_REGEX);
+    }
+
     @Override
     public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append(getLink())
-                .append(" Link: ")
-                .append(getRemark())
-                .append(" Remark: ");
-        return builder.toString();
+        return '[' + " link: " + getLink() + " remark: " + getRemark() + ']';
     }
 
     @Override

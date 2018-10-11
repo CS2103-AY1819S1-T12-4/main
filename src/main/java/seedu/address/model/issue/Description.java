@@ -12,8 +12,8 @@ public class Description {
 
 
     public static final String MESSAGE_DESCRIPTION_CONSTRAINTS =
-        "Issue description should only contain alphanumeric characters and spaces, and it should not be blank";
-    public static final String DESCRIPTION_VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+        "Issue description can take any values, but it should not be blank";
+    public static final String DESCRIPTION_VALIDATION_REGEX = "[^\\s].*";
     public final String value;
 
     /**

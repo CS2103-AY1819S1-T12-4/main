@@ -15,9 +15,9 @@ public class PersonCard extends UiPart<Region> {
     private static final String FXML = "PersonListCard.fxml";
 
     /**
-     * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
-     * As a consequence, UI elements' variable names cannot be set to such keywords
-     * or an exception will be thrown by JavaFX during runtime.
+     * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX. As a
+     * consequence, UI elements' variable names cannot be set to such keywords or an exception will be thrown
+     * by JavaFX during runtime.
      *
      * @see <a href="https://github.com/se-edu/saveit-level4/issues/336">The issue on SaveIt level 4</a>
      */
@@ -33,6 +33,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label description;
     @FXML
+    private FlowPane solutions;
+    @FXML
     private FlowPane tags;
 
     public PersonCard(Issue issue, int displayedIndex) {
@@ -41,6 +43,8 @@ public class PersonCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         statement.setText(issue.getStatement().issue);
         description.setText(issue.getDescription().value);
+        issue.getSolutions().forEach(
+            solution -> solutions.getChildren().add(new Label('[' + solution.solutionName + ']' + " ")));
         issue.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
 

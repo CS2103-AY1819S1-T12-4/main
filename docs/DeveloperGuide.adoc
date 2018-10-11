@@ -56,14 +56,14 @@ This will generate all resources required by the application and tests.
 
 ==== Configuring the coding style
 
-This project follows https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc[oss-generic coding standards]. IntelliJ's default style is mostly compliant with ours but it uses a different import order from ours. To rectify,
+This project follows https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc[oss-generic coding standards]. IntelliJ's default style is mostly compliant with ours but it uses a different import order from ours. To rectify:
 
 . Go to `File` > `Settings...` (Windows/Linux), or `IntelliJ IDEA` > `Preferences...` (macOS)
 . Select `Editor` > `Code Style` > `Java`
 . Click on the `Imports` tab to set the order
 
 * For `Class count to use import with '\*'` and `Names count to use static import with '*'`: Set to `999` to prevent IntelliJ from contracting the import statements
-* For `Import Layout`: The order is `import static all other imports`, `import java.\*`, `import javax.*`, `import org.\*`, `import com.*`, `import all other imports`. Add a `<blank line>` between each `import`
+* For `Import Layout`: The order is `import static all other imports`, `import java.\*`, `import javax.*`, `import org.\*`, `import com.* `, `import all other imports`. Add a `<blank line>` between each `import`
 
 Optionally, you can follow the <<UsingCheckstyle#, UsingCheckstyle.adoc>> document to configure Intellij to check style-compliance as you write code.
 
@@ -73,7 +73,7 @@ After forking the repo, the documentation will still have the SE-EDU branding an
 
 If you plan to develop this fork as a separate product (i.e. instead of contributing to `CS2103-AY1819S1-T12-4/main`), you should do the following:
 
-. Configure the <<Docs-SiteWideDocSettings, site-wide documentation settings>> in link:{repoURL}/build.gradle[`build.gradle`], such as the `site-name`, to suit your own project.
+. Configure the <<Docs-SiteWideDocSettings, site-wide documentation settings>> in link:{repoURL}/build.gradle[`build.gradle`], such as the `site-issue`, to suit your own project.
 
 . Replace the URL in the attribute `repoURL` in link:{repoURL}/docs/DeveloperGuide.adoc[`DeveloperGuide.adoc`] and link:{repoURL}/docs/UserGuide.adoc[`UserGuide.adoc`] with the URL of your fork.
 
@@ -111,35 +111,35 @@ The *_Architecture Diagram_* given above explains the high-level design of the A
 [TIP]
 The `.pptx` files used to create diagrams in this document can be found in the link:{repoURL}/docs/diagrams/[diagrams] folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose `Save as picture`.
 
-`Main` has only one class called link:{repoURL}/src/main/java/seedu/address/MainApp.java[`MainApp`]. It is responsible for,
+`Main` has only one class called link:{repoURL}/src/main/java/seedu/address/MainApp.java[`MainApp`]. It is responsible for:
 
-* At app launch: Initializes the components in the correct sequence, and connects them up with each other.
-* At shut down: Shuts down the components and invokes cleanup method where necessary.
+* At app launch: Initializing the components in the correct sequence, and connects them up with each other.
+* At shut down: Shutting down the components and invokes cleanup method where necessary.
 
-<<Design-Commons,*`Commons`*>> represents a collection of classes used by multiple other components. Two of those classes play important roles at the architecture level.
+<<Design-Commons,*`Commons`*>> represents a collection of classes used by multiple other components. Two of those classes play important roles at the architecture level:
 
 * `EventsCenter` : This class (written using https://github.com/google/guava/wiki/EventBusExplained[Google's Event Bus library]) is used by components to communicate with other components using events (i.e. a form of _Event Driven_ design)
-* `LogsCenter` : Used by many classes to write log messages to the App's log file.
+* `LogsCenter` : This class is used by other classes to write log messages to the App's log file.
 
-The rest of the App consists of four components.
+The rest of the App consists of four components:
 
 * <<Design-Ui,*`UI`*>>: The UI of the App.
 * <<Design-Logic,*`Logic`*>>: The command executor.
-* <<Design-Model,*`Model`*>>: Holds the data of the App in-memory.
-* <<Design-Storage,*`Storage`*>>: Reads data from, and writes data to, the hard disk.
+* <<Design-Model,*`Model`*>>: The model holds the data of the App in-memory.
+* <<Design-Storage,*`Storage`*>>: The storage reads data from, and writes data to, the hard disk.
 
-Each of the four components
+Each of the four components:
 
-* Defines its _API_ in an `interface` with the same name as the Component.
+* Defines its _API_ in an `interface` with the same issue as the Component.
 * Exposes its functionality using a `{Component Name}Manager` class.
 
-For example, the `Logic` component (see the class diagram given below) defines it's API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class.
+For example, the `Logic` component (see the class diagram given below) defines its API in the `Logic.java` interface and exposes its functionality using the `LogicManager.java` class.
 
 .Class Diagram of the Logic Component
 image::LogicClassDiagram.png[width="800"]
 
 [discrete]
-==== Events-Driven nature of the design
+Events-Driven nature of the design
 
 The _Sequence Diagram_ below shows how the components interact for the scenario where the user issues the command `delete 1`.
 
@@ -147,7 +147,7 @@ The _Sequence Diagram_ below shows how the components interact for the scenario 
 image::SDforDeletePerson.png[width="800"]
 
 [NOTE]
-Note how the `Model` simply raises a `SaveItChangedEvent` when the SaveIt data are changed, instead of asking the `Storage` to save the updates to the hard disk.
+Note how `Model` simply raises a `SaveItChangedEvent` when the SaveIt data is changed, instead of asking the `Storage` to save the updates to the hard disk.
 
 The diagram below shows how the `EventsCenter` reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.
 
@@ -155,7 +155,7 @@ The diagram below shows how the `EventsCenter` reacts to that event, which event
 image::SDforDeletePersonEventHandling.png[width="800"]
 
 [NOTE]
-Note how the event is propagated through the `EventsCenter` to the `Storage` and `UI` without `Model` having to be coupled to either of them. This is an example of how this Event Driven approach helps us reduce direct coupling between components.
+Note how event is propagated through the `EventsCenter` to the `Storage` and `UI` without `Model` having to be coupled to either of them. This is an example of how this Event Driven approach helps us reduce direct coupling between components.
 
 The sections below give more details of each component.
 
@@ -164,6 +164,8 @@ The sections below give more details of each component.
 
 .Structure of the UI Component
 image::UiClassDiagram.png[width="800"]
+
+(TODO: No discription of diagram)
 
 *API* : link:{repoURL}/src/main/java/seedu/address/ui/Ui.java[`Ui.java`]
 
@@ -183,6 +185,8 @@ The `UI` component,
 [[fig-LogicClassDiagram]]
 .Structure of the Logic Component
 image::LogicClassDiagram.png[width="800"]
+
+(TODO: No description of numbers below)
 
 *API* :
 link:{repoURL}/src/main/java/seedu/address/logic/Logic.java[`Logic.java`]
@@ -209,11 +213,11 @@ The `Model`,
 
 * stores a `UserPref` object that represents the user's preferences.
 * stores the SaveIt data.
-* exposes an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* exposes an unmodifiable `ObservableList<Issue>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * does not depend on any of the other three components.
 
 [NOTE]
-As a more OOP model, we can store a `Tag` list in `SaveIt`, which `Person` can reference. This would allow `SaveIt` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object. An example of how such a model may look like is given below. +
+As a more OOP model, we can store a `Tag` list in `SaveIt`, which `Issue` can reference. This would allow `SaveIt` to only require one `Tag` object per unique `Tag`, instead of each `Issue` needing their own `Tag` object. An example of how such a model may look like is given below. +
  +
 image:ModelClassBetterOopDiagram.png[width="800"]
 
@@ -277,7 +281,7 @@ image::UndoRedoExecuteUndoStateListDiagram.png[width="800"]
 [NOTE]
 If the `currentStatePointer` is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The `undo` command uses `Model#canUndoSaveIt()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
 
-The following sequence diagram shows how the undo operation works:
+.The above sequence diagram shows how the undo operation works:
 
 image::UndoRedoSequenceDiagram.png[width="800"]
 
@@ -294,7 +298,7 @@ Step 6. The user executes `clear`, which calls `Model#commitSaveIt()`. Since the
 
 image::UndoRedoNewCommand4StateListDiagram.png[width="800"]
 
-The following activity diagram summarizes what happens when a user executes a new command:
+.The above activity diagram summarizes what happens when a user executes a new command:
 
 image::UndoRedoActivityDiagram.png[width="650"]
 
@@ -302,10 +306,10 @@ image::UndoRedoActivityDiagram.png[width="650"]
 
 ===== Aspect: How undo & redo executes
 
-* **Alternative 1 (current choice):** Saves the entire address book.
+* **Alternative 1 (current choice):** Save the entire address book.
 ** Pros: Easy to implement.
 ** Cons: May have performance issues in terms of memory usage.
-* **Alternative 2:** Individual command knows how to undo/redo by itself.
+* **Alternative 2:** Implement redo/undo individually for each of the commands.
 ** Pros: Will use less memory (e.g. for `delete`, just save the issue being deleted).
 ** Cons: We must ensure that the implementation of each individual command are correct.
 
@@ -344,7 +348,7 @@ We are using `java.util.logging` package for logging. The `LogsCenter` class is 
 [[Implementation-Configuration]]
 === Configuration
 
-Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: `config.json`).
+Certain properties of the application can be controlled (e.g App issue, logging level) through the configuration file (default: `config.json`).
 
 == Documentation
 
@@ -387,11 +391,11 @@ Attributes left unset in the `build.gradle` file will use their *default value*,
 [cols="1,2a,1", options="header"]
 .List of site-wide attributes
 |===
-|Attribute name |Description |Default value
+|Attribute issue |Description |Default value
 
-|`site-name`
-|The name of the website.
-If set, the name will be displayed near the top of the page.
+|`site-issue`
+|The issue of the website.
+If set, the issue will be displayed near the top of the page.
 |_not set_
 
 |`site-githuburl`
@@ -419,7 +423,7 @@ Attributes left unset in `.adoc` files will use their *default value*, if any.
 [cols="1,2a,1", options="header"]
 .List of per-file attributes, excluding Asciidoctor's built-in attributes
 |===
-|Attribute name |Description |Default value
+|Attribute issue |Description |Default value
 
 |`site-section`
 |Site section that the document belongs to.
@@ -582,7 +586,7 @@ Do take a look at <<Design-Model>> before attempting to modify the `Model` compo
 * Hints
 ** The link:{repoURL}/src/main/java/seedu/address/model/Model.java[`Model`] and the link:{repoURL}/src/main/java/seedu/address/model/saveit.java[`saveit`] API need to be updated.
 ** Think about how you can use SLAP to design the method. Where should we place the main logic of deleting tags?
-**  Find out which of the existing API methods in  link:{repoURL}/src/main/java/seedu/address/model/saveit.java[`saveit`] and link:{repoURL}/src/main/java/seedu/address/model/issue/Person.java[`Person`] classes can be used to implement the tag removal logic. link:{repoURL}/src/main/java/seedu/address/model/saveit.java[`saveit`] allows you to update a issue, and link:{repoURL}/src/main/java/seedu/address/model/issue/Person.java[`Person`] allows you to update the tags.
+**  Find out which of the existing API methods in  link:{repoURL}/src/main/java/seedu/address/model/Saveit.java[`Saveit`] and link:{repoURL}/src/main/java/seedu/address/model/Issue.java[`Issue`] classes can be used to implement the tag removal logic. link:{repoURL}/src/main/java/seedu/address/model/Saveit.java[`Saveit`] allows you to update a issue, and link:{repoURL}/src/main/java/seedu/address/model/Issue.java[`Issue`] allows you to update the tags.
 * Solution
 ** Implement a `removeTag(Tag)` method in link:{repoURL}/src/main/java/seedu/address/model/saveit.java[`saveit`]. Loop through each issue, and remove the `tag` from each issue.
 ** Add a new API method `deleteTag(Tag)` in link:{repoURL}/src/main/java/seedu/address/model/ModelManager.java[`ModelManager`]. Your link:{repoURL}/src/main/java/seedu/address/model/ModelManager.java[`ModelManager`] should call `saveit#removeTag(Tag)`.
@@ -745,7 +749,7 @@ Let's add a placeholder on all our link:{repoURL}/src/main/java/seedu/address/ui
 . Modify link:{repoURL}/src/test/java/guitests/guihandles/PersonCardHandle.java[`PersonCardHandle`] so that future tests can read the contents of the remark label.
 
 ===== [Step 4] Model: Add `Remark` class
-We have to properly encapsulate the remark in our link:{repoURL}/src/main/java/seedu/address/model/issue/Person.java[`Person`] class. Instead of just using a `String`, let's follow the conventional class structure that the codebase already uses by adding a `Remark` class.
+We have to properly encapsulate the remark in our link:{repoURL}/src/main/java/seedu/address/model/Issue.java[`Issue`] class. Instead of just using a `String`, let's follow the conventional class structure that the codebase already uses by adding a `Remark` class.
 
 **Main:**
 
@@ -756,17 +760,17 @@ We have to properly encapsulate the remark in our link:{repoURL}/src/main/java/s
 
 . Add test for `Remark`, to test the `Remark#equals()` method.
 
-===== [Step 5] Model: Modify `Person` to support a `Remark` field
-Now we have the `Remark` class, we need to actually use it inside link:{repoURL}/src/main/java/seedu/address/model/issue/Person.java[`Person`].
+===== [Step 5] Model: Modify `Issue` to support a `Remark` field
+Now we have the `Remark` class, we need to actually use it inside link:{repoURL}/src/main/java/seedu/address/model/Issue.java[`Issue`].
 
 **Main:**
 
-. Add `getRemark()` in link:{repoURL}/src/main/java/seedu/address/model/issue/Person.java[`Person`].
+. Add `getRemark()` in link:{repoURL}/src/main/java/seedu/address/model/Issue.java[`Issue`].
 . You may assume that the user will not be able to use the `add` and `edit` commands to modify the remarks field (i.e. the issue will be created without a remark).
 . Modify link:{repoURL}/src/main/java/seedu/address/model/util/SampleDataUtil.java/[`SampleDataUtil`] to add remarks for the sample data (delete your `saveit.xml` so that the application will load the sample data when you launch it.)
 
 ===== [Step 6] Storage: Add `Remark` field to `XmlAdaptedPerson` class
-We now have `Remark` s for `Person` s, but they will be gone when we exit the application. Let's modify link:{repoURL}/src/main/java/seedu/address/storage/XmlAdaptedPerson.java[`XmlAdaptedPerson`] to include a `Remark` field so that it will be saved.
+We now have `Remark` s for `Issue` s, but they will be gone when we exit the application. Let's modify link:{repoURL}/src/main/java/seedu/address/storage/XmlAdaptedPerson.java[`XmlAdaptedPerson`] to include a `Remark` field so that it will be saved.
 
 **Main:**
 
@@ -777,19 +781,19 @@ We now have `Remark` s for `Person` s, but they will be gone when we exit the ap
 . Fix `invalidAndValidPersonSaveIt.xml`, `typicalPersonsSaveIt.xml`, `validSaveIt.xml` etc., such that the XML tests will not fail due to a missing `<remark>` element.
 
 ===== [Step 6b] Test: Add withRemark() for `PersonBuilder`
-Since `Person` can now have a `Remark`, we should add a helper method to link:{repoURL}/src/test/java/seedu/address/testutil/PersonBuilder.java[`PersonBuilder`], so that users are able to create remarks when building a link:{repoURL}/src/main/java/seedu/address/model/issue/Person.java[`Person`].
+Since `Issue` can now have a `Remark`, we should add a helper method to link:{repoURL}/src/test/java/seedu/address/testutil/PersonBuilder.java[`PersonBuilder`], so that users are able to create remarks when building a link:{repoURL}/src/main/java/seedu/address/model/Issue.java[`Issue`].
 
 **Tests:**
 
 . Add a new method `withRemark()` for link:{repoURL}/src/test/java/seedu/address/testutil/PersonBuilder.java[`PersonBuilder`]. This method will create a new `Remark` for the issue that it is currently building.
-. Try and use the method on any sample `Person` in link:{repoURL}/src/test/java/seedu/address/testutil/TypicalPersons.java[`TypicalPersons`].
+. Try and use the method on any sample `Issue` in link:{repoURL}/src/test/java/seedu/address/testutil/TypicalPersons.java[`TypicalPersons`].
 
 ===== [Step 7] Ui: Connect `Remark` field to `PersonCard`
 Our remark label in link:{repoURL}/src/main/java/seedu/address/ui/PersonCard.java[`PersonCard`] is still a placeholder. Let's bring it to life by binding it with the actual `remark` field.
 
 **Main:**
 
-. Modify link:{repoURL}/src/main/java/seedu/address/ui/PersonCard.java[`PersonCard`]'s constructor to bind the `Remark` field to the `Person` 's remark.
+. Modify link:{repoURL}/src/main/java/seedu/address/ui/PersonCard.java[`PersonCard`]'s constructor to bind the `Remark` field to the `Issue` 's remark.
 
 **Tests:**
 

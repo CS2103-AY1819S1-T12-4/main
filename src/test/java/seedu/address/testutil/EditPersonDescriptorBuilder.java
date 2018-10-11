@@ -33,6 +33,7 @@ public class EditPersonDescriptorBuilder {
         descriptor = new EditIssueDescriptor();
         descriptor.setName(issue.getStatement());
         descriptor.setDescription(issue.getDescription());
+        descriptor.setSolutions(issue.getSolutions());
         descriptor.setTags(issue.getTags());
     }
 

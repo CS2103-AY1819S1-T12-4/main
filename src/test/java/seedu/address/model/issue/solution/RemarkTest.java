@@ -1,4 +1,4 @@
-package seedu.address.model.issue;
+package seedu.address.model.issue.solution;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

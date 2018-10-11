@@ -11,8 +11,10 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.issue.Description;
 import seedu.address.model.issue.IssueStatement;
-import seedu.address.model.issue.Remark;
+import seedu.address.model.issue.Solution;
 import seedu.address.model.issue.Tag;
+import seedu.address.model.issue.solution.Remark;
+import seedu.address.model.issue.solution.SolutionLink;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -22,8 +24,9 @@ public class ParserUtil {
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
 
     /**
-     * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
-     * trimmed.
+     * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces
+     * will be trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
@@ -35,8 +38,8 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code IssueStatement}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String name} into a {@code IssueStatement}. Leading and trailing whitespaces will be
+     * trimmed.
      *
      * @throws ParseException if the given {@code name} is invalid.
      */
@@ -50,8 +53,8 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String description} into a {@code Description}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String description} into a {@code Description}. Leading and trailing whitespaces will
+     * be trimmed.
      *
      * @throws ParseException if the given {@code description} is invalid.
      */
@@ -65,8 +68,8 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String address} into an {@code Remark}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String address} into an {@code Remark}. Leading and trailing whitespaces will be
+     * trimmed.
      *
      * @throws ParseException if the given {@code address} is invalid.
      */
@@ -74,14 +77,47 @@ public class ParserUtil {
         requireNonNull(address);
         String trimmedAddress = address.trim();
         if (!Remark.isValidRemark(trimmedAddress)) {
-            throw new ParseException(Remark.MESSAGE_ADDRESS_CONSTRAINTS);
+            throw new ParseException(Remark.MESSAGE_REMARK_CONSTRAINTS);
         }
         return new Remark(trimmedAddress);
     }
 
     /**
-     * Parses a {@code String tag} into a {@code Tag}.
-     * Leading and trailing whitespaces will be trimmed.
+     * Parses a {@code String solution} into an {@code Solution}. Leading and trailing whitespaces will be
+     * trimmed.
+     *
+     * @throws ParseException if the given {@code solution} is invalid.
+     */
+    public static Solution parseSolution(String solution) throws ParseException {
+        requireNonNull(solution);
+        if (solution.indexOf(' ') == -1) {
+            throw new ParseException(Remark.MESSAGE_REMARK_CONSTRAINTS);
+        }
+        String trimmedSolutionLink = solution.substring(0, solution.indexOf(' ')).trim();
+        String trimmedRemark = solution.substring(solution.indexOf(' ') + 1).trim();
+        if (!Remark.isValidRemark(trimmedRemark)) {
+            throw new ParseException(Remark.MESSAGE_REMARK_CONSTRAINTS);
+        }
+        if (!SolutionLink.isValidLink(trimmedSolutionLink)) {
+            throw new ParseException(SolutionLink.MESSAGE_SOLUTION_LINK_CONSTRAINTS);
+        }
+        return new Solution(trimmedSolutionLink, trimmedRemark);
+    }
+
+    /**
+     * Parses {@code Collection<String> solutions} into a {@code Set<Solution>}.
+     */
+    public static Set<Solution> parseSolutions(Collection<String> solutions) throws ParseException {
+        requireNonNull(solutions);
+        final Set<Solution> solutionSet = new HashSet<>();
+        for (String solution : solutions) {
+            solutionSet.add(parseSolution(solution));
+        }
+        return solutionSet;
+    }
+
+    /**
+     * Parses a {@code String tag} into a {@code Tag}. Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code tag} is invalid.
      */

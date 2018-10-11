@@ -5,9 +5,12 @@ package seedu.address.model.issue.solution;
  */
 public class SolutionLink {
 
-    public static final String LINK_VALIDATION_REGEX = "";
+    public static final String MESSAGE_SOLUTION_LINK_CONSTRAINTS =
+            "Remarks can take any values, and it should not be blank";
 
-    private String value;
+    public static final String LINK_VALIDATION_REGEX = "[^\\s].*";
+
+    public final String value;
 
     /**
      * Construct a new solution link.

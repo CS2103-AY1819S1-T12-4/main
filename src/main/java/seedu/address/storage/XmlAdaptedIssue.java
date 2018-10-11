@@ -13,6 +13,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.Issue;
 import seedu.address.model.issue.Description;
 import seedu.address.model.issue.IssueStatement;
+import seedu.address.model.issue.Solution;
 import seedu.address.model.issue.Tag;
 
 /**
@@ -23,25 +24,32 @@ public class XmlAdaptedIssue {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Issue's %s field is missing!";
 
     @XmlElement(required = true)
-    private String statement;
+    private String issue;
     @XmlElement(required = true)
     private String description;
+
+    @XmlElement
+    private List<XmlAdaptedSolution> solutions = new ArrayList<>();
 
     @XmlElement
     private List<XmlAdaptedTag> tagged = new ArrayList<>();
 
     /**
-     * Constructs an XmlAdaptedIssue.
-     * This is the no-arg constructor that is required by JAXB.
+     * Constructs an XmlAdaptedIssue. This is the no-arg constructor that is required by JAXB.
      */
-    public XmlAdaptedIssue() {}
+    public XmlAdaptedIssue() {
+    }
 
     /**
      * Constructs an {@code XmlAdaptedIssue} with the given issue details.
      */
-    public XmlAdaptedIssue(String statement, String description, List<XmlAdaptedTag> tagged) {
-        this.statement = statement;
+    public XmlAdaptedIssue(String issue, String description, List<XmlAdaptedSolution> solutions,
+            List<XmlAdaptedTag> tagged) {
+        this.issue = issue;
         this.description = description;
+        if (solutions != null) {
+            this.solutions = new ArrayList<>(solutions);
+        }
         if (tagged != null) {
             this.tagged = new ArrayList<>(tagged);
         }
@@ -53,11 +61,14 @@ public class XmlAdaptedIssue {
      * @param source future changes to this will not affect the created XmlAdaptedIssue
      */
     public XmlAdaptedIssue(Issue source) {
-        statement = source.getStatement().issue;
+        issue = source.getStatement().issue;
         description = source.getDescription().value;
+        solutions = source.getSolutions().stream()
+                .map(XmlAdaptedSolution::new)
+                .collect(Collectors.toList());
         tagged = source.getTags().stream()
-            .map(XmlAdaptedTag::new)
-            .collect(Collectors.toList());
+                .map(XmlAdaptedTag::new)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -71,26 +82,33 @@ public class XmlAdaptedIssue {
             personTags.add(tag.toModelType());
         }
 
-        if (statement == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                IssueStatement.class.getSimpleName()));
+        final List<Solution> issueSolutions = new ArrayList<>();
+        for (XmlAdaptedSolution solution : solutions) {
+            issueSolutions.add(solution.toModelType());
         }
-        if (!IssueStatement.isValidIssueStatement(statement)) {
+
+        if (issue == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    IssueStatement.class.getSimpleName()));
+        }
+        if (!IssueStatement.isValidIssueStatement(issue)) {
             throw new IllegalValueException(IssueStatement.MESSAGE_ISSUE_STATEMENT_CONSTRAINTS);
         }
-        final IssueStatement modelName = new IssueStatement(statement);
+        final IssueStatement modelName = new IssueStatement(issue);
 
         if (description == null) {
             throw new IllegalValueException(
-                String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
         }
         if (!Description.isValidDescription(description)) {
             throw new IllegalValueException(Description.MESSAGE_DESCRIPTION_CONSTRAINTS);
         }
         final Description modelDescription = new Description(description);
 
+        final Set<Solution> modelSolutions = new HashSet<>(issueSolutions);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Issue(modelName, modelDescription, modelTags);
+        return new Issue(modelName, modelDescription, modelSolutions, modelTags);
     }
 
     @Override
@@ -104,8 +122,9 @@ public class XmlAdaptedIssue {
         }
 
         XmlAdaptedIssue otherPerson = (XmlAdaptedIssue) other;
-        return Objects.equals(statement, otherPerson.statement)
-            && Objects.equals(description, otherPerson.description)
-            && tagged.equals(otherPerson.tagged);
+        return Objects.equals(issue, otherPerson.issue)
+                && Objects.equals(description, otherPerson.description)
+                && solutions.equals(otherPerson.solutions)
+                && tagged.equals(otherPerson.tagged);
     }
 }

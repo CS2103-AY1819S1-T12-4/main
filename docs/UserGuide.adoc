@@ -331,7 +331,7 @@ Highlight the certain part of the page that show on the window, use a annotation
 Format: `highlight`
 
 // tag::dataencryption[]
-=== Encrypting data files [coming in v2.0]
+=== Encrypting data files `[coming in v2.0]`
 
 _{explain how the user can enable/disable data encryption}_
 // end::dataencryption[]
