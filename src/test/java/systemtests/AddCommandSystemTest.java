@@ -187,7 +187,7 @@ public class AddCommandSystemTest extends SaveItSystemTest {
     private void assertCommandSuccess(String command, Issue toAdd) {
         Model expectedModel = getModel();
         expectedModel.addIssue(toAdd);
-        String expectedResultMessage = String.format(AddCommand.MESSAGE_SUCCESS, toAdd);
+        String expectedResultMessage = String.format(AddCommand.MESSAGE_ISSUE_SUCCESS, toAdd);
 
         assertCommandSuccess(command, expectedModel, expectedResultMessage);
     }

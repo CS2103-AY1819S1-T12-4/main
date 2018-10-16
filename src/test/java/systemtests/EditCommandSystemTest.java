@@ -124,7 +124,7 @@ public class EditCommandSystemTest extends SaveItSystemTest {
         showPersonsWithName(KEYWORD_MATCHING_MEIER);
         int invalidIndex = getModel().getSaveIt().getIssueList().size();
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + invalidIndex + NAME_DESC_BOB,
-            Messages.MESSAGE_INVALID_Issue_DISPLAYED_INDEX);
+            Messages.MESSAGE_INVALID_ISSUE_DISPLAYED_INDEX);
 
         /* --------------------- Performing edit operation while an issue card is selected
         -------------------------- */
@@ -156,7 +156,7 @@ public class EditCommandSystemTest extends SaveItSystemTest {
         /* Case: invalid index (size + 1) -> rejected */
         invalidIndex = getModel().getFilteredIssueList().size() + 1;
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + invalidIndex + NAME_DESC_BOB,
-            Messages.MESSAGE_INVALID_Issue_DISPLAYED_INDEX);
+            Messages.MESSAGE_INVALID_ISSUE_DISPLAYED_INDEX);
 
         /* Case: missing index -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + NAME_DESC_BOB,

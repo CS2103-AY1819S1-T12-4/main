@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -85,36 +86,22 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String solution} into an {@code Solution}. Leading and trailing whitespaces will be
-     * trimmed.
-     *
-     * @throws ParseException if the given {@code solution} is invalid.
+     * Parses {@code Collection<String> solutions} into a {@code Set<Solution>}.
+     * @param solutionLink
+     * @param solutionRemark
      */
-    public static Solution parseSolution(String solution) throws ParseException {
-        requireNonNull(solution);
-        if (solution.indexOf(' ') == -1) {
-            throw new ParseException(Remark.MESSAGE_REMARK_CONSTRAINTS);
-        }
-        String trimmedSolutionLink = solution.substring(0, solution.indexOf(' ')).trim();
-        String trimmedRemark = solution.substring(solution.indexOf(' ') + 1).trim();
-        if (!Remark.isValidRemark(trimmedRemark)) {
-            throw new ParseException(Remark.MESSAGE_REMARK_CONSTRAINTS);
-        }
+    public static List<Solution> parseSolutions(String solutionLink, String solutionRemark) throws ParseException {
+        requireAllNonNull(solutionLink, solutionRemark);
+        final List<Solution> solutionList = new ArrayList<>();
+        String trimmedSolutionLink = solutionLink.trim();
+        String trimmedRemark = solutionRemark.trim();
         if (!SolutionLink.isValidLink(trimmedSolutionLink)) {
             throw new ParseException(SolutionLink.MESSAGE_SOLUTION_LINK_CONSTRAINTS);
         }
-        return new Solution(trimmedSolutionLink, trimmedRemark);
-    }
-
-    /**
-     * Parses {@code Collection<String> solutions} into a {@code Set<Solution>}.
-     */
-    public static List<Solution> parseSolutions(Collection<String> solutions) throws ParseException {
-        requireNonNull(solutions);
-        final List<Solution> solutionList = new ArrayList<>();
-        for (String solution : solutions) {
-            solutionList.add(parseSolution(solution));
+        if (!Remark.isValidRemark(trimmedRemark)) {
+            throw new ParseException(Remark.MESSAGE_REMARK_CONSTRAINTS);
         }
+        solutionList.add(new Solution (solutionLink, solutionRemark));
         return solutionList;
     }
 

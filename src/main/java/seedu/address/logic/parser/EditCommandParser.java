@@ -80,7 +80,8 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
         Collection<String> solutionList =
             solutions.size() == 1 && solutions.contains("") ? Collections.emptySet() : solutions;
-        return Optional.of(ParserUtil.parseSolutions(solutionList));
+        //TODO:
+        return Optional.of(ParserUtil.parseSolutions("ew", "ewe"));
     }
 
     /**

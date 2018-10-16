@@ -73,7 +73,7 @@ public class EditCommand extends Command {
         List<Issue> lastShownList = model.getFilteredIssueList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_Issue_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_ISSUE_DISPLAYED_INDEX);
         }
 
         Issue issueToEdit = lastShownList.get(index.getZeroBased());

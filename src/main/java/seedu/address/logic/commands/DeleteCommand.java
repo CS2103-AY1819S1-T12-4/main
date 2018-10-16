@@ -37,7 +37,7 @@ public class DeleteCommand extends Command {
         List<Issue> lastShownList = model.getFilteredIssueList();
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_Issue_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_ISSUE_DISPLAYED_INDEX);
         }
 
         Issue issueToDelete = lastShownList.get(targetIndex.getZeroBased());
