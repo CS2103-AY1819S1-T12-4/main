@@ -1010,15 +1010,18 @@ Use case resumes at step 2.
 Use case resumes at step 4.
 
 [discrete]
-=== Use case: Edit issue
+
+=== Use case: Edit statement and description
+
+
 
 *MSS*
 
 1. User requests to list issues
-2. SaveIt shows a list of issues
-3. User requests to edit a specific issue in the list
-4. SaveIt updates the issue
-5. The ‘Success’ message shown on the screen.
+2. User request to edit an issue statement and description
+3. SaveIt updates the statement
+5. Use case ends.
+6. The ‘Success’ message shown on the screen.
 +
 Use case ends.
 

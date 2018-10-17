@@ -64,7 +64,7 @@ public class AddCommandParser implements Parser<AddCommand> {
             }
         }
 
-        IssueStatement statement = ParserUtil.parseName(argMultimap.getValue(PREFIX_STATEMENT).get());
+        IssueStatement statement = ParserUtil.parseStatement(argMultimap.getValue(PREFIX_STATEMENT).get());
         Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get());
         List<Solution> solutionList = ParserUtil.parseSolutions(dummySolutionLink, dummySolutionRemark);
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));

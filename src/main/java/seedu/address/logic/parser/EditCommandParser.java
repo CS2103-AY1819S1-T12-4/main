@@ -2,16 +2,16 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.commons.util.StringUtil.arePrefixesNotPresent;
+import static seedu.address.commons.util.StringUtil.arePrefixesPresent;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SOLUTION_LINK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATEMENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -41,7 +41,6 @@ public class EditCommandParser implements Parser<EditCommand> {
                 .tokenize(args, PREFIX_STATEMENT, PREFIX_DESCRIPTION, PREFIX_SOLUTION_LINK, PREFIX_REMARK, PREFIX_TAG);
 
         Index index;
-
         try {
             index = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
@@ -49,23 +48,52 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
 
         EditIssueDescriptor editIssueDescriptor = new EditIssueDescriptor();
-        if (argMultimap.getValue(PREFIX_STATEMENT).isPresent()) {
-            editIssueDescriptor
-                .setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_STATEMENT).get()));
-        }
-        if (argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
-            editIssueDescriptor
-                .setDescription(ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get()));
-        }
-        parseSolutionsForEdit(argMultimap.getAllValues(PREFIX_SOLUTION_LINK))
-                .ifPresent(editIssueDescriptor::setSolutions);
-        parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editIssueDescriptor::setTags);
 
-        if (!editIssueDescriptor.isAnyFieldEdited()) {
-            throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
+        // check if the command is correct
+        if (arePrefixesPresent(args, PREFIX_STATEMENT, PREFIX_DESCRIPTION) && arePrefixesNotPresent(args,
+            PREFIX_SOLUTION_LINK, PREFIX_REMARK)) {
+            if (argMultimap.getValue(PREFIX_STATEMENT).isPresent()) {
+                editIssueDescriptor
+                    .setStatement(ParserUtil.parseStatement(argMultimap.getValue(PREFIX_STATEMENT).get()));
+            }
+
+            if (argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
+                editIssueDescriptor
+                    .setDescription(ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get()));
+            }
+
+            parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editIssueDescriptor::setTags);
+
+            return new EditCommand(index, editIssueDescriptor);
+
+        } else if (arePrefixesNotPresent(args, PREFIX_STATEMENT, PREFIX_DESCRIPTION) && arePrefixesPresent(args,
+            PREFIX_SOLUTION_LINK, PREFIX_REMARK)) {
+            EditIssueDescriptor editIssueDescriptorForSolution = null;
+            if (argMultimap.getValue(PREFIX_SOLUTION_LINK).isPresent() && argMultimap.getValue(PREFIX_REMARK)
+                .isPresent()) {
+                Solution solution = parseSolutionForEdit(argMultimap.getValue(PREFIX_SOLUTION_LINK).get(),
+                    argMultimap.getValue(PREFIX_REMARK).get());
+                editIssueDescriptorForSolution = new EditIssueDescriptor(index, solution);
+
+
+            } else if (argMultimap.getValue(PREFIX_SOLUTION_LINK).isPresent()) {
+                Solution solution = parseSolutionForEdit("dummySolutionLink",
+                    argMultimap.getValue(PREFIX_REMARK).get());
+                editIssueDescriptorForSolution = new EditIssueDescriptor(index, solution);
+
+
+            } else if (argMultimap.getValue(PREFIX_REMARK).isPresent()) {
+                Solution solution = parseSolutionForEdit(argMultimap.getValue(PREFIX_SOLUTION_LINK).get(),
+                    "dummySolutionRemark");
+                editIssueDescriptorForSolution = new EditIssueDescriptor(index, solution);
+            }
+            return new EditCommand(index, editIssueDescriptorForSolution);
+        } else {
+            throw new ParseException(
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
         }
 
-        return new EditCommand(index, editIssueDescriptor);
+        // TODO: Check Exception
     }
 
     /**
@@ -73,19 +101,9 @@ public class EditCommandParser implements Parser<EditCommand> {
      * {@code solutions} contain only one element which is an empty string, it will be parsed into a {@code
      * Set<Solution>} containing zero solutions.
      */
-    private Optional<List<Solution>> parseSolutionsForEdit(Collection<String> solutions) throws ParseException {
-        assert solutions != null;
-
-        if (solutions.isEmpty()) {
-            return Optional.empty();
-        }
-        //TODO:
-        if (solutions.size() == 1 && solutions.contains("")) {
-            return Optional.empty();
-        } else {
-            List<String> solutionList = new ArrayList<>(solutions);
-            return Optional.of(ParserUtil.parseSolutions(solutionList.get(0), solutionList.get(1)));
-        }
+    private Solution parseSolutionForEdit(String solutionLink, String solutionRemark) throws ParseException {
+        Solution solution = ParserUtil.parseSolution(solutionLink, solutionRemark);
+        return solution;
     }
 
     /**

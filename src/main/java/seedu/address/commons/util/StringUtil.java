@@ -6,6 +6,9 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
+import java.util.stream.Stream;
+
+import seedu.address.logic.parser.Prefix;
 
 /**
  * Helper functions for handling strings.
@@ -64,5 +67,21 @@ public class StringUtil {
         } catch (NumberFormatException nfe) {
             return false;
         }
+    }
+
+    /**
+     * Returns true if none of the prefixes contains empty {@code Optional} values in the given {@code
+     * ArgumentMultimap}.
+     */
+    public static boolean arePrefixesPresent(String args, Prefix... prefixes) {
+        return Stream.of(prefixes).allMatch(prefix -> args.contains(prefix.getPrefix()));
+    }
+
+    /**
+     * Returns true if none of the prefixes contains empty {@code Optional} values in the given {@code
+     * ArgumentMultimap}.
+     */
+    public static boolean arePrefixesNotPresent(String args, Prefix... prefixes) {
+        return Stream.of(prefixes).noneMatch(prefix -> args.contains(prefix.getPrefix()));
     }
 }

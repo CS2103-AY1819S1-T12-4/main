@@ -48,7 +48,7 @@ public class IssueUtil {
      */
     public static String getEditIssueDescriptorDetails(EditCommand.EditIssueDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();
-        descriptor.getName().ifPresent(name -> sb.append(PREFIX_STATEMENT).append(name.issue).append(" "));
+        descriptor.getStatement().ifPresent(name -> sb.append(PREFIX_STATEMENT).append(name.issue).append(" "));
         descriptor.getDescription()
             .ifPresent(description -> sb.append(PREFIX_DESCRIPTION).append(description.value).append(" "));
         if (descriptor.getSolutions().isPresent()) {

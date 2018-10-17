@@ -30,8 +30,8 @@ public class ParserUtil {
     private static final String dummySolutionRemark = "dummySolutionRemark";
 
     /**
-     * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces
-     * will be trimmed.
+     * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
+     * trimmed.
      *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
@@ -44,23 +44,22 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code IssueStatement}. Leading and trailing whitespaces will be
-     * trimmed.
+     * Parses a {@code String name} into a {@code IssueStatement}. Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code name} is invalid.
      */
-    public static IssueStatement parseName(String name) throws ParseException {
-        requireNonNull(name);
-        String trimmedName = name.trim();
-        if (!IssueStatement.isValidIssueStatement(trimmedName)) {
+    public static IssueStatement parseStatement(String statement) throws ParseException {
+        requireNonNull(statement);
+        String trimmedStatementName = statement.trim();
+        if (!IssueStatement.isValidIssueStatement(trimmedStatementName)) {
             throw new ParseException(IssueStatement.MESSAGE_ISSUE_STATEMENT_CONSTRAINTS);
         }
-        return new IssueStatement(trimmedName);
+        return new IssueStatement(trimmedStatementName);
     }
 
     /**
-     * Parses a {@code String description} into a {@code Description}. Leading and trailing whitespaces will
-     * be trimmed.
+     * Parses a {@code String description} into a {@code Description}. Leading and trailing whitespaces will be
+     * trimmed.
      *
      * @throws ParseException if the given {@code description} is invalid.
      */
@@ -74,24 +73,7 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String address} into an {@code Remark}. Leading and trailing whitespaces will be
-     * trimmed.
-     *
-     * @throws ParseException if the given {@code address} is invalid.
-     */
-    public static Remark parseAddress(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Remark.isValidRemark(trimmedAddress)) {
-            throw new ParseException(Remark.MESSAGE_REMARK_CONSTRAINTS);
-        }
-        return new Remark(trimmedAddress);
-    }
-
-    /**
      * Parses {@code Collection<String> solutions} into a {@code Set<Solution>}.
-     * @param solutionLink
-     * @param solutionRemark
      */
     public static List<Solution> parseSolutions(String solutionLink, String solutionRemark) throws ParseException {
         requireAllNonNull(solutionLink, solutionRemark);
@@ -107,8 +89,29 @@ public class ParserUtil {
         if (!Remark.isValidRemark(trimmedRemark)) {
             throw new ParseException(Remark.MESSAGE_REMARK_CONSTRAINTS);
         }
-        solutionList.add(new Solution (solutionLink, solutionRemark));
+        solutionList.add(new Solution(solutionLink, solutionRemark));
         return solutionList;
+    }
+
+    /**
+     * Parses {@code Collection<String> solutions} into a {@code Set<Solution>}.
+     */
+    public static Solution parseSolution(String solutionLink, String solutionRemark) throws ParseException {
+        requireAllNonNull(solutionLink, solutionRemark);
+        Solution solution = new Solution(solutionLink, solutionRemark);
+        if (solutionLink.equals(dummySolutionLink) && solutionRemark.equals(dummySolutionRemark)) {
+            // TODO: check
+            throw new ParseException("SOlution cannit be both null");
+        }
+        String trimmedSolutionLink = solutionLink.trim();
+        String trimmedRemark = solutionRemark.trim();
+        if (!SolutionLink.isValidLink(trimmedSolutionLink)) {
+            throw new ParseException(SolutionLink.MESSAGE_SOLUTION_LINK_CONSTRAINTS);
+        }
+        if (!Remark.isValidRemark(trimmedRemark)) {
+            throw new ParseException(Remark.MESSAGE_REMARK_CONSTRAINTS);
+        }
+        return solution;
     }
 
     /**
