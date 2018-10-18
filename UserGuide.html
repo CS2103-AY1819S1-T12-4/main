@@ -13,31 +13,14 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#selecting-an-statement-code-select-code">3.1. Selecting an statement : <code>select</code></a></li>
-<li><a href="#deleting-an-statement-code-delete-code">3.2. Deleting an statement : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.3. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.4. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.5. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.6. Listing entered commands : <code>history</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.7. Exiting the program : <code>exit</code></a></li>
-<li><a href="#viewing-help-code-help-code">3.8. Viewing help : <code>help</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#adding-an-issue-code-add-code-coming-in-v1-2">3.10. Adding an issue: <code>add</code> [coming in v1.2]</a></li>
-<li><a href="#listing-all-issues-code-list-code-coming-in-v1-2">3.11. Listing all issues : <code>list</code> [coming in v1.2]</a></li>
-<li><a href="#returning-to-home-directory-code-home-code-coming-in-v1-2">3.12. Returning to home directory : <code>home</code> [coming in v1.2]</a></li>
-<li><a href="#editing-an-issue-code-edit-code-coming-in-v1-2">3.13. Editing an issue : <code>edit</code> [coming in v1.2]</a></li>
-<li><a href="#refactor-tag-code-refactortag-code-coming-in-v1-2">3.14. Refactor Tag: <code>refactorTag</code> [coming in v1.2]</a></li>
-<li><a href="#locating-issues-by-statement-code-serach-code-coming-in-v1-2">3.15. Locating issues by statement: <code>serach</code> [coming in v1.2]</a></li>
-<li><a href="#autosuggestion-of-existing-tags-coming-in-v1-3">3.16. Autosuggestion of (existing) Tags [coming in v1.3]</a></li>
-<li><a href="#command-highlight-coming-in-v1-3">3.17. Command highlight [coming in v1.3]</a></li>
-<li><a href="#team-based-creating-switching-projects-coming-in-v2-0">3.18. Team based - Creating / Switching projects [coming in v2.0]</a></li>
-<li><a href="#team-based-data-access-from-cloud-coming-in-v2-0">3.19. Team based - Data access from cloud [coming in v2.0]</a></li>
-<li><a href="#highlight-the-page-highlight-coming-in-v2-0">3.20. Highlight the page : highlight [coming in v2.0]</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
+<li><a href="#selecting-an-statement-code-select-code">3.2. Selecting an statement : <code>select</code></a></li>
+<li><a href="#adding-an-issue-code-add-code">3.3. Adding an issue: <code>add</code></a></li>
+<li><a href="#editing-an-issue-code-edit-code">3.4. Editing an issue : <code>edit</code></a></li>
+<li><a href="#deleting-an-statement-code-delete-code">3.5. Deleting an statement : <code>delete</code></a></li>
+<li><a href="#locating-issues-by-statement-code-find-code">3.6. Locating issues by statement: <code>find</code></a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -45,65 +28,37 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Developers usually search google to find solutions to statement/problems, however, bookmarking a certain webpage (where the email is found) does not tell the user much about what was searched (to find that email in the first place). It is likely that if the developer encounters the same statement/problem again, instead of searching through their bookmarks, they would search google and go through all of the links again.</p>
+<p>Developers usually search google to find solutions to technical problems. However, bookmarking a certain web-page does not tell developers much about for which problem they searched. If developers encounter the same problem again, instead of searching through their bookmarks, it is likely for them to search on google again.</p>
 </div>
 <div class="paragraph">
-<p><strong>SaveIt</strong> is geared at keeping track of the issues that the user finds and to link it with the email found on google. More importantly, SaveIt is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, SaveIt can help you search the same statement that save previously faster than traditional GUI apps.</p>
+<p><strong>SaveIt</strong> is geared at keeping track of the issues that users find and linking it with solution web-page found on google. More importantly, SaveIt is <strong>optimized for those who prefer to work with a Command Line Interface (CLI)</strong> while still has the benefits of a Graphical User Interface (GUI). If you can type fast, SaveIt can help you search the entry saved previously faster than traditional GUI apps.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>To get started with SaveIt, please follow the  instructions below:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
+<p>Ensure that Java version <code>9</code> or later is installed in your Computer.</p>
 </li>
 <li>
 <p>Download the latest <code>saveit.jar</code> <a href="https://github.com/CS2103-AY1819S1-T12-4/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your SaveIt.</p>
+<p>Copy the file to a folder as the home folder for your SaveIt.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
-</li>
-<li>
-<p>Type the command in the command box and press Enter to execute it.
-e.g. typing help and pressing Enter will open the help window.</p>
-</li>
-<li>
-<p>Some example commands you can try:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><code>list</code></strong> : lists all issues recorded</p>
-</li>
-<li>
-<p><strong><code>add</code></strong> : add i/ISSUE_STATEMENT s/SOLUTION_LINK1 s/SOLUTION_LINK2 t/TAG1 t/TAG2 : records an statement with the following links where solutions to the statement were found. The issues can be tagged to help with organization and ease of search.</p>
-</li>
-<li>
-<p><strong><code>search</code></strong> :  Search ISSUE : searches the records for a certain statement (case-insensitive)</p>
-</li>
-<li>
-<p><strong><code>edit</code></strong> : edit INDEX i/NEW_ISSUE s/NEW_SOLUTION_LINK1 s/NEW_SOLUTION_LINK2…  : edits the details of the 2nd statement in the current list</p>
-</li>
-<li>
-<p><strong><code>delete</code></strong> :  delete 3 : deletes the 3rd statement shown in the current list</p>
-</li>
-<li>
-<p><strong><code>exit</code></strong> : .  exit : exits the app</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Refer to Section 3, “Features” for details of each command.</p>
+<p>Double-click the file to start the app. The GUI should appear in a few seconds, as shown below.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/UI_Design.png" alt="UI Design" width="790">
 </div>
+<div class="title">Figure 1. Applacation Interface</div>
 </div>
 </li>
 <li>
@@ -111,26 +66,23 @@ e.g. typing help and pressing Enter will open the help window.</p>
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Some example commands you can try:</p>
+<p>Try some example commands:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><strong><code>list</code></strong> : lists all issues</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the SaveIt.</p>
+<p><strong><code>add</code></strong><code>i/map_function d/How to use map function in python t/python</code> : records a issue of map function with description "How to use map function in python" tagged as "python"</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd issue shown in the current list</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
 </li>
 </ol>
 </div>
@@ -140,6 +92,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>The following is a list of commands that you can use in the application.</p>
+</div>
+<div class="paragraph">
 <p><strong>Command Format</strong></p>
 </div>
 <div class="exampleblock">
@@ -147,7 +102,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add i/ISSUE</code>, <code>ISSUE</code> is a parameter which can be used as <code>add i/Segment Fault</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add i/ISSUE d/DESCRIPTION</code>, <code>ISSUE</code> is a parameter which can be used as <code>add i/Segment Fault</code>.</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>n/ISSUE_STATEMENT [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
@@ -162,11 +117,111 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="selecting-an-statement-code-select-code"><a class="link" href="#selecting-an-statement-code-select-code">3.1. Selecting an statement : <code>select</code></a></h3>
 <div class="paragraph">
-<p>Selects the issue identified by the index number used in the displayed issue list and change the current editing directory to the issue selected.
-Format: <code>select INDEX</code></p>
+<p><strong>Command Features</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Highlight: Commands get highlighed with different cololr as you type.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="red">add</span> <span class="aqua">i/[ISSUE_STATEMENT]</span> <span class="fuchsia">d/[DESCRIPTION]</span></p>
+</li>
+<li>
+<p><span class="red">edit</span> <span class="blue">12</span> <span class="green">s/[SOLUTION_LINK]</span> <span class="maroon">r/[REMARK]</span></p>
+</li>
+<li>
+<p><span class="red">select</span> <span class="blue">4</span></p>
+</li>
+<li>
+<p><span class="red">list</span> <span class="yellow">freq</span></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Auto-complete: When you start typing a command, SaveIt will provide you with command word suggestions. Press <kbd>TAB</kbd> to accept the first suggestion.</p>
+</li>
+<li>
+<p>Command History: Use <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<div class="paragraph">
+<p>Feeling a little lost? Simply type <code>help</code> to view the handy help page!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>help</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>help</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="selecting-an-statement-code-select-code"><a class="link" href="#selecting-an-statement-code-select-code">3.2. Selecting an statement : <code>select</code></a></h3>
+<div class="paragraph">
+<p>Selects an issue identified by the index number used in the displayed issue list and change the current editing directory to the issue selected.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>select INDEX</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the issue [INDEX] and loads the lists of the solutions.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>select 5</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -178,13 +233,156 @@ Format: <code>select INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the issue and loads the first solution link of the issue at the specified <code>INDEX</code>.</p>
+<p>The index refers to the index number shown in the list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> and <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>The index cannot be bigger than the number of issues.</p>
+</li>
+<li>
+<p>All properties of this solutions will be displayed at the left side of the interface.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-issue-code-add-code"><a class="link" href="#adding-an-issue-code-add-code">3.3. Adding an issue: <code>add</code></a></h3>
+<div class="paragraph">
+<p>Adds an issue to the SaveIt App.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add i/ISSUE_STATEMENT d/DESCRIPTION [t/TAG]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Add an issue (issue statement and description, tags are opitonal).</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>add s/SOLUTION_LINK2 r/REMARK</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Add a solution (solution link and remark) to a specific issue</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>add i/map_function d/how to use map function in python t/python</code></p>
+</li>
+<li>
+<p><code>select 3</code></p>
+</li>
+<li>
+<p><code>add s/www.example1a.com r/use functional programming</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>An issue can have only one statement and description</p>
+</li>
+<li>
+<p>An issue can have any number of tags (including 0)</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the displayed issue list.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p>The index <strong>must be a positive integer</strong> and <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>The index cannot be bigger than the number of issues.</p>
+</li>
+<li>
+<p>User needs to select the issue index to add an solution to that issue</p>
+</li>
+<li>
+<p>The display panel will display the first solution link of the issue at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>An issue contains one solution link and one remark</p>
+</li>
+<li>
+<p>User can continue to add solution to the issue</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-issue-code-edit-code"><a class="link" href="#editing-an-issue-code-edit-code">3.4. Editing an issue : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing issue or solutions in an issue.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit INDEX [i/NEW_ISSUE] [d/NEW_DESCRIPTION] [t/TAG1&#8230;&#8203;]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edit an issue statement, description or tag</p>
+</li>
+<li>
+<p>Allow to edit any field of the issue(at least one field provided)</p>
 </li>
 </ul>
 </div>
@@ -193,36 +391,51 @@ Format: <code>select INDEX</code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: * <code>edit INDEX s/NEW_SOLUTION_LINK s/NEW_SOLUTION_REMARK</code></p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>list chr</code></p>
+<p>Select the solution before editing</p>
 </li>
 <li>
-<p><code>select 2</code></p>
+<p>Edit the solution or solution remark</p>
 </li>
 <li>
-<p><code>Selects the 2nd statement in the statement list.</code></p>
+<p>Allow to edit any field of the solution(at least one field provided)</p>
 </li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
 <li>
-<p><code>find Undefined</code></p>
+<p><code>edit 1 i/filter_function d/how to use filter function in python t/python</code></p>
 </li>
 <li>
 <p><code>select 1</code></p>
 </li>
 <li>
-<p><code>Selects the 1st statement in the results of the find command.</code></p>
+<p><code>edit 3 s/www.example2a.com r/refer the link explanation</code></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-an-statement-code-delete-code"><a class="link" href="#deleting-an-statement-code-delete-code">3.2. Deleting an statement : <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified statement from the statement tracker.<br>
-Format: <code>delete INDEX</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -234,311 +447,7 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the statement at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed statement list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list chr</code><br></p>
-</li>
-<li>
-<p><code>delete 2</code><br></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the 2nd statement in the statement tracker.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>search Undefined</code><br></p>
-</li>
-<li>
-<p><code>delete 1</code><br></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the 1st statement in the results of the find command.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.3. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the statement tracker.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.4. Undoing previous command : <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores the statement tracker to the state before the previous undoable command was executed.
-Format: <code>undo</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list chr</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list chr</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.5. Redoing the previously undone command : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.6. Listing entered commands : <code>history</code></a></h3>
-<div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.
-Format: <code>history</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.7. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.8. Viewing help : <code>help</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>help</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
-<div class="paragraph">
-<p>Issue bookmark data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-an-issue-code-add-code-coming-in-v1-2"><a class="link" href="#adding-an-issue-code-add-code-coming-in-v1-2">3.10. Adding an issue: <code>add</code> [coming in v1.2]</a></h3>
-<div class="paragraph">
-<p>Adds an issue to the address book<br></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>add i/ISSUE_STATEMENT s/SOLUTION_LINK1 s/SOLUTION_LINK2 r/REMARK t/TAG&#8230;&#8203;</code></p>
-</div>
-<div class="ulist TIP">
-<ul class="TIP">
-<li>
-<p>An statement can have any number of tags (including 0)</p>
-</li>
-<li>
-<p>An statement can have any number of solutions (including 0)</p>
-</li>
-<li>
-<p>An statement can have any number of remarks (including 0)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add i/Undefined Variable s/www.example1a.com s/www.example1b.com</code></p>
-</li>
-<li>
-<p><code>add i/Segment Fault s/www.example2.com t/JAVA</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-issues-code-list-code-coming-in-v1-2"><a class="link" href="#listing-all-issues-code-list-code-coming-in-v1-2">3.11. Listing all issues : <code>list</code> [coming in v1.2]</a></h3>
-<div class="paragraph">
-<p>Shows a list of all issues in the statement bookmark according to either chronological order or frequency order. Users can also choose to list part of issues.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>list</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The default result of list command is listing all issues in a chronological order.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Format: <code>list p2 chr</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Listing issues from page 2 (No.11 - No.20) in a chronological order.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Format: <code>list freq</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>According to frequency order</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="returning-to-home-directory-code-home-code-coming-in-v1-2"><a class="link" href="#returning-to-home-directory-code-home-code-coming-in-v1-2">3.12. Returning to home directory : <code>home</code> [coming in v1.2]</a></h3>
-<div class="paragraph">
-<p>Changes the current editing directory to the root directory. Besides, Shows a list of all issues in the issue bookmark by index.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>home</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>All issues are listed in chronological order by default.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-an-issue-code-edit-code-coming-in-v1-2"><a class="link" href="#editing-an-issue-code-edit-code-coming-in-v1-2">3.13. Editing an issue : <code>edit</code> [coming in v1.2]</a></h3>
-<div class="paragraph">
-<p>Edits an existing statement in the statement list.<br>
-Format: <code>edit INDEX i/NEW_ISSUE s/NEW_SOLUTION_LINK1 s/NEW_SOLUTION_LINK2 t/TAG1 r/REMARK1​</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the statement at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed statement list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the issue at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed statement list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -558,57 +467,14 @@ Format: <code>edit INDEX i/NEW_ISSUE s/NEW_SOLUTION_LINK1 s/NEW_SOLUTION_LINK2 t
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit 1 r/use String instead of Byte[]</code></p>
-</li>
-<li>
-<p><code>Edits the email of the 1st bug encountered is to use a string instead of a Byte array.</code></p>
-</li>
-<li>
-<p><code>Edit 2 i/solved s/</code></p>
-</li>
-<li>
-<p><code>Edits the description of the second statement to be marked as solved and clears all existing solutions.</code></p>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="refactor-tag-code-refactortag-code-coming-in-v1-2"><a class="link" href="#refactor-tag-code-refactortag-code-coming-in-v1-2">3.14. Refactor Tag: <code>refactorTag</code> [coming in v1.2]</a></h3>
+<h3 id="deleting-an-statement-code-delete-code"><a class="link" href="#deleting-an-statement-code-delete-code">3.5. Deleting an statement : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>To rename or remove a certain tag (for all entries with that tag).</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>refactorTag java javascript</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Changes all entries tagged [java] to be tagged [javascript]</p>
-</li>
-</ul>
+<p>Deletes the specified issue from SaveIt App.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>refactorTag java [null]</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Removes the tag [java] from all the entries</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="locating-issues-by-statement-code-serach-code-coming-in-v1-2"><a class="link" href="#locating-issues-by-statement-code-serach-code-coming-in-v1-2">3.15. Locating issues by statement: <code>serach</code> [coming in v1.2]</a></h3>
-<div class="paragraph">
-<p>Search statement by tags, statement statement or remarks.
-Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Format: <code>delete INDEX</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -620,29 +486,75 @@ Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g hans will match Hans</p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. ‘kill port’ will match ‘port kill’</p>
-</li>
-<li>
-<p>Searches through the statement statement, tags or remarks.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. Han will not match Hans</p>
-</li>
-<li>
-<p>Issues matching at least one keyword will be returned (i.e. OR search). e.g. Hans Bo will return the page and relevant remarks</p>
-</li>
-<li>
-<p>Search results will be ordered based on the following priority:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Issue match &gt; Tag match</p>
+<p>The issue [1] will be deleted</p>
 </li>
 </ul>
 </div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 5</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the displayed issue list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The index cannot be bigger than the number of issues.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-issues-by-statement-code-find-code"><a class="link" href="#locating-issues-by-statement-code-find-code">3.6. Locating issues by statement: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Find issues whose statement and description contains any of the given search queries.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find [KEYWORDS&#8230;&#8203;]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The issue statement and description contain the KEYWORD will be shown in the displayed issue list</p>
+</li>
+<li>
+<p>The Keywords can be more than 1</p>
 </li>
 </ul>
 </div>
@@ -653,36 +565,409 @@ Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
+<p><code>find python</code></p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any statement having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>find python java</code></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="autosuggestion-of-existing-tags-coming-in-v1-3"><a class="link" href="#autosuggestion-of-existing-tags-coming-in-v1-3">3.16. Autosuggestion of (existing) Tags [coming in v1.3]</a></h3>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g hans will match Hans</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. ‘kill port’ will match ‘port kill’</p>
+</li>
+<li>
+<p>Searches through the issue statement or description.</p>
+</li>
+<li>
+<p>The keywords can partially match the statement or description.</p>
+</li>
+<li>
+<p>Issues matching at least one keyword will be returned.</p>
+</li>
+<li>
+<p>Searching the keyword will increment the search frequency of the issue (so that it can be ordered accordingly later on).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Returning to home directory  : <code>home</code></p>
+</div>
+<div class="paragraph">
+<p>Changes the current editing directory to the root directory. Besides, Shows a list of all issues in the issue list by index.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>home</code></p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Return to the home directory</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>home</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All issues are listed in chronological order by default in home directory.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Undoing previous command : <code>undo</code></p>
+</div>
+<div class="paragraph">
+<p>Restores the SaveIt App to the state before the previous undoable command was executed.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Undoable commands: those commands that modify the application’s content (add, addE, edit, editE, delete, deleteE, and clear).</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br>
+<code>list chr</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)</p>
+</li>
+<li>
+<p><code>select 1</code><br>
+<code>list chr</code><br>
+<code>undo</code><br>
+The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users can use <code>redo</code> (refer to next command) to restore their changes if they regret <code>undo</code> a command.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Redoing the previously undone command : <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
+The <code>redo</code> command deletes an issue 1</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>redo</code><br>
+The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>=== Clearing all entries : <code>clear</code></p>
+</div>
+<div class="paragraph">
+<p>Clears all issues from the saveIt App.</p>
+</div>
+<div class="paragraph">
+<p>Format:  <code>clear</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User can undo this operation to restore the issue lists.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Listing entered commands : <code>history</code></p>
+</div>
+<div class="paragraph">
+<p>Lists all the commands that you have entered in reverse chronological order.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>history</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>=== Exiting the program : <code>exit</code></p>
+</div>
+<div class="paragraph">
+<p>Exits the SaveIt App.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>exit</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>exit</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>=== Listing all issues : <code>list</code> [coming in v1.3]</p>
+</div>
+<div class="paragraph">
+<p>Shows a list of all issues in the statement bookmark according to either chronological order or frequency order. Users can also choose to list part of issues.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The default result of list command is listing all issues in a chronological order.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Format: <code>list freq</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Listing issues that are most find by users.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Format: <code>list tag</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>List all the issues that are taged by [].</p>
+</li>
+<li>
+<p>List blank issue list if the tag provided is not tagged by any issue</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>list</p>
+</li>
+<li>
+<p>list freq</p>
+</li>
+<li>
+<p>list t/python</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>=== Refactor Tag: <code>refactorTag</code> [coming in v1.3]</p>
+</div>
+<div class="paragraph">
+<p>To rename or remove a certain tag for all entries with that tag.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>refactorTag t/OLD_TAG [t/NEW_TAG]</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Replace the old tag with the new tag provided</p>
+</li>
+<li>
+<p>Remove the old tag if user does not provide new tag</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>refactorTag t/python t/java (Changes all entries tagged [python] to be tagged [java])</p>
+</li>
+<li>
+<p>refactorTag t/python (Removes the tag [java] from all the entries)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>=== Autosuggestion of (existing) Tags [coming in v1.3]</p>
+</div>
 <div class="paragraph">
 <p>To prevent the user from creating many similar tags / duplicates, whenever the user creates a record with a tag, or modifies a record’s tag, the application searches for similar tags in the system and prompts the user with a list of similar tags.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
 <p>add i/NEW_ISSUE t/java</p>
 </li>
-<li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
 <p>Similar tags have been found that have matched with [java], do you mean?</p>
-<div class="ulist">
-<ul>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Javascript</p>
 </li>
@@ -692,43 +977,29 @@ Returns any statement having names <code>Betsy</code>, <code>Tim</code>, or <cod
 <li>
 <p>No, i would like to create a new tag [java]</p>
 </li>
-</ul>
+</ol>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>tag 1 (chooses to replace [java] with [javascript])</p>
 </li>
 <li>
-<p>tag 1 : chooses to replace [java] with [javascript]</p>
-</li>
-<li>
-<p>tag 3 : chooses to create a new tag [java]</p>
+<p>tag 3 (chooses to create a new tag [java])</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="command-highlight-coming-in-v1-3"><a class="link" href="#command-highlight-coming-in-v1-3">3.17. Command highlight [coming in v1.3]</a></h3>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
-<p>Since some commands are quite long, some keywords and parameters are identified to help users to distinguish different information that they input.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
+<p>=== Team based - Creating / Switching projects [coming in v2.0]
+Records are organized into projects, that way, each project only stores information (bugs/issues) relevant to that project.</p>
 </div>
 <div class="paragraph">
-<p><span class="red">add</span> <span class="aqua">i/ISSUE_STATEMENT</span> <span class="Green">s/SOLUTION_LINK1</span> <span class="Green">s/SOLUTION_LINK2</span> <span class="blue">r/REMARK</span> <span class="fuchsia">t/TAG</span>…​</p>
-</div>
-<div class="paragraph">
-<p><span class="red">edit</span> <span class="lime">INDEX</span> <span class="aqua">i/NEW_ISSUE</span> <span class="Green">s/NEW_SOLUTION_LINK1</span> <span class="Green">s/NEW_SOLUTION_LINK2</span> <span class="fuchsia">t/TAG1</span> <span class="Maroon">r/REMARK1​</span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="team-based-creating-switching-projects-coming-in-v2-0"><a class="link" href="#team-based-creating-switching-projects-coming-in-v2-0">3.18. Team based - Creating / Switching projects [coming in v2.0]</a></h3>
-<div class="paragraph">
-<p>Records are organized into projects, that way, each project only stores information (bugs/issues) relevant to that project.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="team-based-data-access-from-cloud-coming-in-v2-0"><a class="link" href="#team-based-data-access-from-cloud-coming-in-v2-0">3.19. Team based - Data access from cloud [coming in v2.0]</a></h3>
-<div class="paragraph">
-<p>Developers usually work in teams, and since they are working on the same code base, it is likely that they will encounter the same issues. Developers can be added into projects (mentioned in 3.16), and have access to the same recorded issues that others have added. The data will be hosted on a cloud server so that any updates are accessible by other developers straight away.</p>
+<p>=== Team based - Data access from cloud [coming in v2.0]
+Developers usually work in teams, and since they are working on the same code base, it is likely that they will encounter the same issues. Developers can be added into projects (mentioned in 3.16), and have access to the same recorded issues that others have added. The data will be hosted on a cloud server so that any updates are accessible by other developers straight away.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -753,65 +1024,63 @@ Returns any statement having names <code>Betsy</code>, <code>Tim</code>, or <cod
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="highlight-the-page-highlight-coming-in-v2-0"><a class="link" href="#highlight-the-page-highlight-coming-in-v2-0">3.20. Highlight the page : highlight [coming in v2.0]</a></h3>
 <div class="paragraph">
-<p>Highlight the certain part of the page that show on the window, use a annotation box.
+<p>=== Highlight the page : <code>highlight</code> [coming in v2.0]
+Highlight the certain part of the page that show on the window, use a annotation box.
 Format: <code>highlight</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>== FAQ
+Due to the immaturity of our product, There may be some minor problems when you use SaveIt in unintended situations.
+ Here are questions that may arise during your usage.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous SaveIt folder.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: Can I use the app without Internet Connection?<br>
+<strong>A</strong>: For our current version of SaveIt, you will need to store all the web-page locally if there is not Internet connection.
+ Otherwise the web-page will not be displayed correctly.</p>
 </div>
+<div class="paragraph">
+<p>== Command Summary
+Here is a summary of all command formats for your reference. Please
+ note that some commands may implement more than one format.</p>
 </div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add i/ISSUE_STATEMENT s/SOLUTION_LINK1 s/SOLUTION_LINK2 [r/REMARK] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add i/exception thrown not handled s/add catch statement below it s/Link:www.https://stackoverflow.com/questions/…</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [i/ISSUE_STATEMENT] [s/SOLUTION_LINK1] [s/SOLUTION_LINK2]</code><br>
-e.g. <code>edit 2 i/exception thrown not handled s/statement solved</code></p>
-</li>
-<li>
-<p><strong>Refactor Tag</strong> <code>refactor [OLDTAG] [NEWTAG]</code><br>
-e.g. <code>refactorTag java [null]</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Home</strong> : <code>home</code></p>
-</li>
-<li>
-<p><strong>Search</strong> : <code>search KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>Search BST</code></p>
+<p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
 <p><strong>Select</strong> : <code>select INDEX</code><br>
 e.g.<code>select 2</code></p>
 </li>
 <li>
+<p><strong>Add</strong> <br>
+For issues: <code>add i/[ISSUE_STATEMENT] d/[DESCRIPTION] t/[Tag]</code><br>
+e.g. <code>add i/Bug d/exception thrown not handled t/java</code><br>
+For solutions: <code>add s/[SOLUTION_LINK] r/[REMARK]</code><br>
+e.g. <code>add s/www.github.com r/A git website</code></p>
+</li>
+<li>
+<p><strong>Edit</strong><br>
+For issues: <code>edit INDEX i/[ISSUE_STATEMENT] d/[DESCRIPTION]</code><br>
+e.g. <code>edit 2 i/exception thrown not handled d/statement solved</code><br>
+For solutions: <code>edit INDEX s/[SOLUTION_LINK] r/[REMARK]</code><br>
+e.g. <code>edit 3 s/www.google.com r/add a catch block</code></p>
+</li>
+<li>
 <p><strong>Delete</strong> : <code>delete INDEX</code><br>
 e.g. <code>delete 3</code></p>
+</li>
+<li>
+<p><strong>Search</strong> : <code>search KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>Search BST</code></p>
+</li>
+<li>
+<p><strong>Home</strong> : <code>home</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -826,15 +1095,24 @@ e.g. <code>delete 3</code></p>
 <p><strong>History</strong> : <code>history</code></p>
 </li>
 <li>
+<p><strong>Exit</strong> : <code>exit</code></p>
+</li>
+<li>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Refactor Tag</strong> : <code>refactor [OLDTAG] [NEWTAG]</code><br>
+e.g. <code>refactorTag java C++</code></p>
+</li>
+<li>
 <p><strong>Highlight</strong> : <code>highlight</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : exit</p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 05:00:47 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 18:36:21 UTC</div></div></div></body></html>
