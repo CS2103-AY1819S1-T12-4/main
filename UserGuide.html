@@ -115,16 +115,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add i/ISSUE d/DESCRIPTION</code>, <code>ISSUE</code> is a parameter which can be used as <code>add i/Segment Fault</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add i/ISSUE_STATEMENT d/DESCRIPTION</code>, <code>ISSUE_STATEMENT</code> and <code>DESCRIPTION</code> are parameters which can be used as <code>add i/Segment_Fault d/java</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/ISSUE_STATEMENT [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>i/ISSUE_STATEMENT d/DESCRIPTION [t/TAG]</code> can be used as <code>i/map_function d/how to use map in python t/python</code> or as <code>i/map_function d/how to use in python</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/python</code>, <code>t/python t/java</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>i/ISSUE_STATEMENT s/SOLUTION_LINK, s/SOUTION_LINK i/ISSUE_STATEMENT</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>t/TAG, d/DESCRIPTION i/ISSUE_STATEMENT</code> is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -309,7 +309,7 @@ type 3 (chooses to create a new tag [java])</pre>
 <p>Adds an issue to the SaveIt App.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add i/ISSUE_STATEMENT d/DESCRIPTION [t/TAG]</code></p>
+<p>Format: <code>add i/ISSUE_STATEMENT d/DESCRIPTION [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -419,7 +419,7 @@ type 3 (chooses to create a new tag [java])</pre>
 <p>Edits an existing issue or solutions in the SaveIt App.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit INDEX [i/NEW_ISSUE] [d/NEW_DESCRIPTION] [t/TAG1&#8230;&#8203;]</code></p>
+<p>Format: <code>edit INDEX [i/NEW_ISSUE] [d/NEW_DESCRIPTION] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1192,4 +1192,4 @@ e.g. <code>refactorTag java C++</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-19 01:38:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-19 01:59:33 UTC</div></div></div></body></html>
