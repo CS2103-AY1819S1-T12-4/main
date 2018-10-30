@@ -21,14 +21,17 @@ import seedu.saveit.model.issue.Solution;
  * The main LogicManager of the app.
  */
 public class LogicManager extends ComponentManager implements Logic {
+    public static final String ASK_FOR_CONFIRMATION = "Are you sure to %s ? Please enter Yes(Y) to confirm.";
+    public static final String CONFIRMATION_FAILED = "Didn't %s.";
+    public static final String CONFIRM_WORD = "Yes";
+    public static final String CONFIRM_ALIAS = "Y";
+
     private final Logger logger = LogsCenter.getLogger(LogicManager.class);
 
     private final List<String> dangerCommands;
     private final Model model;
     private final CommandHistory history;
     private final SaveItParser saveItParser;
-    private final String CONFIRM_WORD = "Yes";
-    private final String CONFIRM_ALIAS = "Y";
     private Command bufferedCommand;
 
     public LogicManager(Model model) {
@@ -44,12 +47,12 @@ public class LogicManager extends ComponentManager implements Logic {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
         try {
             // handle buffered command before executing other command
-            if (requireConfirmation(bufferedCommand)) {
+            if (requireConfirmationBeforeExecution(bufferedCommand)) {
                 return handleBufferedCommand(commandText);
             }
 
             Command command = saveItParser.parseCommand(commandText);
-            if (requireConfirmation(command)) {
+            if (requireConfirmationBeforeExecution(command)) {
                 return setBufferedCommand(command);
             } else {
                 return command.execute(model, history);
@@ -75,22 +78,29 @@ public class LogicManager extends ComponentManager implements Logic {
         return new ListElementPointer(history.getHistory());
     }
 
+    /**
+     * Explicitly write down all commands that need confirmation before they are executed.
+     */
     private List<String> initializeDangerCommands() {
         String[] commandArr = {"ClearCommand"};
         return new ArrayList<>(Arrays.asList(commandArr));
     }
 
-    private CommandResult handleBufferedCommand(String commandText) throws CommandException, ParseException{
+    /**
+     * Check if a buffered command can be executed based on {@param commandText}.
+     * Update {@code bufferedCommand} to null.
+     */
+    private CommandResult handleBufferedCommand(String commandText) throws CommandException, ParseException {
         if (commandText.equals(CONFIRM_WORD) || commandText.equals(CONFIRM_ALIAS)) {
             return executeBufferedCommand();
         } else {
             String bufferedCommandType = getBufferedCommandType();
             resetBufferedCommand();
-            return new CommandResult(String.format("Didn't %s.", bufferedCommandType));
+            return new CommandResult(String.format(CONFIRMATION_FAILED, bufferedCommandType));
         }
     }
 
-    private boolean requireConfirmation(Command command) {
+    private boolean requireConfirmationBeforeExecution(Command command) {
         if (command == null) {
             return false;
         }
@@ -98,7 +108,7 @@ public class LogicManager extends ComponentManager implements Logic {
         return dangerCommands.contains(command.getClass().getSimpleName());
     }
 
-    private CommandResult executeBufferedCommand() throws CommandException, ParseException{
+    private CommandResult executeBufferedCommand() throws CommandException, ParseException {
         CommandResult commandResult = bufferedCommand.execute(model, history);
         resetBufferedCommand();
         return commandResult;
@@ -106,7 +116,7 @@ public class LogicManager extends ComponentManager implements Logic {
 
     private CommandResult setBufferedCommand(Command command) {
         bufferedCommand = command;
-        return new CommandResult(String.format("Are you sure to %s ? Please enter Yes(Y) to confirm.", getBufferedCommandType()));
+        return new CommandResult(String.format(ASK_FOR_CONFIRMATION, getBufferedCommandType()));
     }
 
     private void resetBufferedCommand() {
@@ -115,7 +125,7 @@ public class LogicManager extends ComponentManager implements Logic {
 
     private String getBufferedCommandType() {
         String className = bufferedCommand.getClass().getSimpleName();
-        String COMMAND = "Command";
-        return className.substring(0, className.length() - COMMAND.length()).toLowerCase();
+        String command = "Command";
+        return className.substring(0, className.length() - command.length()).toLowerCase();
     }
 }
