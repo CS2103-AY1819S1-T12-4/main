@@ -87,7 +87,7 @@ public class LogicManager extends ComponentManager implements Logic {
     }
 
     /**
-     * Check if a buffered command can be executed based on {@param commandText}.
+     * Check if a buffered command can be executed based on {@code commandText}.
      * Update {@code bufferedCommand} to null.
      */
     private CommandResult handleBufferedCommand(String commandText) throws CommandException, ParseException {
@@ -100,6 +100,9 @@ public class LogicManager extends ComponentManager implements Logic {
         }
     }
 
+    /**
+     * Check if a command requires confirmation before being executed.
+     */
     private boolean requireConfirmationBeforeExecution(Command command) {
         if (command == null) {
             return false;
