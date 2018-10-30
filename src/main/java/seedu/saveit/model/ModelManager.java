@@ -134,7 +134,7 @@ public class ModelManager extends ComponentManager implements Model {
     public ObservableList<Solution> getFilteredSolutionList() {
         Directory directory = getCurrentDirectory();
         if (directory.isRootLevel()) {
-            return FXCollections.unmodifiableObservableList(filteredIssues.get(0).getObservableSolutions());
+            return null;
         } else {
             return FXCollections.unmodifiableObservableList
                     (filteredIssues.get(directory.getIssue() - 1).getObservableSolutions());
