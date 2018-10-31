@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>SaveIt - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/saveit-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/saveit-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/saveit-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">address-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/address-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>SaveIt - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/saveit-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/saveit-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/saveit-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">saveit-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/saveit-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>SaveIt - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team T12-4</code>      Since: <code>Sep 2018</code>      Licence: <code>MIT</code></p>
@@ -30,12 +30,17 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#list-feature">4.1. List feature</a></li>
-<li><a href="#undo-redo-feature">4.2. Undo/Redo feature</a></li>
-<li><a href="#logging">4.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.4. Configuration</a></li>
-<li><a href="#new-command-home">4.5. New Command: Home</a></li>
-<li><a href="#gui-enhancement-coming-in-v1-3">4.6. GUI Enhancement[Coming in v1.3]</a></li>
+<li><a href="#add-issue-feature">4.1. Add issue feature</a></li>
+<li><a href="#add-solution-feature">4.2. Add solution feature</a></li>
+<li><a href="#sort-feature">4.3. Sort feature</a></li>
+<li><a href="#undo-redo-feature">4.4. Undo/Redo feature</a></li>
+<li><a href="#confirmation-check">4.5. Confirmation Check</a></li>
+<li><a href="#logging">4.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
+<li><a href="#new-command-home">4.8. New Command: Home</a></li>
+<li><a href="#gui-enhancement-coming-in-v1-3">4.9. GUI Enhancement[Coming in v1.3]</a></li>
+<li><a href="#edit-feature">4.10. Edit Feature</a></li>
+<li><a href="#refactor-tag-feature">4.11. Refactor tag Feature</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -83,7 +88,8 @@
 <li><a href="#adding-an-issue">H.2. Adding an issue</a></li>
 <li><a href="#editing-an-issue">H.3. Editing an issue</a></li>
 <li><a href="#deleting-an-issue">H.4. Deleting an issue</a></li>
-<li><a href="#saving-data">H.5. Saving data</a></li>
+<li><a href="#sorting-an-issue-list">H.5. Sorting an issue list</a></li>
+<li><a href="#saving-data">H.6. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -214,7 +220,7 @@ This will generate all resources required by the application and tests.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Run the <code>seedu.address.MainApp</code> and try a few commands</p>
+<p>Run the <code>seedu.saveit.MainApp</code> and try a few commands</p>
 </li>
 <li>
 <p><a href="#Testing">Run the tests</a> to ensure they all pass.</p>
@@ -637,7 +643,7 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.address.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>seedu.saveit.commons</code> package.</p>
 </div>
 </div>
 </div>
@@ -649,74 +655,234 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 <p>This section describes some noteworthy details on how certain features are implemented. Note that this section does not fully encompass all the features, but the more core features of the application.</p>
 </div>
 <div class="sect2">
-<h3 id="list-feature"><a class="link" href="#list-feature">4.1. List feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
+<h3 id="add-issue-feature"><a class="link" href="#add-issue-feature">4.1. Add issue feature</a></h3>
 <div class="paragraph">
-<p>The current list mechanism inherits the same implementation from AddressBook.</p>
+<p>The add command can add an new issue to the issue list</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>ModelManager#updateFilteredIssueList()</code>&#8201;&#8212;&#8201;Predicate is set to be unused. Indicate no change is required.</p>
-</li>
-<li>
-<p><code>FXCollections.unmodifiableObservableList()</code>&#8201;&#8212;&#8201;Return a ObservableList of all issues.</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current implementation</a></h4>
+<div class="paragraph">
+<p>We use <code>SaveItParser</code> to call <code>AddCommandParser</code> so as to pass the entered issue, then <code>AddCommand</code> is invoked which will ask model to add the issue to the <code>Model</code> component.
+In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> will be invoked and it will add issue to the <code>UniqueIssueList</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the add new issue feature functions:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddNewIssue.png" alt="AddNewIssue" width="800">
+</div>
+<div class="title">Figure 10. Add Issue Command Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>This diagram gives a clear procedure that how the user input is passed step by step and calling different methods and objects at different sequences.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-solution-feature"><a class="link" href="#add-solution-feature">4.2. Add solution feature</a></h3>
+<div class="paragraph">
+<p>The add command can add a new solution link as well as solution remark to an existing issue</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current implementation</a></h4>
+<div class="paragraph">
+<p>We use <code>SaveItParser</code> to call <code>AddCommandParser</code> just like how add issue features functions as above mentioned. However, this time, the solution link and solution remark is provided to <code>AddCommand</code> instead. During execution, <code>updateIssue</code> and <code>updateFilteredIssueList</code> will be called respectively in <code>ModelManager</code> as a way to replace the original issue with the new edition of issue which has the new solution entered.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the add solution feature functions</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddNewSolution.png" alt="AddNewSolution" width="800">
+</div>
+<div class="title">Figure 11. Add Solution Command Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>This diagram shows the sequence that how add solution command is executed. It could be also noticed that it is basically similar to that of add new issue feature besides it invokes updateIssue method in Model component rather than addIssue method.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="list-by-a-specific-order"><a class="link" href="#list-by-a-specific-order">List by a specific order</a></h5>
-<div class="paragraph">
-<p>This mechanism relies most on the logic component. ListCommandParser.java need to be implemented to identify if there is a sorting requirement.</p>
-</div>
-<div class="paragraph">
-<p>Since list should not modify the sorting inside storage, IndicateSaveItChanged should not be raised and this command should not change Model.</p>
-</div>
-<div class="paragraph">
-<p>There will only be 3 kinds of order that the list can be shown in, as proposed in the following paragraph.</p>
-</div>
+<h5 id="aspect-how-add-solutions-executes"><a class="link" href="#aspect-how-add-solutions-executes">Aspect: How add solutions executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>List by chronological order <strong>(default)</strong><br>
-<strong>Command:</strong> <code>list chr</code><br>
-This order follows how the data is stored in Model, reflecting the user&#8217;s learning journey.<br>
-There is no need to implement new Comparator for that.</p>
+<p>Alternative 1 (current choice): Combine AddIssue and AddSolution combined together and distinguishes them at the stage of <code>AddCommandParser</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Consistent syntax between the two features, so the command is more user-friendly.</p>
 </li>
 <li>
-<p>List by Tag<br>
-<strong>Command:</strong> <code>list tag</code><br>
-Tag is mainly used as a way to distinguish different kind of problems, such as Java problems and C problems. This order can help users to identify the issues quickly.<br>
-This order requires the tag attribute of every issue to be tracked. A simple idea is to get the TagList and sort all issues according to the tags.<br>
-Those issues without a tag should be put at the end of the lists.</p>
-</li>
-<li>
-<p>List by search frequency<br>
-<strong>Command</strong> <code>list freq</code><br>
-Search frequency can reflect the importance of different issues. This order can help users to review important issues more easily.
-Search frequency tracker is needed for this list order. It can be considered as an attribute just like tags, thus a Comparator which is similar to that used in List by Tag can be used here.<br></p>
+<p>Cons: Need to put more effort on distinguishing the difference between these two requests, <code>AddCommandParser</code> is relatively complex compared to the other parser component.</p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Build a new command especially for adding solution</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: The command set becomes too complex for the user.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-add-command-distinguishes-between-adding-solution-and-adding-issue"><a class="link" href="#aspect-how-add-command-distinguishes-between-adding-solution-and-adding-issue">Aspect: How add command distinguishes between adding solution and adding issue</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Passing a new created issue with dummy issue statement or dummy solution link</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Consistent coding style and less change on logic structure</p>
+</li>
+<li>
+<p>Cons: Quite complex implementation compared to other command</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Overloading Issue constructor so that different issues will be passing to <code>AddCommand</code> accordingly.</p>
+</li>
+<li>
+<p>Pros: Relatively easier to implement</p>
+</li>
+<li>
+<p>Cons: Lots of changes on structure.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sort-feature"><a class="link" href="#sort-feature">4.3. Sort feature</a></h3>
+<div class="paragraph">
+<p>The sort command can sort an issue list shown in the GUI.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current implementation</a></h4>
+<div class="paragraph">
+<p>We use JavaFX <code>SortedList</code> and the Comparator provided by <code>IssueSort</code> to sort the list, <code>ModelManager#getSortedList()</code> to retrieve the sorted list.</p>
+</div>
+<div class="paragraph">
+<p>In order to allow sort work with filtered list, we implement the new method <code>getFilteredAndSortedList()</code>, which calls <code>getSortedList()</code> and apply it to the filtered list.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram illustrates how the mechanism works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ListByOrderCommandSequenceDiagram.png" alt="ListByOrderCommandSequenceDiagram" width="800">
+<img src="images/SortCommandSequenceDiagram.png" alt="SortCommandSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 12. Sort Command Sequence Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/InitializeComparator.png" alt="InitializeComparator" width="800">
+</div>
+<div class="title">Figure 13. Reference Frame Initialize Comparator</div>
+</div>
+<div class="paragraph">
+<p>This two diagrams show that after the input is parsed, a IssueSort object is initialized before the SortCommand object.</p>
+</div>
+<div class="paragraph">
+<p>As shown in the diagram, an IssueSort object can provide the required comparator with the input String passed from SortCommand.
+We use the retrieved Comparator the sort the list when executing the sort command.</p>
+</div>
+<div class="paragraph">
+<p>The following is a class diagram for IssueSort.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/IssueSort.png" alt="IssueSort" width="800">
+</div>
+<div class="title">Figure 14. IssueSort Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>It shows that Comparator is an attribute of IssueSort class. We create three different classes that implement the Comparator Interface.
+They can serve the three sort type we provide in SaveIt. When more sort type is needed, we can simple create another class implementing Comparator, and add anther case in switch statement.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-sort-executes"><a class="link" href="#aspect-how-sort-executes">Aspect: How sort executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Combine SortedList and FilteredList, sort at GUI side</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Consistent sorting. Doesn&#8217;t affect the memory of issue lists.</p>
+</li>
+<li>
+<p>Cons: Need effort to make sure the correct list is retrieved.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Reconstruct UniqueIssueList directly, sort at Storage</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to understand and implement</p>
+</li>
+<li>
+<p>Cons: Time consuming.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-comparator-to-support-the-sort-command"><a class="link" href="#aspect-comparator-to-support-the-sort-command">Aspect: Comparator to support the sort command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Sort by added time: <code>sort</code><br>
+This sorting follows how the data is stored in Storage, reflecting the user&#8217;s learning journey.<br>
+There is no need to implement new Comparator for that.</p>
+</li>
+<li>
+<p>Sort by chronological order: <code>sort chro</code><br>
+This sorting require the Comparator to compare the last modified time of the issue. Therefore, a Timestamp needs to be stored and updated every time an issue is added or edited.</p>
+</li>
+<li>
+<p>Sort by first Tag: <code>sort tag</code><br>
+This sorting requires the tag attribute of every issue to be tracked. We retrieve tag lists and get the first tags. A String Comparator is enough for sorting tagName of them.
+Those issues without a tag should be put at the end of the lists.</p>
+</li>
+<li>
+<p>Sort by search frequency: <code>sort freq</code><br>
+This sorting requires the search frequency tracker. We retrieve the IssueSearchFrequency and sort them by the compare method provided in that class.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.2. Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.4. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedSaveIt</code>.
 It extends <code>saveit</code> with an undo/redo history, stored internally as an <code>saveItStateList</code> and <code>currentStatePointer</code>.
@@ -801,7 +967,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial S
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 10. The above sequence diagram shows how the undo operation works:</div>
+<div class="title">Figure 15. The above sequence diagram shows how the undo operation works:</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoSaveIt()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the SaveIt to that state.</p>
@@ -838,11 +1004,11 @@ If the <code>currentStatePointer</code> is at index <code>saveItStateList.size()
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
-<div class="title">Figure 11. The above activity diagram summarizes what happens when a user executes a new command:</div>
+<div class="title">Figure 16. The above activity diagram summarizes what happens when a user executes a new command:</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -912,14 +1078,108 @@ If the <code>currentStatePointer</code> is at index <code>saveItStateList.size()
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.3. Logging</a></h3>
+<h3 id="confirmation-check"><a class="link" href="#confirmation-check">4.5. Confirmation Check</a></h3>
+<div class="paragraph">
+<p>Some commands that can affect the users' experience significantly need to be paid attention to and confirmation should be provided before they are executed.
+For the current version, <code>clear</code> is the only command that needs confirmation.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Instead of letting LogicManager execute the command directly after parsing it, we now check if we need confirmation before the command is executed.</p>
+</div>
+<div class="paragraph">
+<p>In order to connect the confirmation with the command:<br></p>
+</div>
+<div class="paragraph">
+<p>Step 1. We buffer the command that waits for confirmation.<br></p>
+</div>
+<div class="paragraph">
+<p>Step 2. Generate the CommandResult according to the confirmation message entered.<br></p>
+</div>
+<div class="paragraph">
+<p>Step 3. Clear the buffer.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.5.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-distinguish-commands-that-need-confirmation"><a class="link" href="#aspect-how-to-distinguish-commands-that-need-confirmation">Aspect: How to distinguish commands that need confirmation</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use abstract class DangerCommand</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Protect the specific Command type from being accessed by LogicManager. Sustainable.</p>
+</li>
+<li>
+<p>Cons: N.A.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Check class name and provide a danger class name list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Command information leaked. Inaccurate, e.g. two classes from different package can have the same class name.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-connect-the-confirmation-message-with-the-command-requiring-it"><a class="link" href="#aspect-how-to-connect-the-confirmation-message-with-the-command-requiring-it">Aspect: How to connect the confirmation message with the command requiring it</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Buffer the command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Protect CommandBox from Command Class.</p>
+</li>
+<li>
+<p>Cons: Another variable introduced. Need effort to deal with the buffered command properly.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Let Command check the confirmation message</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Follow the normal logic. Easy to understand.</p>
+</li>
+<li>
+<p>Cons: CommandBox is exposed to Command Class.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -950,19 +1210,19 @@ If the <code>currentStatePointer</code> is at index <code>saveItStateList.size()
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="new-command-home"><a class="link" href="#new-command-home">4.5. New Command: Home</a></h3>
+<h3 id="new-command-home"><a class="link" href="#new-command-home">4.8. New Command: Home</a></h3>
 <div class="paragraph">
 <p>A new command--<code>home</code> is implemented to allow users to return to the root directory after editing a certain issue.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="gui-enhancement-coming-in-v1-3"><a class="link" href="#gui-enhancement-coming-in-v1-3">4.6. GUI Enhancement[Coming in v1.3]</a></h3>
+<h3 id="gui-enhancement-coming-in-v1-3"><a class="link" href="#gui-enhancement-coming-in-v1-3">4.9. GUI Enhancement[Coming in v1.3]</a></h3>
 <div class="paragraph">
 <p>The  figure below shows the expected GUI for SaveIt v1.3.</p>
 </div>
@@ -970,7 +1230,7 @@ If the <code>currentStatePointer</code> is at index <code>saveItStateList.size()
 <div class="content">
 <img src="images/UI_Design.png" alt="UI Design" width="800">
 </div>
-<div class="title">Figure 12. GUI Draft 1</div>
+<div class="title">Figure 17. GUI Draft 1</div>
 </div>
 <div class="paragraph">
 <p>In the above figure, it is shown the left column displays the list of all issues,
@@ -991,13 +1251,211 @@ If the <code>currentStatePointer</code> is at index <code>saveItStateList.size()
 <div class="content">
 <img src="images/UI_Design1.png" alt="UI Design1" width="800">
 </div>
-<div class="title">Figure 13. GUI Draft 2, scenario 1</div>
+<div class="title">Figure 18. GUI Draft 2, scenario 1</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UI_Design2.png" alt="UI Design2" width="800">
 </div>
-<div class="title">Figure 14. GUI Draft 2, scenario 2</div>
+<div class="title">Figure 19. GUI Draft 2, scenario 2</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-feature"><a class="link" href="#edit-feature">4.10. Edit Feature</a></h3>
+<div class="paragraph">
+<p>The edit feature allows users to edit any field of the issue and solution.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.10.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The edit mechanism is facilitated by <code>editCommandParser</code> and <code>editCommand</code>. Users are allowed to edit any field in the issue list. includes:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Issue level</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Issue statement</p>
+</li>
+<li>
+<p>Issue description</p>
+</li>
+<li>
+<p>Issue tags</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Solution level</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Solution link</p>
+</li>
+<li>
+<p>Solution remark</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>editCommandParser</code> extends <code>Parser</code> and implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editCommandParser#parser(String args)</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Checks the arguments for empty strings and throws a <code>ParseException</code> if empty string is found.</p>
+</li>
+<li>
+<p>Analyses the argument to check if it is a valid command format. If it is a valid format, it will set the corresponding fileds usign <code>EditDescriptor</code>. There are two types format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>edit issue: edit Index i/statement d/description t/tag1 t/tag2 &#8230;&#8203;</p>
+</li>
+<li>
+<p>edit solution: <code>edit Index s/https://www.dummysolutionlink.com r/remark</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If it fails to parse the command, it will throw <code>ParseException</code> and display edit command usage message.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editCommand#execute(Model model, CommandHisotry history)</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Analyses the user in the root directory or issue directory. If the user in the root directory but provide solution level edit command or in solution directory but provide issue level edit command<br>
+throw <code>CommandException</code> and show wrong directory information.</p>
+</li>
+<li>
+<p>Checks if the user index in editDescriptor is larger than the size of the issue list or solution list.<br>
+Throw <code>CommandException</code> and show invalid index warning. Otherwise, call the function <code>model.updateIssue(issueToEdit, editedIssue)</code> to update issue list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Please refer to the Sequence Diagram below for the edit operation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditCommandSequenceDiagram.jpg" alt="EditCommandSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 20. Edit Command Sequence Diagram</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.10.2. Design Consideration</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Update the whole issue fields when every single field needs to edit.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement in current implementation.</p>
+</li>
+<li>
+<p>Cons: It may have performance issues regarding memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Update the specific data field instead of updating the whole issue.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It will use less memory.</p>
+</li>
+<li>
+<p>Cons: It has lower security if it the issue is the mutable object.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="refactor-tag-feature"><a class="link" href="#refactor-tag-feature">4.11. Refactor tag Feature</a></h3>
+<div class="paragraph">
+<p>The refactor tag feature allows users to rename or remove a specific tag for all entries with that tag.</p>
+</div>
+<div class="sect3">
+<h4 id="current-impelementation"><a class="link" href="#current-impelementation">4.11.1. Current Impelementation</a></h4>
+<div class="paragraph">
+<p>The refactor tag mechanism is facilitated by <code>refactorTagCommandParser</code> and <code>refactorCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>refactorTagCommandParser</code> extends <code>Parser</code> and implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>refactorTagCommandParser#parser(String args)</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Checks the arguments for empty strings and throws a <code>ParseException</code> if an empty string is found.</p>
+</li>
+<li>
+<p>Analyses the argument to check if it is a valid command format. Users are only allowed to use two prefixes in refactor tag command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>t/</code> the tag that user wants to refactor, which must be input by the user, otherwise throws <code>ParserException</code> and shows refactor tag command usage message.</p>
+</li>
+<li>
+<p><code>n/</code> the new tag that user wants to replace the original one, which is optional. (if the user does not provide, then remove the original one)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If it fails to parse the command, it will throw <code>ParseException</code> and display refactor tag command usage message.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>refactorTagCommand#execute(Model model, CommandHisotry history)</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>update the issue list and return success message if it has edited an issue, otherwise show unsuccessful message.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1061,7 +1519,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 21. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -1292,7 +1750,7 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 <p><em>System Tests</em> that test the entire App by simulating user actions on the GUI. These are in the <code>systemtests</code> package.</p>
 </li>
 <li>
-<p><em>Unit tests</em> that test the individual components. These are in <code>seedu.address.ui</code> package.</p>
+<p><em>Unit tests</em> that test the individual components. These are in <code>seedu.saveit.ui</code> package.</p>
 </li>
 </ol>
 </div>
@@ -1303,15 +1761,15 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 <ol class="loweralpha" type="a">
 <li>
 <p><em>Unit tests</em> targeting the lowest level methods/classes.<br>
-e.g. <code>seedu.address.commons.StringUtilTest</code></p>
+e.g. <code>seedu.saveit.commons.StringUtilTest</code></p>
 </li>
 <li>
 <p><em>Integration tests</em> that are checking the integration of multiple code units (those code units are assumed to be working).<br>
-e.g. <code>seedu.address.storage.StorageManagerTest</code></p>
+e.g. <code>seedu.saveit.storage.StorageManagerTest</code></p>
 </li>
 <li>
 <p>Hybrids of unit and integration tests. These test are checking multiple code units as well as how the are connected together.<br>
-e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
+e.g. <code>seedu.saveit.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
@@ -2804,19 +3262,19 @@ Expected: The most recent window size and location is retained.</p>
 <p>Prerequisites: User is in root directory</p>
 </li>
 <li>
-<p>Test case: <code>add i/problem d/description t/UI</code>
+<p>Test case: <code>add i/problem d/description t/UI</code><br>
 Expected: A new issue with statement and description is added, tagged with UI.</p>
 </li>
 <li>
-<p>Test case: <code>add t/UI d/description d/newdescription i/problem</code>
+<p>Test case: <code>add t/UI d/description d/newdescription i/problem</code><br>
 Expected: A new issue with statement and newdescription is added, tagged with UI.</p>
 </li>
 <li>
-<p>Test case: <code>add i/proπblem d/description</code>
+<p>Test case: <code>add i/proπblem d/description</code><br>
 Expected: No issue is added. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Test case: <code>add s/www.example.com r/remark</code>
+<p>Test case: <code>add s/www.example.com r/remark</code><br>
 Expected: No issue is added. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
@@ -2844,19 +3302,19 @@ Expected: Similar to previous.</p>
 <p>Prerequisites: User is in root directory</p>
 </li>
 <li>
-<p>Test case: <code>edit 1 i/problem</code>
+<p>Test case: <code>edit 1 i/problem</code><br>
 Expected: First issue is edited. Its new issue statement is problem.</p>
 </li>
 <li>
-<p>Test case: <code>edit 1 d/description d/newdescription</code>
+<p>Test case: <code>edit 1 d/description d/newdescription</code><br>
 Expected: First issue is edited. Its new description is newdescription.</p>
 </li>
 <li>
-<p>Test case: <code>edit 1 i/proπblem</code>
+<p>Test case: <code>edit 1 i/proπblem</code><br>
 Expected: No issue is edited. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Test case: <code>edit 1 s/www.example.com r/remark</code>
+<p>Test case: <code>edit 1 s/www.example.com r/remark</code><br>
 Expected: No issue is edited. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
@@ -2909,7 +3367,40 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.5. Saving data</a></h3>
+<h3 id="sorting-an-issue-list"><a class="link" href="#sorting-an-issue-list">H.5. Sorting an issue list</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sorting the issue list in root directory</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: User is in root directory</p>
+</li>
+<li>
+<p>Test case: <code>sort</code><br>
+Expected: Issues are sorted by adding order.</p>
+</li>
+<li>
+<p>Test case: <code>sort freq</code><br>
+Expected: Issues are sorted by search frequency.</p>
+</li>
+<li>
+<p>Test case: <code>sort random</code><br>
+Expected: The invalid command error it shown in the status message. The issue list remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>sort tag random</code><br>
+Expected: The invalid command error it shown in the status message. The issue list remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">H.6. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2929,4 +3420,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-22 05:57:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 16:05:41 UTC</div></div></div></body></html>
