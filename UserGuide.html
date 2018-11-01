@@ -133,6 +133,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>t/TAG, d/DESCRIPTION i/ISSUE_STATEMENT</code> is also acceptable.</p>
 </li>
+<li>
+<p>Command alias can be used instead of lengthy command words.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -293,7 +296,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Format: <code>edit INDEX [i/NEW_ISSUE] [d/NEW_DESCRIPTION] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit INDEX s/NEW_SOLUTION_LINK s/NEW_SOLUTION_REMARK</code></p>
+<p>Format: <code>edit INDEX s/NEW_SOLUTION_LINK r/NEW_SOLUTION_REMARK</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -321,15 +324,31 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 i/filter_function d/how to use filter function in python t/python</code> (the issue statement, description and tag will be updated)</p>
+<p><code>edit 1 i/map function d/how to use map</code></p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/edit-issue.png" alt="edit issue" width="790">
+</div>
+<div class="title">Figure 2. Command Edit solution link to a solution</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>select 1</code> (select the first issue)</p>
 </li>
 <li>
-<p><code>edit 3 s/www.example2a.com r/refer the link explanation</code> (the third solution link and remark will be updated)</p>
+<p><code>edit 3 s/www.youtube.com</code> (the third solution link and remark will be updated)</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/edit-solution.png" alt="edit solution" width="790">
+</div>
+<div class="title">Figure 3. Command Edit solution link to a solution</div>
 </div>
 </div>
 </div>
@@ -384,6 +403,12 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/add-tag.png" alt="add tag" width="790">
+</div>
+<div class="title">Figure 4. Command Add tag(s) to an issue</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -396,7 +421,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>If the tag already exits in the current issue tags, it will be ignored.</p>
+<p>If the tag already exits in the current issue, it will be ignored.</p>
 </li>
 </ul>
 </div>
@@ -1018,32 +1043,20 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="ulist">
 <ul>
 <li>
-<p>refactorTag t/python nt/java (Changes all entries tagged [python] to be tagged [java])</p>
+<p>refactorTag t/solved n/TIL (Changes all entries tagged [solved] to be tagged [TIL])</p>
 </li>
 <li>
-<p>refactorTag t/python (Removes the tag [python] from all the entries)</p>
+<p>refactorTag t/solved (Removes the tag [solved] from all the entries)</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/refactor-tag.png" alt="refactor tag" width="790">
+</div>
+<div class="title">Figure 5. Command highlight 2</div>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>If the new tag exits in the issue already, it is the same as removing the old tag.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -1099,7 +1112,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="content">
 <img src="images/autosuggest-tag.png" alt="autosuggest tag" width="790">
 </div>
-<div class="title">Figure 2. Autosuggesting of existing tags</div>
+<div class="title">Figure 6. Autosuggesting of existing tags</div>
 </div>
 </div>
 <div class="sect2">
@@ -1115,34 +1128,30 @@ To make things more convenient, after the application prompts the user if they w
 <div class="content">
 <img src="images/copy-existing.png" alt="copy existing" width="790">
 </div>
-<div class="title">Figure 3. Copying existing fields</div>
+<div class="title">Figure 7. Copying existing fields</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="highlighting-command-parameters"><a class="link" href="#highlighting-command-parameters">3.21. Highlighting command parameters</a></h3>
 <div class="paragraph">
-<p>To distinguish user command for different parameters, commands get highlighted with different color as you type.</p>
+<p>When the user types the command in the command line, it is difficult for users to distinguish their inputs and parameters. Hence command gets highlighted is essential to differentiate the parameter and values that user input.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><span class="yellow">add</span> <span class="aqua">i/</span>[ISSUE_STATEMENT] <span class="aqua">d/</span>[DESCRIPTION]</p>
-</li>
-<li>
-<p><span class="yellow">edit</span> <span class="green">12</span> <span class="green">s/</span>[SOLUTION_LINK] <span class="aqua">r/</span>[REMARK]</p>
-</li>
-<li>
-<p><span class="yellow">select</span> <span class="green">4</span></p>
-</li>
-<li>
-<p><span class="yellow">list</span> <span class="blue">freq</span></p>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-highlight1.png" alt="command highlight1" width="790">
+</div>
+<div class="title">Figure 8. Command highlight 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/command-highlight2.png" alt="command highlight2" width="790">
+</div>
+<div class="title">Figure 9. Command highlight 2</div>
 </div>
 </div>
 </div>
@@ -1280,4 +1289,4 @@ e.g. <code>refactorTag java C++</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 03:12:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 03:20:31 UTC</div></div></div></body></html>
