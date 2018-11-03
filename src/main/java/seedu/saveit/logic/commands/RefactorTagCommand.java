@@ -29,7 +29,6 @@ public class RefactorTagCommand extends Command {
     private final Tag oldTag;
     private final Tag newTag;
 
-    private Issue editedIssue;
     private boolean isEdit;
 
     /**
@@ -40,15 +39,24 @@ public class RefactorTagCommand extends Command {
         requireNonNull(oldTag);
         this.oldTag = oldTag;
         this.newTag = newTag;
-        editedIssue = null;
         this.isEdit = false;
+    }
+
+    /**
+     * @param oldTag the tag will be replaced
+     */
+    public RefactorTagCommand(Tag oldTag) {
+        requireNonNull(oldTag);
+        this.oldTag = oldTag;
+        this.isEdit = false;
+        this.newTag = null;
     }
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
 
-        isEdit = model.refactorTag(oldTag, newTag);
+        isEdit = newTag != null ? model.refactorTag(oldTag, newTag) : model.refactorTag(oldTag);
         model.updateFilteredIssueList(Model.PREDICATE_SHOW_ALL_ISSUES);
         model.commitSaveIt();
         if (isEdit) {
@@ -61,7 +69,8 @@ public class RefactorTagCommand extends Command {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
             || (other instanceof RefactorTagCommand) // instanceof handles nulls
-            || (editedIssue.equals(((RefactorTagCommand) other).editedIssue)); //state check
+            || (oldTag.equals(((RefactorTagCommand) other).oldTag)) //state check
+            || (newTag.equals(((RefactorTagCommand) other).newTag));
     }
 }
 

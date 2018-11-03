@@ -116,8 +116,16 @@ public interface Model {
     void commitSaveIt();
 
     /**
-     * To rename or remove a specified {@code oldTag} to {@code newTag} for all entries.
+     * To rename a specified {@code oldTag} to {@code newTag} for all entries.
      * @return true if any tag has been replaced, otherwise false.
      */
     boolean refactorTag(Tag oldTag, Tag newTag);
+
+    /**
+     * To remove a specified {@code oldTag} for all entries.
+     * @return true if any tag has been replaced, otherwise false.
+     */
+    boolean refactorTag(Tag oldTag);
+
+
 }

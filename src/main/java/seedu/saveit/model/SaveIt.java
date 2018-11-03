@@ -18,7 +18,6 @@ import seedu.saveit.model.issue.Tag;
  */
 public class SaveIt implements ReadOnlySaveIt {
 
-    private static final String DUMMY_TAG = "dummyTag";
     private final UniqueIssueList issues;
     private Directory currentDirectory;
 
@@ -128,7 +127,7 @@ public class SaveIt implements ReadOnlySaveIt {
     }
 
     /**
-     * Adds tag(s) to the existing data of this {@code SaveIt} issue with {@code tagList} for {@code index} issue.
+     * rename the {@code oldTag} with {@code newTag} of {@code SaveIt} for all issue entries.
      */
     public boolean refactorTag(Tag oldTag, Tag newTag) {
         boolean isEdit = false;
@@ -137,15 +136,32 @@ public class SaveIt implements ReadOnlySaveIt {
             Set<Tag> tagsToUpdate = new HashSet<>(issueToUpdate.getTags());
             if (tagsToUpdate.contains(oldTag)) {
                 tagsToUpdate.remove(oldTag);
-                if (!newTag.tagName.equals(DUMMY_TAG)) {
-                    tagsToUpdate.add(newTag);
-                }
+                tagsToUpdate.add(newTag);
                 isEdit = true;
                 Issue updateIssue = new Issue(issueToUpdate.getStatement(), issueToUpdate.getDescription(),
                     issueToUpdate.getSolutions(), tagsToUpdate, issueToUpdate.getFrequency());
                 updateIssue(issueToUpdate, updateIssue);
             }
 
+        }
+        return isEdit;
+    }
+
+    /**
+     * remove the {@code oldTag} of {@code SaveIt} for all issue entries.
+     */
+    public boolean refactorTag(Tag oldTag) {
+        boolean isEdit = false;
+        requireNonNull(oldTag);
+        for (Issue issueToUpdate : issues) {
+            Set<Tag> tagsToUpdate = new HashSet<>(issueToUpdate.getTags());
+            if (tagsToUpdate.contains(oldTag)) {
+                tagsToUpdate.remove(oldTag);
+                isEdit = true;
+                Issue updateIssue = new Issue(issueToUpdate.getStatement(), issueToUpdate.getDescription(),
+                    issueToUpdate.getSolutions(), tagsToUpdate, issueToUpdate.getFrequency());
+                updateIssue(issueToUpdate, updateIssue);
+            }
         }
         return isEdit;
     }

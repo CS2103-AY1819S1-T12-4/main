@@ -10,17 +10,17 @@ import seedu.saveit.model.Model;
 import seedu.saveit.model.issue.Tag;
 
 /**
- * To rename or remove a spcific tag for all entries with that tag.
+ * To rename or remove a specific tag for all entries with that tag.
  */
 public class AddTagCommand extends Command {
 
     public static final String COMMAND_WORD = "addtag";
     public static final String COMMAND_ALIAS = "at";
 
-    public static final String MESSAGE_ADD_TAG_SUCCESS = "Add tags success";
+    public static final String MESSAGE_ADD_TAG_SUCCESS = "Added Tag(s) success";
 
-    public static final String MESSAGE_USAGE =
-        COMMAND_WORD + ": To add tags for an issue.\n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": To add tags for an issue.\n"
             + "Parameters: INDEX t/NEW_TAG [t/NEW_TAG2]... \n"
             + "Example: " + COMMAND_WORD + " 2 t/python t/java";
 
@@ -51,7 +51,8 @@ public class AddTagCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-            || (other instanceof RefactorTagCommand); // instanceof handles nulls
+            || (other instanceof AddTagCommand) // instanceof handles nulls
+            || (tagList.equals(((AddTagCommand) other).tagList)); //state check
     }
 }
 

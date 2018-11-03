@@ -49,11 +49,11 @@ public class RefactorTagCommandParser implements Parser<RefactorTagCommand> {
         }
         if (argMultimap.getValue(PREFIX_NEW_TAG).isPresent()) {
             newTag = parseTag(argMultimap.getValue(PREFIX_NEW_TAG).get());
+            return new RefactorTagCommand(oldTag, newTag);
         } else {
-            newTag = parseTag(RefactorTagCommand.DUMMY_TAG);
+            return new RefactorTagCommand(oldTag);
         }
 
-        return new RefactorTagCommand(oldTag, newTag);
     }
 
 
