@@ -1,7 +1,8 @@
 package seedu.saveit.model.issue.solution;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import static java.util.Objects.requireNonNull;
+
+import seedu.saveit.commons.util.AppUtil;
 
 /**
  * Represents a Issue's solution link in saveit.
@@ -9,38 +10,30 @@ import java.net.URL;
 public class SolutionLink {
 
     public static final String MESSAGE_SOLUTION_LINK_CONSTRAINTS =
-            "SolutionLinks can only take a validate url.";
+        "SolutionLinks can only take a validate url.";
+
+    public static final String SOLUTION_LINK_VALIDATION_REGEX =
+        "[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)";
 
     public final String value;
 
-    private URL url = null;
-
     /**
-     * Construct a new solution link.
-     * Since the the link value will always be checked before creating new solution link, MalformedURLException
-     * is redundant.
-     * @param value url to the solution website.
+     * Construct a new solution link. Since the the link value will always be checked before creating new solution link,
+     * MalformedURLException is redundant.
+     *
+     * @param link url to the solution website.
      */
-    public SolutionLink(String value) {
-        this.value = value;
-        try {
-            this.url = new URL(value);
-        } catch (MalformedURLException e) {
-            // redundant
-        }
+    public SolutionLink(String link) {
+        requireNonNull(link);
+        AppUtil.checkArgument(isValidLink(link), MESSAGE_SOLUTION_LINK_CONSTRAINTS);
+        this.value = link;
     }
 
     /**
-     * Returns if a given string is a valid URL.
-     * Not sure if this method is needed. Depends on later implementation.
+     * Returns if a given string is a valid URL. Not sure if this method is needed. Depends on later implementation.
      */
     public static boolean isValidLink(String test) {
-        try {
-            URL url = new URL(test);
-        } catch (MalformedURLException e) {
-            return false;
-        }
-        return true;
+        return test.matches(SOLUTION_LINK_VALIDATION_REGEX);
     }
 
     public String getValue() {
@@ -55,8 +48,8 @@ public class SolutionLink {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof SolutionLink // instanceof handles nulls
-                && value.equals(((SolutionLink) other).getValue())); // state check
+            || (other instanceof SolutionLink // instanceof handles nulls
+            && value.equals(((SolutionLink) other).getValue())); // state check
     }
 
     @Override
