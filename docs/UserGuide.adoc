@@ -70,6 +70,18 @@ Examples:
 * `help`
 ****
 
+=== Highlighting command parameters
+
+When the user types the command in the command line, it is difficult for users to distinguish their inputs and parameters. Hence command gets highlighted is essential to differentiate the parameter and values that user input.
+
+Examples:
+****
+.Command highlight 1
+image::command-highlight1.png[width="790"]
+
+.Command highlight 2
+image::command-highlight2.png[width="790"]
+****
 
 === Selecting an issue/solution  : `(s)select`
 
@@ -389,7 +401,7 @@ Example:
 ====
 // end::clear[]
 
-=== Listing entered commands : `(h)history`
+=== Listing entered commands : `(his)history`
 
 Lists all the commands that you have entered in reverse chronological order.
 
@@ -418,7 +430,7 @@ Examples:
 Shows a list of all issues.
 
 // tag::sort[]
-=== Sorting the list of issues: `(s)sort`
+=== Sorting the list of issues: `(sr)sort`
 
 
 Format: `sort`
@@ -471,6 +483,7 @@ Examples:
 * refactorTag t/solved n/TIL (Changes all entries tagged [solved] to be tagged [TIL])
 * refactorTag t/solved (Removes the tag [solved] from all the entries)
 
+
 .Refactor tag
 image::refactor-tag.png[width="790"]
 ****
@@ -520,18 +533,7 @@ Example:
 .Copying existing fields
 image::copy-existing.png[width="790"]
 
-=== Highlighting command parameters
 
-When the user types the command in the command line, it is difficult for users to distinguish their inputs and parameters. Hence command gets highlighted is essential to differentiate the parameter and values that user input.
-
-Examples:
-****
-.Command highlight 1
-image::command-highlight1.png[width="790"]
-
-.Command highlight 2
-image::command-highlight2.png[width="790"]
-****
 
 
 === Team based - Creating / Switching projects [coming in v2.0]
@@ -601,4 +603,3 @@ e.g. `refactorTag t/java n/C++`
 * *Sort* : `sort TYPE`
 * *Refactor Tag* : `refactor [OLDTAG] [NEWTAG]` +
 e.g. `refactorTag java C++`
-* *Highlight* : `highlight`
