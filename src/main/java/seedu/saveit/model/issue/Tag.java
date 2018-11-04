@@ -10,8 +10,8 @@ import seedu.saveit.commons.util.AppUtil;
  */
 public class Tag {
 
-    public static final String MESSAGE_TAG_CONSTRAINTS = "Tags names can take any values, but it should not be blank.";
-    public static final String TAG_VALIDATION_REGEX = "[^\\s].*";
+    public static final String MESSAGE_TAG_CONSTRAINTS = "Tags names should not contain white space";
+    public static final String TAG_VALIDATION_REGEX = "^[^\\d\\s]+$";
 
     public final String tagName;
 

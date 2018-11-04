@@ -19,7 +19,7 @@ public class XmlAdaptedIssueTest {
     private static final String INVALID_NAME = " ";
     private static final String INVALID_DESCRIPTION = " ";
     private static final String INVALID_TAG = " ";
-    private static final String INVALID_SOLUTION = "&StackπOverflow *remark";
+    private static final String INVALID_SOLUTION = "&StackOverflow *remark";
 
     private static final String VALID_NAME = BENSON.getStatement().toString();
     private static final String VALID_DESCRIPTION = BENSON.getDescription().toString();

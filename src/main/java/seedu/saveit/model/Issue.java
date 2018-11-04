@@ -48,10 +48,10 @@ public class Issue {
     }
 
     /**
-     * Overloaded constructor with additional {@code frequency} field
+            * Overloaded constructor with additional {@code frequency} field
      */
     public Issue(IssueStatement statement, Description description, List<Solution> solutions,
-                 Set<Tag> tags, IssueSearchFrequency frequency) {
+            Set<Tag> tags, IssueSearchFrequency frequency) {
         CollectionUtil.requireAllNonNull(statement, description, solutions, tags);
         this.statement = statement;
         this.description = description;
@@ -60,6 +60,20 @@ public class Issue {
         this.frequency = frequency;
         this.time = new Timestamp(new Date().getTime());
     }
+
+    /**
+     * Overloaded constructor with additional {@code frequency} field
+     */
+    public Issue(Issue issue) {
+        CollectionUtil.requireAllNonNull(issue);
+        this.statement = issue.getStatement();
+        this.description = issue.getDescription();
+        this.solutions.addAll(issue.getSolutions());
+        this.tags.addAll(issue.getTags());
+        this.frequency = issue.getFrequency();
+        this.time = new Timestamp(new Date().getTime());
+    }
+
 
     public IssueStatement getStatement() {
         return statement;
@@ -143,9 +157,6 @@ public class Issue {
 
         Issue otherIssue = (Issue) other;
         return otherIssue.getStatement().equals(getStatement())
-                && otherIssue.getSolutions().equals(getSolutions())
-                && otherIssue.getDescription().equals(getDescription())
-                && otherIssue.getTags().equals(getTags())
                 && otherIssue.getFrequency().equals(getFrequency());
     }
 

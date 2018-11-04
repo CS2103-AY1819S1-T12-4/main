@@ -2,10 +2,6 @@ package seedu.saveit.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import seedu.saveit.logic.CommandHistory;
 import seedu.saveit.logic.commands.exceptions.CommandException;
 import seedu.saveit.model.Issue;
@@ -13,7 +9,7 @@ import seedu.saveit.model.Model;
 import seedu.saveit.model.issue.Tag;
 
 /**
- * To rename or remove a spcific tag for all entries with that tag.
+ * To rename or remove a specified tag for all entries with that tag.
  */
 public class RefactorTagCommand extends Command {
 
@@ -34,7 +30,7 @@ public class RefactorTagCommand extends Command {
     private final Tag newTag;
 
     private Issue editedIssue;
-    private boolean isEidt;
+    private boolean isEdit;
 
     /**
      * @param oldTag the tag will be replaced
@@ -45,31 +41,17 @@ public class RefactorTagCommand extends Command {
         this.oldTag = oldTag;
         this.newTag = newTag;
         editedIssue = null;
-        this.isEidt = false;
+        this.isEdit = false;
     }
 
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         requireNonNull(model);
-        List<Issue> lastShownList = model.getFilteredAndSortedIssueList();
 
-        for (Issue issue : lastShownList) {
-            Set<Tag> updatedTags = new HashSet<Tag>(issue.getTags());
-            if (updatedTags.contains(oldTag)) {
-                updatedTags.remove(oldTag);
-                if (!newTag.tagName.equals(DUMMY_TAG)) {
-                    updatedTags.add(newTag);
-                }
-                isEidt = true;
-            }
-
-            editedIssue = new Issue(issue.getStatement(), issue.getDescription(),
-                issue.getSolutions(), updatedTags);
-            model.updateIssue(issue, editedIssue);
-            model.updateFilteredIssueList(Model.PREDICATE_SHOW_ALL_ISSUES);
-            model.commitSaveIt();
-        }
-        if (isEidt) {
+        isEdit = model.refactorTag(oldTag, newTag);
+        model.updateFilteredIssueList(Model.PREDICATE_SHOW_ALL_ISSUES);
+        model.commitSaveIt();
+        if (isEdit) {
             return new CommandResult(MESSAGE_REFACTOR_TAG_SUCCESS);
         }
         return new CommandResult(MESSAGE_REFACTOR_TAG_FAILURE);

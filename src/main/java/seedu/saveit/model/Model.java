@@ -6,8 +6,10 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.saveit.commons.core.directory.Directory;
+import seedu.saveit.commons.core.index.Index;
 import seedu.saveit.model.issue.IssueSort;
 import seedu.saveit.model.issue.Solution;
+import seedu.saveit.model.issue.Tag;
 
 /**
  * The API of the Model component.
@@ -34,10 +36,21 @@ public interface Model {
     boolean hasIssue(Issue issue);
 
     /**
+     * Returns true if the indexed issue has same solution as {@code solution} exists in the saveIt.
+     */
+    boolean hasSolution(Index index, Solution solution);
+
+    /**
      * Deletes the given issue.
      * The issue must exist in the saveIt.
      */
     void deleteIssue(Issue target);
+
+    /**
+     * Adds the given solution to the indexed issue.
+     * {@code solution} must not already exist in the given issue.
+     */
+    void addSolution(Index index, Solution solution);
 
     /**
      * Adds the given issue.
@@ -84,6 +97,7 @@ public interface Model {
     void updateFilteredAndSortedIssueList(Comparator<Issue> sortType);
 
     /**
+
      * Returns a Set of strings representing all the Tag(s) contained in the issues
      */
     TreeSet<String> getCurrentTagSet();
@@ -92,6 +106,10 @@ public interface Model {
      * Returns a Set of strings representing all the IssueStatement(s) contained in the issues
      */
     TreeSet<String> getCurrentIssueStatementSet();
+  
+     * Adds tag(s) to the existing data of this {@code SaveIt} for {@code index} issue with {@code tagList}.
+     */
+    void addTag(Index index, Set<Tag> tagList);
 
     /**
      * Returns true if the model has previous saveIt states to restore.
@@ -117,4 +135,10 @@ public interface Model {
      * Saves the current saveIt state for undo/redo.
      */
     void commitSaveIt();
+
+    /**
+     * To rename or remove a specified {@code oldTag} to {@code newTag} for all entries.
+     * @return true if any tag has been replaced, otherwise false.
+     */
+    boolean refactorTag(Tag oldTag, Tag newTag);
 }

@@ -93,7 +93,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         String solutionLink;
 
         if (argMultimap.getValue(PREFIX_SOLUTION_LINK).isPresent()) {
-            solutionLink = ParserUtil.parseSolutionLink(argMultimap.getValue(PREFIX_SOLUTION_LINK).get()).value;
+            solutionLink = ParserUtil.parseSolutionLink(argMultimap.getValue(PREFIX_SOLUTION_LINK).get()).getValue();
         } else {
             throw new ParseException(NO_LINK_EXCEPTION);
         }
@@ -101,7 +101,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         String solutionRemark;
 
         if (argMultimap.getValue(PREFIX_REMARK).isPresent()) {
-            solutionRemark = ParserUtil.parseSolutionRemark(argMultimap.getValue(PREFIX_REMARK).get()).value;
+            solutionRemark = ParserUtil.parseSolutionRemark(argMultimap.getValue(PREFIX_REMARK).get()).getValue();
         } else {
             throw new ParseException(NO_REMARK_EXCEPTION);
         }

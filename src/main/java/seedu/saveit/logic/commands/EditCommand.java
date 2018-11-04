@@ -144,11 +144,11 @@ public class EditCommand extends Command {
             Solution updatedSolution;
 
             String updatedSolutionLink =
-                newSolution.getLink().value.equals(DUMMY_SOLUTION_LINK) ? oldSolution.getLink().value
-                    : newSolution.getLink().value;
+                newSolution.getLink().getValue().equals(DUMMY_SOLUTION_LINK) ? oldSolution.getLink().getValue()
+                    : newSolution.getLink().getValue();
             String updatedSolutionRemark =
-                newSolution.getRemark().value.equals(DUMMY_SOLUTION_REMARK) ? oldSolution.getRemark().value
-                    : newSolution.getRemark().value;
+                newSolution.getRemark().getValue().equals(DUMMY_SOLUTION_REMARK) ? oldSolution.getRemark().getValue()
+                    : newSolution.getRemark().getValue();
 
             updatedSolution = new Solution(updatedSolutionLink, updatedSolutionRemark);
 

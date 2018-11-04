@@ -144,4 +144,12 @@ public class UniqueIssueList implements Iterable<Issue> {
     public int getSolutionNumber(Index index) {
         return internalList.get(index.getZeroBased()).getSolutions().size();
     }
+
+    /**
+     * @param index issue index in the saveIt
+     * @return the issue in the saveIt
+     */
+    public Issue getIssue(Index index) {
+        return internalList.get(index.getZeroBased());
+    }
 }

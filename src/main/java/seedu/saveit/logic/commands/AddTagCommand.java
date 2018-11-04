@@ -2,14 +2,10 @@ package seedu.saveit.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import seedu.saveit.commons.core.index.Index;
 import seedu.saveit.logic.CommandHistory;
-import seedu.saveit.logic.commands.exceptions.CommandException;
-import seedu.saveit.model.Issue;
 import seedu.saveit.model.Model;
 import seedu.saveit.model.issue.Tag;
 
@@ -34,7 +30,7 @@ public class AddTagCommand extends Command {
 
     /**
      * @param index the issue index that tag will be add
-     * @param tagList the new tag that will be added to the list
+     * @param tagList the new tag(s) to be added to saveIt
      */
     public AddTagCommand(Index index, Set<Tag> tagList) {
         requireNonNull(tagList);
@@ -43,17 +39,9 @@ public class AddTagCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model, CommandHistory history) throws CommandException {
+    public CommandResult execute(Model model, CommandHistory history) {
         requireNonNull(model);
-        List<Issue> lastShownList = model.getFilteredAndSortedIssueList();
-
-        Issue issue = lastShownList.get(index.getZeroBased());
-        Set<Tag> toUpdateTagList = new HashSet<Tag>(issue.getTags());
-
-        toUpdateTagList.addAll(tagList);
-        Issue editedIssue = new Issue(issue.getStatement(), issue.getDescription(),
-            issue.getSolutions(), toUpdateTagList);
-        model.updateIssue(issue, editedIssue);
+        model.addTag(index, tagList);
         model.updateFilteredIssueList(Model.PREDICATE_SHOW_ALL_ISSUES);
         model.commitSaveIt();
 

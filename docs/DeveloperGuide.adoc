@@ -264,10 +264,21 @@ Classes used by multiple components are in the `seedu.saveit.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented. Note that this section does not fully encompass all the features, but the more core features of the application.
 
-=== Add issue feature
-The add command can add an new issue to the issue list
+=== Add feature
+The add command can add both issue and solution to SaveIt. It includes two levels:
 
-==== Current implementation
+* Issue level
+** Issue statement
+** Issue description
+** Issue tags
+* Solution level
+** Solution link
+** Solution remark
+
+==== Add issue
+Add issue happens on the issue level
+
+===== Current implementation
 We use `SaveItParser` to call `AddCommandParser` so as to pass the entered issue, then `AddCommand` is invoked which will ask model to add the issue to the `Model` component.
 In order to store the new issue inside the SaveIt, `VersionedSaveIt` will be invoked and it will add issue to the `UniqueIssueList`.
 
@@ -278,10 +289,10 @@ image::AddNewIssue.png[width="800"]
 
 This diagram gives a clear procedure that how the user input is passed step by step and calling different methods and objects at different sequences.
 
-=== Add solution feature
-The add command can add a new solution link as well as solution remark to an existing issue
+==== Add solution to existing issue
+Add solution happens on the solution level
 
-==== Current implementation
+===== Current implementation
 We use `SaveItParser` to call `AddCommandParser` just like how add issue features functions as above mentioned. However, this time, the solution link and solution remark is provided to `AddCommand` instead. During execution, `updateIssue` and `updateFilteredIssueList` will be called respectively in `ModelManager` as a way to replace the original issue with the new edition of issue which has the new solution entered.
 
 The following sequence diagram illustrates how the add solution feature functions
@@ -555,11 +566,11 @@ The edit feature allows users to edit any field of the issue and solution.
 ==== Current Implementation
 The edit mechanism is facilitated by `editCommandParser` and `editCommand`. Users are allowed to edit any field in the issue list. includes: +
 
-* Issue level
+* root level
 ** Issue statement
 ** Issue description
 ** Issue tags
-* Solution level
+* Issue level
 ** Solution link
 ** Solution remark
 
@@ -567,14 +578,14 @@ The `editCommandParser` extends `Parser` and implements the following operations
 
 * `editCommandParser#parser(String args)`
 ** Checks the arguments for empty strings and throws a `ParseException` if empty string is found.
-** Analyses the argument to check if it is a valid command format. If it is a valid format, it will set the corresponding fileds usign `EditDescriptor`. There are two types format.
+** Analyses the argument to check if it is a valid command format. If it is a valid format, it will set the corresponding filed using `EditDescriptor`. There are two types format.
 *** edit issue: edit Index i/statement d/description t/tag1 t/tag2 ...
 *** edit solution: `edit Index s/https://www.dummysolutionlink.com r/remark`.
 
 If it fails to parse the command, it will throw `ParseException` and display edit command usage message.
 
 * `editCommand#execute(Model model, CommandHisotry history)`
-** Analyses the user in the root directory or issue directory. If the user in the root directory but provide solution level edit command or in solution directory but provide issue level edit command +
+** Analyses the user in the root directory or issue directory. If the user in the root directory but provide solution edit command or in issue level but provide issue edit command +
 throw `CommandException` and show wrong directory information.
 
 ** Checks if the user index in editDescriptor is larger than the size of the issue list or solution list. +
@@ -583,7 +594,7 @@ Throw `CommandException` and show invalid index warning. Otherwise, call the fun
 Please refer to the Sequence Diagram below for the edit operation.
 
 .Edit Command Sequence Diagram
-image::EditCommandSequenceDiagram.jpg[width="800"]
+image::edit-command-sequence-diagram.jpg[width="800"]
 
 ==== Design Consideration
 * Alternative 1 (current choice): Update the whole issue fields when every single field needs to edit.
@@ -600,9 +611,9 @@ image::EditCommandSequenceDiagram.jpg[width="800"]
 
 
 === Refactor tag Feature
-The refactor tag feature allows users to rename or remove a specific tag for all entries with that tag.
+The refactor tag feature allows users to rename or remove a specified tag for all entries with that tag.
 
-==== Current Impelementation
+==== Current Implementation
 The refactor tag mechanism is facilitated by `refactorTagCommandParser` and `refactorCommand`.
 
 The `refactorTagCommandParser` extends `Parser` and implements the following operations:
@@ -616,7 +627,43 @@ The `refactorTagCommandParser` extends `Parser` and implements the following ope
 If it fails to parse the command, it will throw `ParseException` and display refactor tag command usage message.
 
 * `refactorTagCommand#execute(Model model, CommandHisotry history)`
-** update the issue list and return success message if it has edited an issue, otherwise show unsuccessful message.
+** update the issue list and return success message if it has edited an issue, otherwise show an unsuccessful message.
+** It will iterate all the issues in the saveIt, if it contains the old tag, it will replace with the new tag if provided. Then update the list.
+
+Please refer to the Sequence Diagram below for the refactor tag operation.
+
+.Refactor Tag Command Activity Diagram
+image::refactor-tag.jpeg[width="800"]
+
+
+
+
+=== Add tag Feature
+The add tag feature allows the user to add a tag or more tags to a specified issue.
+
+==== Current Implementation
+The add tag mechanism is facilitated by `addTagCommandParser` and `addTagCommand`.
+
+Please refer to the Sequence Diagram below for the refactor tag operation.
+
+.Add Tag Command Sequence Diagram
+image::add-tag-sequence-diagram.jpeg[width="800"]
+
+==== Design Consideration
+
+===== Aspect: Implementation of AddTag command parser.
+* Alternative 1 (current choice): Adds tag(s) for one issue in command execution.
+** Pros: It allows multiple additions of `Tags` in one command execution.
+** Cons: It has a lower efficiency to add tags for multiple issues.
+* Alternative 2: Creates a separate class for ranges of index
+** Pros: It is convenient for users to add tags for multiple issues once.
+** Cons: It will increase coupling between IndexRange class and Index class
+
+
+
+=== Command Highlight
+
+
 
 == Documentation
 

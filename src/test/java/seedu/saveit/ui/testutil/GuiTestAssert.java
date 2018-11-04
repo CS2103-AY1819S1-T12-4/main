@@ -21,7 +21,6 @@ public class GuiTestAssert {
      */
     public static void assertCardEquals(IssueCardHandle expectedCard, IssueCardHandle actualCard) {
         assertEquals(expectedCard.getId(), actualCard.getId());
-        assertEquals(expectedCard.getSolutions(), actualCard.getSolutions());
         assertEquals(expectedCard.getStatement(), actualCard.getStatement());
         assertEquals(expectedCard.getDescription(), actualCard.getDescription());
         assertEquals(expectedCard.getTags(), actualCard.getTags());

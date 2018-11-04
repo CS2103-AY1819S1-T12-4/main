@@ -1,14 +1,11 @@
 package seedu.saveit.ui;
 
-import java.util.List;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.saveit.model.Issue;
-import seedu.saveit.model.issue.Solution;
 
 /**
  * An UI component that displays information of a {@code Issue}.
@@ -36,8 +33,6 @@ public class IssueCard extends UiPart<Region> {
     @FXML
     private Label description;
     @FXML
-    private FlowPane solutions;
-    @FXML
     private FlowPane tags;
 
     public IssueCard(Issue issue, int displayedIndex) {
@@ -47,11 +42,6 @@ public class IssueCard extends UiPart<Region> {
         statement.setText(issue.getStatement().issue);
         description.setText(issue.getDescription().value);
         int index = 1;
-        List<Solution>solutionList = issue.getSolutions();
-        for (Solution solution: solutionList) {
-            solutions.getChildren().add(new Label(index + ". " + "[ " + solution.solutionName + ']' + " "));
-            index++;
-        }
         issue.getTags().forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
 

@@ -18,7 +18,7 @@ public class Remark {
      */
     public static final String REMARK_VALIDATION_REGEX = "[^\\s].*";
 
-    public final String value;
+    private final String value;
 
     /**
      * Constructs an {@code Remark}.
@@ -29,6 +29,10 @@ public class Remark {
         requireNonNull(remark);
         AppUtil.checkArgument(isValidRemark(remark), MESSAGE_REMARK_CONSTRAINTS);
         value = remark;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     /**

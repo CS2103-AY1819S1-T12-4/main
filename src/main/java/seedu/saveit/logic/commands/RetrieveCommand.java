@@ -27,11 +27,11 @@ public class RetrieveCommand extends Command {
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
-    private static final String MESSAGE_RETRIEVE_LINK_SUCCESS = "Solution link no. %1$s is pasted to the "
+    public static final String MESSAGE_RETRIEVE_LINK_SUCCESS = "Solution link no. %1$s is pasted to the "
             + "clipboard.";
-    private static final String MESSAGE_FAILED_SELECTION = "Issue has to be selected first before "
+    public static final String MESSAGE_FAILED_SELECTION = "Issue has to be selected first before "
             + "retrieving solution link.";
-    private static final String MESSAGE_FAILED_SOLUTION = "The solution index provided is invalid";
+    public static final String MESSAGE_FAILED_SOLUTION = "The solution index provided is invalid";
 
     private final Index targetedIndex;
 
@@ -55,7 +55,7 @@ public class RetrieveCommand extends Command {
             selectedIssue = lastShownList.get(issueIndex - 1);
             try {
                 String selectedLink = selectedIssue.getSolutions().get(targetedIndex.getZeroBased())
-                        .getLink().value;
+                        .getLink().getValue();
                 copyToClipBoard(selectedLink);
                 return new CommandResult(
                         String.format(MESSAGE_RETRIEVE_LINK_SUCCESS, targetedIndex.getOneBased()));

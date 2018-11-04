@@ -17,13 +17,11 @@ public class IssueCardHandle extends NodeHandle<Node> {
     private static final String ID_FIELD_ID = "#id";
     private static final String STATEMENT_FIELD_ID = "#statement";
     private static final String DESCRIPTION_FIELD_ID = "#description";
-    private static final String SOLUTIONS_FIELD_ID = "#solutions";
     private static final String TAGS_FIELD_ID = "#tags";
 
     private final Label idLabel;
     private final Label statementLabel;
     private final Label descriptionsLabel;
-    private final List<Label> solutionLabels;
     private final List<Label> tagLabels;
 
     public IssueCardHandle(Node cardNode) {
@@ -32,13 +30,6 @@ public class IssueCardHandle extends NodeHandle<Node> {
         idLabel = getChildNode(ID_FIELD_ID);
         statementLabel = getChildNode(STATEMENT_FIELD_ID);
         descriptionsLabel = getChildNode(DESCRIPTION_FIELD_ID);
-
-        Region solutionsContainer = getChildNode(SOLUTIONS_FIELD_ID);
-        solutionLabels = solutionsContainer
-                .getChildrenUnmodifiable()
-                .stream()
-                .map(Label.class::cast)
-                .collect(Collectors.toList());
 
         Region tagsContainer = getChildNode(TAGS_FIELD_ID);
         tagLabels = tagsContainer
@@ -54,13 +45,6 @@ public class IssueCardHandle extends NodeHandle<Node> {
 
     public String getStatement() {
         return statementLabel.getText();
-    }
-
-    public List<String> getSolutions() {
-        return solutionLabels
-                .stream()
-                .map(Label::getText)
-                .collect(Collectors.toList());
     }
 
     public String getDescription() {

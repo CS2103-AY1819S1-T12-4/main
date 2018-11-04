@@ -5,60 +5,142 @@
 
 == PROJECT: SaveIt
 
----
+== 1. Overview
 
-== Overview
+SaveIt​ is geared at keeping track of the issues that the user finds and to link it with the url of the web-page found on the Internet.
+More importantly, SaveIt is ​optimized for those who prefer to work with a Command Line Interface​ (CLI) while still having the benefits of a Graphical User Interface (GUI) created with JavaFX. It is written in Java, and has about 10 kLoC.
 
-SaveIt​ is geared at keeping track of the issues that the user finds and to link it with the email found on google.
-More importantly, SaveIt is ​optimized for those who prefer to work with a Command Line Interface​ (CLI) while still having the benefits of a Graphical User Interface (GUI).
-If you can type fast, SaveIt can help you search the same statement that save previously faster than traditional GUI apps.
-== Summary of contributions
+== 2. Summary of contributions
+* *Major enhancement*: Redesign the solution list panel in GUI
+** What it does: allow the users to view solutions in the list panel when they select a sepecific issue.
+** Justification: This feature improves the product significantly because a user may want to view the different solutions of an issue and load the web-page of the solution seperately. This enhancement is important as morphing changes the original UI structure of Addressbook level 4, the new GUI is more user-friendly.
+** Credits: Addressbook level 4.
 
-* *Major enhancement*: added *the ability to undo/redo previous commands*
-** What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-** Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-** Credits: _{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}_
-
-* *Minor enhancement*: added a history command that allows the user to navigate to previous commands using up/down keys.
+* *Minor enhancement*: There are three minor enhancements as listed below:
+** Add a home command that allows the user to return to home directory for edition.
+** Refactor the selection command that allows the user to change edit directory.
+** Enable the user to load solution web-page.
 
 * *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
 
 * *Other contributions*:
 
 ** Project management:
-*** Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
-** Enhancements to existing features:
-*** Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
-*** Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
+*** Manage releases `v1.2`, `v1.4` (2 releases) on GitHub
 ** Documentation:
-*** Did cosmetic tweaks to existing contents of the User Guide: https://github.com[#14]
+*** Add cosmetic tweaks to existing contents of the User Guide: https://github.com[#14]
 ** Community:
-*** PRs reviewed (with non-trivial review comments): https://github.com[#12], https://github.com[#32], https://github.com[#19], https://github.com[#42]
-*** Contributed to forum discussions (examples:  https://github.com[1], https://github.com[2], https://github.com[3], https://github.com[4])
-*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
-*** Some parts of the history feature I added was adopted by several other class mates (https://github.com[1], https://github.com[2])
-** Tools:
-*** Integrated a third party library (Natty) to the project (https://github.com[#42])
-*** Integrated a new Github plugin (CircleCI) to the team repo
+*** Review PRs (with non-trivial review comments): https://github.com[#12], https://github.com[#32], https://github.com[#19], https://github.com[#42]
+*** Contribut to forum discussions (examples:  https://github.com[1], https://github.com[2], https://github.com[3], https://github.com[4])
+*** Report bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
 
-_{you can add/remove categories in the list above}_
 
-== Contributions to the User Guide
+== 3. Contributions to the User Guide
 
 
 |===
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-== Contributions to the Developer Guide
+=== Selecting a statement : `(s)select`
+
+Selects an issue identified by the index number used in the displayed issue list and change the current editing directory to the issue selected.
+
+Format: `select INDEX`
+
+Examples:
+****
+* `select 5`
+****
+
+[NOTE]
+====
+* The index refers to the index number shown in the list.
+* The index *must be a positive integer* and `1, 2, 3, ...`
+* The index cannot be bigger than the number of issues.
+* All properties of this solutions will be displayed at the left side of the interface.
+====
+
+=== Returning to home directory  : `(h)home`
+
+Changes the current editing directory to the root directory. Besides, Shows a list of all issues in the issue list by index.
+
+Format: `home`
+
+[TIP]
+====
+* Return to the home directory
+====
+
+Examples:
+****
+* `home`
+****
+
+[NOTE]
+====
+* All issues are listed in chronological order by default in home directory.
+====
+
+=== Command Summary
+Here is a summary of all command formats for your reference. Please note that some commands may implement more than one format.
+
+* *Help* : `help`
+* *Select* : `select INDEX` +
+e.g.`select 2`
+* *Add*  +
+For issues: `add i/[ISSUE_STATEMENT] d/[DESCRIPTION] t/[Tag]` +
+e.g. `add i/Bug d/exception thrown not handled t/java` +
+For solutions: `add s/[SOLUTION_LINK] r/[REMARK]` +
+e.g. `add s/www.github.com r/A git website`
+* *Edit* +
+For issues: `edit INDEX i/[ISSUE_STATEMENT] d/[DESCRIPTION]` +
+e.g. `edit 2 i/exception thrown not handled d/statement solved` +
+For solutions: `edit INDEX s/[SOLUTION_LINK] r/[REMARK]` +
+e.g. `edit 3 s/www.google.com r/add a catch block`
+* *Delete* : `delete INDEX` +
+e.g. `delete 3`
+* *Search* : `search KEYWORD [MORE_KEYWORDS]` +
+e.g. `Search BST`
+* *Home* : `home`
+* *Clear* : `clear`
+* *Undo* : `undo`
+* *Redo* : `redo`
+* *History* : `history`
+* *Exit* : `exit`
+* *List* : `list`
+* *Sort* : `sort` TYPE
+* *Refactor Tag* : `refactor [OLDTAG] [NEWTAG]` +
+e.g. `refactorTag java C++`
+* *Highlight* : `highlight`
+
+
+== 4.Contributions to the Developer Guide
 
 |===
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
+=== UI component
 
-== PROJECT: PowerPointLabs
+.Structure of the UI Component
+image::UiClassDiagram.png[width="800"]
+
+The figure above shows the breakdown of the smaller components involved in the `UI` Component. The `UI` Component is the interface (abstraction barrier) between the user and the underlying components - `Model` and `Logic`.
+
+*API* : link:{repoURL}/src/main/java/seedu/address/ui/Ui.java[`Ui.java`]
+
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter`, `BrowserPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+
+The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the link:{repoURL}/src/main/java/seedu/address/ui/MainWindow.java[`MainWindow`] is specified in link:{repoURL}/src/main/resources/view/MainWindow.fxml[`MainWindow.fxml`]
+
+The `UI` component,
+
+* Executes user commands using the `Logic` component.
+* Binds itself to some data in the `Model` so that the UI can auto-update when data in the `Model` change.
+* Responds to events raised from various parts of the App and updates the UI accordingly.
+
+
+== 5.PROJECT: SaveIt
 
 ---
 
-_{Optionally, you may include other projects in your portfolio.}_
