@@ -37,11 +37,13 @@
 <li><a href="#logging">4.5. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
 <li><a href="#new-command-home">4.7. New Command: Home</a></li>
-<li><a href="#gui-enhancement-coming-in-v1-3">4.8. GUI Enhancement[Coming in v1.3]</a></li>
+<li><a href="#gui-enhancement">4.8. GUI Enhancement</a></li>
 <li><a href="#edit-feature">4.9. Edit Feature</a></li>
-<li><a href="#refactor-tag-feature">4.10. Refactor tag Feature</a></li>
-<li><a href="#add-tag-feature">4.11. Add tag Feature</a></li>
-<li><a href="#command-highlight">4.12. Command Highlight</a></li>
+<li><a href="#retrieve-feature">4.10. Retrieve Feature</a></li>
+<li><a href="#set-primary-feature">4.11. Set Primary feature</a></li>
+<li><a href="#refactor-tag-feature">4.12. Refactor tag Feature</a></li>
+<li><a href="#add-tag-feature">4.13. Add tag Feature</a></li>
+<li><a href="#command-highlight">4.14. Command Highlight</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -749,7 +751,7 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (current choice): Combine AddIssue and AddSolution combined together and distinguishes them at the stage of <code>AddCommandParser</code></p>
+<p><strong>Alternative 1 (current choice):</strong> Combine AddIssue and AddSolution combined together and distinguishes them at the stage of <code>AddCommandParser</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -762,7 +764,7 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 </div>
 </li>
 <li>
-<p>Alternative 2: Build a new command especially for adding solution</p>
+<p><strong>Alternative 2:</strong> Build a new command especially for adding solution</p>
 <div class="ulist">
 <ul>
 <li>
@@ -782,7 +784,7 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (current choice): Passing a new created issue with dummy issue statement or dummy solution link</p>
+<p><strong>Alternative 1 (current choice):</strong> Passing a new created issue with dummy issue statement or dummy solution link</p>
 <div class="ulist">
 <ul>
 <li>
@@ -795,7 +797,7 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 </div>
 </li>
 <li>
-<p>Alternative 2: Overloading Issue constructor so that different issues will be passing to <code>AddCommand</code> accordingly.</p>
+<p><strong>Alternative 2:</strong> Overloading Issue constructor so that different issues will be passing to <code>AddCommand</code> accordingly.</p>
 </li>
 <li>
 <p>Pros: Relatively easier to implement</p>
@@ -888,31 +890,6 @@ They can serve the three sort type we provide in SaveIt. When more sort type is 
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-comparator-to-support-the-sort-command"><a class="link" href="#aspect-comparator-to-support-the-sort-command">Aspect: Comparator to support the sort command</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p>Sort by added time: <code>sort</code><br>
-This sorting follows how the data is stored in Storage, reflecting the user&#8217;s learning journey.<br>
-There is no need to implement new Comparator for that.</p>
-</li>
-<li>
-<p>Sort by chronological order: <code>sort chro</code><br>
-This sorting require the Comparator to compare the last modified time of the issue. Therefore, a Timestamp needs to be stored and updated every time an issue is added or edited.</p>
-</li>
-<li>
-<p>Sort by first Tag: <code>sort tag</code><br>
-This sorting requires the tag attribute of every issue to be tracked. We retrieve tag lists and get the first tags. A String Comparator is enough for sorting tagName of them.
-Those issues without a tag should be put at the end of the lists.</p>
-</li>
-<li>
-<p>Sort by search frequency: <code>sort freq</code><br>
-This sorting requires the search frequency tracker. We retrieve the IssueSearchFrequency and sort them by the compare method provided in that class.</p>
 </li>
 </ul>
 </div>
@@ -1262,7 +1239,7 @@ For the current version, <code>clear</code> is the only command that needs confi
 </div>
 </div>
 <div class="sect2">
-<h3 id="gui-enhancement-coming-in-v1-3"><a class="link" href="#gui-enhancement-coming-in-v1-3">4.8. GUI Enhancement[Coming in v1.3]</a></h3>
+<h3 id="gui-enhancement"><a class="link" href="#gui-enhancement">4.8. GUI Enhancement</a></h3>
 <div class="paragraph">
 <p>The  figure below shows the expected GUI for SaveIt v1.3.</p>
 </div>
@@ -1410,7 +1387,7 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (current choice): Update the whole issue fields when every single field needs to edit.</p>
+<p><strong>Alternative 1 (current choice):</strong> Update the whole issue fields when every single field needs to edit.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1423,7 +1400,7 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 </li>
 <li>
-<p>Alternative 2: Update the specific data field instead of updating the whole issue.</p>
+<p><strong>Alternative 2:</strong> Update the specific data field instead of updating the whole issue.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1440,17 +1417,77 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 </div>
 <div class="sect2">
-<h3 id="refactor-tag-feature"><a class="link" href="#refactor-tag-feature">4.10. Refactor tag Feature</a></h3>
+<h3 id="retrieve-feature"><a class="link" href="#retrieve-feature">4.10. Retrieve Feature</a></h3>
 <div class="paragraph">
-<p>The refactor tag feature allows users to rename or remove a specified tag for all entries with that tag.</p>
+<p>The retrieve feature allows user to choose a solution link to copy to the system clipboard.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The refactor tag mechanism is facilitated by <code>refactorTagCommandParser</code> and <code>refactorCommand</code>.</p>
+<p>The retrieve feature basically takes the user entered index and call <code>getFilteredAndSortedList</code> method in <code>Model</code> to get the selected solution. Then Java <code>Toolkit</code> package is used to copy the url link of solution to the system clipboard.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-primary-feature"><a class="link" href="#set-primary-feature">4.11. Set Primary feature</a></h3>
+<div class="paragraph">
+<p>The set primary feature allows users to choose one solution as primary solution.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.11.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The set primary mechanism is facilitated by the method <code>isPrimarySolution()</code> override by <code>PrimarySolution</code> inheriting from <code>Solution</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">4.11.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-distinguish-between-primarysolution-and-solution"><a class="link" href="#aspect-how-to-distinguish-between-primarysolution-and-solution">Aspect: How to distinguish between PrimarySolution and Solution</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use PrimarySolution as a subclass of Solution</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No flag attribute is introduced. Solution structure remains the same.</p>
+</li>
+<li>
+<p>Cons: New object is created. May affect performance.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Add a flag attribute to Solution</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to understand.</p>
+</li>
+<li>
+<p>Cons: Solution constructor is affected. The flag attribute is redundant for non-primary solutions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="refactor-tag-feature"><a class="link" href="#refactor-tag-feature">4.12. Refactor tag Feature</a></h3>
+<div class="paragraph">
+<p>The refactor tag feature allows users to rename or remove a specified tag for all entries with that tag.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.12.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The refactor tag mechanism is facilitated by <code>RefactorTagCommandParser</code> and <code>RefactorCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>refactorTagCommandParser</code> extends <code>Parser</code> and implements the following operations:</p>
+<p>The <code>RefactorTagCommandParser</code> extends <code>Parser</code> and implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1509,19 +1546,55 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 <div class="title">Figure 21. Refactor Tag Command Activity Diagram</div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">4.12.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-refactortag-command-parser"><a class="link" href="#aspect-implementation-of-refactortag-command-parser">Aspect: Implementation of RefactorTag command parser.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Allows only to rename or remove the old tags that user input lastly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement.</p>
+</li>
+<li>
+<p>Cons: It is inconvenient if the user wants to replace the tags once.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Allows to rename or remove multiple old tags with multiple new tags.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is convenient for users to replace or remove the tags once.</p>
+</li>
+<li>
+<p>Cons: It is not clear for users to see the changes since tags are displayed disordered.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="add-tag-feature"><a class="link" href="#add-tag-feature">4.11. Add tag Feature</a></h3>
+<h3 id="add-tag-feature"><a class="link" href="#add-tag-feature">4.13. Add tag Feature</a></h3>
 <div class="paragraph">
-<p>The add tag feature allows the user to add a tag or more tags to a specified issue.</p>
+<p>The add tag feature allows users to add <code>Tag(s)</code> to specified <code>Indexed</code> issues.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.13.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The add tag mechanism is facilitated by <code>addTagCommandParser</code> and <code>addTagCommand</code>.</p>
+<p>The add tag mechanism is facilitated by <code>AddTagCommandParser</code> and <code>AddTagCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the Sequence Diagram below for the refactor tag operation.</p>
+<p>Please refer to the Sequence Diagram below for the add tag operation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1531,30 +1604,30 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">4.11.2. Design Consideration</a></h4>
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">4.13.2. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-addtag-command-parser"><a class="link" href="#aspect-implementation-of-addtag-command-parser">Aspect: Implementation of AddTag command parser.</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (current choice): Adds tag(s) for one issue in command execution.</p>
+<p>Alternative 1 (current choice):** Allows range of <code>Index</code> to be accepted as index parameter.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: It allows multiple additions of <code>Tags</code> in one command execution.</p>
+<p>Pros: It is efficient to add multiple <code>Tags</code> to multiple issues instead of doing it singly.</p>
 </li>
 <li>
-<p>Cons: It has a lower efficiency to add tags for multiple issues.</p>
+<p>Cons: It has to consider various conditions of the user input.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Alternative 2: Creates a separate class for ranges of index</p>
+<p>Alternative 2: Creates a IndexRange class for index.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: It is convenient for users to add tags for multiple issues once.</p>
+<p>Pros: It is easy to understand and maintain.</p>
 </li>
 <li>
 <p>Cons: It will increase coupling between IndexRange class and Index class</p>
@@ -1568,8 +1641,16 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-highlight"><a class="link" href="#command-highlight">4.12. Command Highlight</a></h3>
-
+<h3 id="command-highlight"><a class="link" href="#command-highlight">4.14. Command Highlight</a></h3>
+<div class="paragraph">
+<p>The command highlight feature is to differentiate command word, index, prefix and values that user input in Command Line.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">4.14.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Command Highlight mechanism uses <code>InlineCssTextArea</code> class. It uses listener to detect the change in the <code>commandTextField</code> and check if it is command word, parameter, index or values and assign different colors correspondingly.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -3533,4 +3614,4 @@ Expected: The invalid command error it shown in the status message. The issue li
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 11:50:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 15:11:07 UTC</div></div></div></body></html>
