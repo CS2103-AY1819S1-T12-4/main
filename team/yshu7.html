@@ -126,11 +126,173 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="sorting-the-list-of-issues-code-sr-sort-code"><a class="link" href="#sorting-the-list-of-issues-code-sr-sort-code">4.1. Sorting the list of issues: <code>(sr)sort</code></a></h3>
 <div class="paragraph">
-<p>Unresolved directive in yshu7.adoc - include::../UserGuide.adoc#sorting-the-list-of-issues-code-s-sort-code[tag=sort]</p>
+<p>Sorts the list of issue according to a specified sort type.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in yshu7.adoc - include::../UserGuide.adoc#clearing-all-entries-code-c-clear-code[tag=clear]</p>
+<p>The list always follow this sort type until another sort command is executed.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sort the issue list based on the time when they are added. The first issue added has the highest priority.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort chro</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sort the issue list by their last modified time chronologically. The last modified one has the highest priority.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort freq</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sort the issue list based on search frequency. The one which matches the search keywords most frequently has the highest priority.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort tag</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sort the issue list by their tag in alphabetical order.
+If their first tags start with the same character, the following tags are compared until there is a difference or one tag set comes to the end.
+In the second case, the issue with fewer tags is give higher priority.</p>
+</li>
+<li>
+<p>Sort the issues without tags at the end of the display issue list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>sort</p>
+</li>
+<li>
+<p>sort freq</p>
+</li>
+<li>
+<p>sort tag</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/sort-command.png" alt="sort command" width="790">
+</div>
+<div class="title">Figure 1. Sort Tag Command</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-c-clear-code"><a class="link" href="#clearing-all-entries-code-c-clear-code">4.2. Clearing all entries : <code>(c)clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all issues from the saveIt App.</p>
+</div>
+<div class="paragraph">
+<p>Format:  <code>clear</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>User need confirm to execute this operation.</p>
+</li>
+<li>
+<p>User can undo this operation to restore the issue lists.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -147,11 +309,99 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="confirmation-check"><a class="link" href="#confirmation-check">5.1. Confirmation Check</a></h3>
 <div class="paragraph">
-<p>Unresolved directive in yshu7.adoc - include::../DeveloperGuide.adoc#sort-feature[tag=sort]</p>
+<p>Some commands that can affect the users' experience significantly need to be paid attention to and confirmation should be provided before they are executed.
+For the current version, <code>clear</code> is the only command that needs confirmation.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">5.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Instead of letting LogicManager execute the command directly after parsing it, we now check if we need confirmation before the command is executed.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in yshu7.adoc - include::../DeveloperGuide.adoc#confirmation-check[tag=confirmation]</p>
+<p>In order to connect the confirmation with the command:<br></p>
+</div>
+<div class="paragraph">
+<p>Step 1. We buffer the command that waits for confirmation.<br></p>
+</div>
+<div class="paragraph">
+<p>Step 2. Generate the CommandResult according to the confirmation message entered.<br></p>
+</div>
+<div class="paragraph">
+<p>Step 3. Clear the buffer.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">5.1.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-distinguish-commands-that-need-confirmation"><a class="link" href="#aspect-how-to-distinguish-commands-that-need-confirmation">Aspect: How to distinguish commands that need confirmation</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use abstract class DangerCommand</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Protect the specific Command type from being accessed by LogicManager. Sustainable.</p>
+</li>
+<li>
+<p>Cons: N.A.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Check class name and provide a danger class name list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Command information leaked. Inaccurate, e.g. two classes from different package can have the same class name.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-connect-the-confirmation-message-with-the-command-requiring-it"><a class="link" href="#aspect-how-to-connect-the-confirmation-message-with-the-command-requiring-it">Aspect: How to connect the confirmation message with the command requiring it</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Buffer the command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Protect CommandBox from Command Class.</p>
+</li>
+<li>
+<p>Cons: Another variable introduced. Need effort to deal with the buffered command properly.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Let Command check the confirmation message</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Follow the normal logic. Easy to understand.</p>
+</li>
+<li>
+<p>Cons: CommandBox is exposed to Command Class.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -163,4 +413,4 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 15:11:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 15:48:09 UTC</div></div></div></body></html>
