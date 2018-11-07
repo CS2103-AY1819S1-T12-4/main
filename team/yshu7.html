@@ -37,7 +37,7 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <p>What it does: It allows the user to sort issues shown.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can view the issues in the order that they want.</p>
+<p>Justification: This feature improves the product significantly because a user can view the issues in the order that they want, helping them to organize issues better.</p>
 </li>
 <li>
 <p>Highlights: This command changed the way how issues are listed in the application. It needs effort to combine sorting and filtering together properly.</p>
@@ -46,10 +46,23 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a confirmation check for clear command.</p>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added a confirmation check for clear command.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Added the ability to set and reset primary solution.</p>
+</li>
+<li>
+<p>Update solution structure.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=yshu7">Functional code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -70,10 +83,7 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated tests to fit mid-v1.2 features (Pull requests <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/52">#52</a>)</p>
 </li>
 </ul>
 </div>
@@ -95,7 +105,8 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <li>
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/25">#25</a>,
 <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/32">#32</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/77">#77</a>,
-<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/123">#123</a></p>
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/123">#123</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/168">#168</a>,
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/169">#169</a>,https://github.com/CS2103-AY1819S1-T12-4/main/pull/178[#178],</p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other team members in the group:  <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/111">111</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/115">115</a></p>
@@ -294,6 +305,48 @@ In the second case, the issue with fewer tags is give higher priority.</p>
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="choosing-one-primary-solution-code-sp-setprimary-code"><a class="link" href="#choosing-one-primary-solution-code-sp-setprimary-code">4.3. Choosing one primary solution: <code>(sp)setprimary</code></a></h3>
+<div class="paragraph">
+<p>Chooses one solution of the issue and make it the primary solution.</p>
+</div>
+<div class="paragraph">
+<p>If there is an existing primary solution, <code>setprimary</code> will reset the primary solution to the latest one.</p>
+</div>
+<div class="paragraph">
+<p>The primary solution is shown on the top of the solution list and is highlighted.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>setprimary INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number on the solution list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The index cannot be bigger than the number of issues.</p>
+</li>
+<li>
+<p>This command can only be executed <strong>after you select an issue or a solution</strong>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -413,4 +466,4 @@ For the current version, <code>clear</code> is the only command that needs confi
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 19:02:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 21:03:28 UTC</div></div></div></body></html>
