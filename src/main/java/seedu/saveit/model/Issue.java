@@ -78,20 +78,6 @@ public class Issue {
         this.lastModifiedTime = lastModifiedTime;
     }
 
-    /**
-     * Overloaded constructor with additional {@code frequency} field
-     */
-    public Issue(Issue issue) {
-        CollectionUtil.requireAllNonNull(issue);
-        this.statement = issue.getStatement();
-        this.description = issue.getDescription();
-        this.solutions.addAll(issue.getSolutions());
-        this.tags.addAll(issue.getTags());
-        this.frequency = issue.getFrequency();
-        this.lastModifiedTime = new Timestamp(new Date().getTime());
-    }
-
-
     public IssueStatement getStatement() {
         return statement;
     }
