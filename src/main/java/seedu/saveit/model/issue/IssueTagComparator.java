@@ -36,4 +36,9 @@ public class IssueTagComparator implements Comparator<Issue> {
         }
         return tagSetA.size() - tagSetB.size();
     }
+
+    @Override
+    public String toString() {
+        return "Tag";
+    }
 }

@@ -11,4 +11,9 @@ public class IssueFreqComparator implements Comparator<Issue> {
     public int compare(Issue a, Issue b) {
         return b.getFrequency().compare(a.getFrequency());
     }
+
+    @Override
+    public String toString() {
+        return "Search Frequency";
+    }
 }

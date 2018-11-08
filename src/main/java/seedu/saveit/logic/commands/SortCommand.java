@@ -2,8 +2,10 @@ package seedu.saveit.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.saveit.commons.core.EventsCenter;
 import seedu.saveit.commons.core.Messages;
 import seedu.saveit.commons.core.directory.Directory;
+import seedu.saveit.commons.events.model.SortTypeChangedEvent;
 import seedu.saveit.logic.CommandHistory;
 import seedu.saveit.logic.commands.exceptions.CommandException;
 import seedu.saveit.model.Model;
@@ -39,6 +41,8 @@ public class SortCommand extends Command {
 
         requireNonNull(model);
         model.sortIssues(sortType);
+        EventsCenter.getInstance().post(
+                new SortTypeChangedEvent(model.getCurrentSortType()));
         return new CommandResult(
                 String.format(MESSAGE_SUCCESS, sortType.getSortType()));
     }

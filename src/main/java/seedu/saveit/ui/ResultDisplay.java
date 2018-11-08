@@ -13,6 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
 import seedu.saveit.commons.core.LogsCenter;
 import seedu.saveit.commons.events.model.DirectoryChangedEvent;
+import seedu.saveit.commons.events.model.SortTypeChangedEvent;
 import seedu.saveit.commons.events.ui.NewResultAvailableEvent;
 
 /**
@@ -23,9 +24,11 @@ public class ResultDisplay extends UiPart<Region> {
     private static final Logger logger = LogsCenter.getLogger(ResultDisplay.class);
     private static final String FXML = "ResultDisplay.fxml";
     private static final String ROOT_DIRECTORY = "../SaveIt";
+    private static final String DEFAULT_SORT_TYPE = "Sort By: Default";
 
     private final StringProperty displayed = new SimpleStringProperty("");
     private final StringProperty currentDirectory = new SimpleStringProperty(ROOT_DIRECTORY);
+    private final StringProperty currentSortType = new SimpleStringProperty(DEFAULT_SORT_TYPE);
 
     @FXML
     private TextArea resultDisplay;
@@ -33,10 +36,14 @@ public class ResultDisplay extends UiPart<Region> {
     @FXML
     private Label directory;
 
+    @FXML
+    private Label sortType;
+
     public ResultDisplay() {
         super(FXML);
         resultDisplay.textProperty().bind(displayed);
         directory.textProperty().bind(currentDirectory);
+        sortType.textProperty().bind(currentSortType);
         registerAsAnEventHandler(this);
     }
 
@@ -53,4 +60,9 @@ public class ResultDisplay extends UiPart<Region> {
         Platform.runLater(() -> currentDirectory.setValue(event.directory.toString()));
     }
 
+    @Subscribe
+    private void handleChangeSortTypeRequestEvent(SortTypeChangedEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        Platform.runLater(() -> currentSortType.setValue(event.sortType.toString()));
+    }
 }

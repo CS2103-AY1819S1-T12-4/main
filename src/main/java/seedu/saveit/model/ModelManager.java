@@ -68,6 +68,11 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
+    public Comparator<Issue> getCurrentSortType() {
+        return versionedSaveIt.getCurrentSortType();
+    }
+
+    @Override
     public ReadOnlySaveIt getSaveIt() {
         return versionedSaveIt;
     }
@@ -157,6 +162,7 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void sortIssues(IssueSort sortType) {
         updateFilteredAndSortedIssueList(sortType.getComparator());
+        versionedSaveIt.setSortType(sortType.getComparator());
     }
 
     //=========== Filtered Issue List Accessors =============================================================

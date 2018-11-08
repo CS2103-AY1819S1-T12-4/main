@@ -28,6 +28,9 @@ public interface Model {
     /** Return the current directory. */
     Directory getCurrentDirectory();
 
+    /** Return the current sortType. */
+    Comparator<Issue> getCurrentSortType();
+
     /** Returns the SaveIt */
     ReadOnlySaveIt getSaveIt();
 

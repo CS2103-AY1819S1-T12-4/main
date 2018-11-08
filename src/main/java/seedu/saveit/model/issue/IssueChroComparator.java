@@ -11,4 +11,9 @@ public class IssueChroComparator implements Comparator<Issue> {
     public int compare(Issue a, Issue b) {
         return b.getLastModifiedTime().compareTo(a.getLastModifiedTime());
     }
+
+    @Override
+    public String toString() {
+        return "Chronological";
+    }
 }
