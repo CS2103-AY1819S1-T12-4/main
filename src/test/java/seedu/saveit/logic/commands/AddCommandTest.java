@@ -290,6 +290,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public Comparator<Issue> getCurrentSortType() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ReadOnlySaveIt getSaveIt() {
             throw new AssertionError("This method should not be called.");
         }
