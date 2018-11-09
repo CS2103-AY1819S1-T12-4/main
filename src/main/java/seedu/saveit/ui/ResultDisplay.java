@@ -64,6 +64,7 @@ public class ResultDisplay extends UiPart<Region> {
     @Subscribe
     private void handleChangeSortTypeRequestEvent(SortTypeChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        Platform.runLater(() -> currentSortType.setValue(SORTED_BY + event.sortType.toString()));
+        String sortType = event.sortType == null ? "Default" : event.sortType.toString();
+        Platform.runLater(() -> currentSortType.setValue(SORTED_BY + sortType));
     }
 }

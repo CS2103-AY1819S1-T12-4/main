@@ -69,9 +69,6 @@ public interface Model {
      */
     void updateIssue(Issue target, Issue editedIssue);
 
-    /** Returns an unmodifiable view of the filtered issue list */
-    ObservableList<Issue> getFilteredIssueList();
-
     /**Returns an unmodified view of the filtered solution list of the selected issue */
     ObservableList<Solution> getFilteredSolutionList();
 

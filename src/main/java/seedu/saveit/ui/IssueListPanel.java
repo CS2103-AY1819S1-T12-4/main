@@ -30,7 +30,7 @@ public class IssueListPanel extends UiPart<Region> {
     }
 
     private void setConnections(ObservableList<Issue> issueList) {
-        issueListView.setItems(issueList);
+        issueListView.setItems(issueList.sorted());
         issueListView.setCellFactory(listView -> new IssueListViewCell());
         setEventHandlerForSelectionChangeEvent();
     }

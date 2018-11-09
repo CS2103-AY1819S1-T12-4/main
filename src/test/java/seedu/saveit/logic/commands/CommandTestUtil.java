@@ -115,7 +115,7 @@ public class CommandTestUtil {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
         SaveIt expectedSaveIt = new SaveIt(actualModel.getSaveIt());
-        List<Issue> expectedFilteredList = new ArrayList<>(actualModel.getFilteredIssueList());
+        List<Issue> expectedFilteredList = new ArrayList<>(actualModel.getFilteredAndSortedIssueList());
         List<Issue> expectedFilteredAndSortedList = new ArrayList<>(actualModel.getFilteredAndSortedIssueList());
 
         CommandHistory expectedCommandHistory = new CommandHistory(actualCommandHistory);
@@ -125,7 +125,7 @@ public class CommandTestUtil {
         } catch (CommandException e) {
             assertEquals(expectedMessage, e.getMessage());
             assertEquals(expectedSaveIt, actualModel.getSaveIt());
-            assertEquals(expectedFilteredList, actualModel.getFilteredIssueList());
+            assertEquals(expectedFilteredList, actualModel.getFilteredAndSortedIssueList());
             assertEquals(expectedFilteredAndSortedList, actualModel.getFilteredAndSortedIssueList());
             assertEquals(expectedCommandHistory, actualCommandHistory);
         } catch (ParseException e) {

@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.fxml.FXML;
 import seedu.saveit.commons.core.ComponentManager;
 import seedu.saveit.commons.core.LogsCenter;
 import seedu.saveit.commons.core.directory.Directory;
@@ -43,7 +44,7 @@ public class ModelManager extends ComponentManager implements Model {
 
         versionedSaveIt = new VersionedSaveIt(saveIt);
         filteredIssues = new FilteredList<>(versionedSaveIt.getIssueList());
-        filteredAndSortedIssues = new SortedList<>(getFilteredIssueList());
+        filteredAndSortedIssues = new SortedList<>(filteredIssues);
     }
 
     public ModelManager() {
@@ -166,16 +167,6 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     //=========== Filtered Issue List Accessors =============================================================
-
-    /**
-     * Returns an unmodifiable view of the list of {@code Issue} backed by the internal list of
-     * {@code versionedSaveIt}
-     */
-    @Override
-    public ObservableList<Issue> getFilteredIssueList() {
-        return FXCollections.unmodifiableObservableList(filteredIssues);
-    }
-
     /**
      * Returns an unmodifiable view of the list of {@code Solution} backed by the internal list of
      * {@code Issue}
@@ -212,7 +203,8 @@ public class ModelManager extends ComponentManager implements Model {
      */
     @Override
     public ObservableList<Issue> getFilteredAndSortedIssueList() {
-        return FXCollections.unmodifiableObservableList(filteredAndSortedIssues);
+        //return FXCollections.unmodifiableObservableList(filteredAndSortedIssues);
+        return FXCollections.unmodifiableObservableList(filteredIssues);
     }
 
     //=========== Tag Set Accessors ======================================================================

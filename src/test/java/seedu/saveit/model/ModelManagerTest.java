@@ -40,9 +40,9 @@ public class ModelManagerTest {
     }
 
     @Test
-    public void getFilteredIssueList_modifyList_throwsUnsupportedOperationException() {
+    public void getFilteredAndSortedIssueList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
-        modelManager.getFilteredIssueList().remove(0);
+        modelManager.getFilteredAndSortedIssueList().remove(0);
     }
 
     @Test
