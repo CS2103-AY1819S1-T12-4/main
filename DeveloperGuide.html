@@ -1649,7 +1649,8 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 <div class="sect3">
 <h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">4.14.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The figure below shows a basic relationship between each class.</p>
+<p>The figure below shows a basic relationship between each class.
+The <code>SuggestionLogicManager</code> implements <code>SuggestionLogic</code> interface and overrides the <code>evaluate</code> method. Similarly, <code>IssueNameSuggestion</code>, <code>TagNameSuggestion</code> and <code>CopyExistingSuggestion</code> implement <code>Suggestion</code> interface and override <code>evaluate</code> method.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1659,6 +1660,51 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 <div class="paragraph">
 <p>Since the suggestion component has to retrieve the data from model component to give suggestion according user&#8217;s entered keywords, it is considered as a part of <code>Logic</code> component. By listening to the text field which locates in <code>CommandBox</code>, <code>SuggestionLogicManager</code> will be able to decide which type of suggestion should be given through parsing the prefix from <code>ArgumentTokenizer</code>. Once the <code>parseFindCommandSuggestion</code> is triggered, a new <code>IssueNameSuggestion</code> class will be created. By calling <code>getCurrentIssueStatementSet</code>, <code>IssueNameSuggestion</code> is able to match the user input and thus gives the relevant issue statement as a suggestion. The returned <code>SuggestionResult</code> will be passed to the <code>displaySuggestion</code> method in <code>CommandBox</code>. One thing to be noticed, the drop-down window will be hidden once a user input is matched any given suggestion value.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/IssueNameSuggestionDiagram.png" alt="IssueNameSuggestionDiagram" width="800">
+</div>
+<div class="title">Figure 24. IssueNameSuggestion Sequence</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">4.14.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-distinguish-value-of-each-field-and-recognize-the-order-of-each-value"><a class="link" href="#aspect-how-to-distinguish-value-of-each-field-and-recognize-the-order-of-each-value">Aspect: How to distinguish value of each field and recognize the order of each value</a></h5>
+<div class="paragraph">
+<p>Since the original tokenizer hashes prefix, there is no way to distinguish the order of each value after prefix. For instance, if several prefixes of tag appear, it is impossible to distinguish each tag using tokenizer.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Hash Prefix with its relative distance together</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Code has a high readability and easy to understand</p>
+</li>
+<li>
+<p>Cons: Quite hard to implement as other commands do not require to distinguish the order of each value but suggestion component does. Once hash with prefix and distance, it needs to handle both situation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Using subString to get each field from command line input</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Bad readability and code quality, no consistency.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1735,7 +1781,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 25. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3636,4 +3682,4 @@ Expected: The invalid command error it shown in the status message. The issue li
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 17:48:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 18:14:54 UTC</div></div></div></body></html>
