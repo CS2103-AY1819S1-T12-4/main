@@ -186,20 +186,20 @@ public class ModelManager extends ComponentManager implements Model {
     public void updateFilteredIssueList(Predicate<Issue> predicate) {
         requireNonNull(predicate);
         filteredIssues.setPredicate(predicate);
+        for (Issue i : filteredIssues) {
+            System.out.println("filteredIssues --- " + i.getStatement().getValue());
+        }
         updateFilteredAndSortedIssueList(getCurrentSortType());
+        for (Issue i : filteredAndSortedIssues) {
+            System.out.println("filteredAndSortedIssues --- " + i.getStatement().getValue());
+        }
     }
 
     //=========== Sorted Issue List Accessors =============================================================
     @Override
     public void updateFilteredAndSortedIssueList(Comparator<Issue> comparator) {
-        if (comparator != null && !comparator.equals(getCurrentSortType())) {
-            filteredAndSortedIssues.setComparator(null);
-            filteredAndSortedIssues.setComparator(comparator);
-        }
-
-        if (comparator == null) {
-            filteredAndSortedIssues.setComparator(null);
-        }
+        filteredAndSortedIssues.setComparator(null);
+        filteredAndSortedIssues.setComparator(comparator);
     }
 
     //=========== Sorted Issue List Accessors =============================================================
