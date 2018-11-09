@@ -187,11 +187,13 @@ public class ModelManager extends ComponentManager implements Model {
     public void updateFilteredIssueList(Predicate<Issue> predicate) {
         requireNonNull(predicate);
         filteredIssues.setPredicate(predicate);
+        updateFilteredAndSortedIssueList(getCurrentSortType());
     }
 
     //=========== Sorted Issue List Accessors =============================================================
     @Override
     public void updateFilteredAndSortedIssueList(Comparator<Issue> comparator) {
+        filteredAndSortedIssues.setComparator(null);
         filteredAndSortedIssues.setComparator(comparator);
     }
 
@@ -203,8 +205,7 @@ public class ModelManager extends ComponentManager implements Model {
      */
     @Override
     public ObservableList<Issue> getFilteredAndSortedIssueList() {
-        //return FXCollections.unmodifiableObservableList(filteredAndSortedIssues);
-        return FXCollections.unmodifiableObservableList(filteredIssues);
+        return FXCollections.unmodifiableObservableList(filteredAndSortedIssues);
     }
 
     //=========== Tag Set Accessors ======================================================================
