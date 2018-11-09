@@ -77,8 +77,8 @@ public class SortCommandTest {
         Issue issue = new Issue(new IssueStatement("new SOLUTION_C++ problem"),
                 new Description("only for test"), new ArrayList<>(), new HashSet<>());
 
-        expectedModel.updateFilteredAndSortedIssueList(issueSort.getComparator());
         expectedModel.addIssue(issue);
+        expectedModel.updateFilteredAndSortedIssueList(issueSort.getComparator());
         model.addIssue(issue);
         SortCommand command = new SortCommand(issueSort);
         assertCommandSuccess(command, model, commandHistory, expectedMessage, expectedModel);
