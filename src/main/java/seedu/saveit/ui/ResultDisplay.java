@@ -24,11 +24,12 @@ public class ResultDisplay extends UiPart<Region> {
     private static final Logger logger = LogsCenter.getLogger(ResultDisplay.class);
     private static final String FXML = "ResultDisplay.fxml";
     private static final String ROOT_DIRECTORY = "../SaveIt";
-    private static final String DEFAULT_SORT_TYPE = "Sort By: Default";
+    private static final String SORTED_BY = "Sorted By: ";
+    private static final String DEFAULT_SORT_TYPE = "Default";
 
     private final StringProperty displayed = new SimpleStringProperty("");
     private final StringProperty currentDirectory = new SimpleStringProperty(ROOT_DIRECTORY);
-    private final StringProperty currentSortType = new SimpleStringProperty(DEFAULT_SORT_TYPE);
+    private final StringProperty currentSortType = new SimpleStringProperty(SORTED_BY + DEFAULT_SORT_TYPE);
 
     @FXML
     private TextArea resultDisplay;
@@ -63,6 +64,6 @@ public class ResultDisplay extends UiPart<Region> {
     @Subscribe
     private void handleChangeSortTypeRequestEvent(SortTypeChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        Platform.runLater(() -> currentSortType.setValue(event.sortType.toString()));
+        Platform.runLater(() -> currentSortType.setValue(SORTED_BY + event.sortType.toString()));
     }
 }
