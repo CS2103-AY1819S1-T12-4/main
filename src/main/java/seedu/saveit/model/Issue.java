@@ -65,7 +65,7 @@ public class Issue {
     }
 
     /**
-     * Overloaded constructor with additional {@code frequency} field
+     * Overloaded constructor with additional {@code frequency} and field
      */
     public Issue(IssueStatement statement, Description description, List<Solution> solutions,
                  Set<Tag> tags, IssueSearchFrequency frequency, Timestamp lastModifiedTime) {

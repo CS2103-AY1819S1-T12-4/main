@@ -186,13 +186,7 @@ public class ModelManager extends ComponentManager implements Model {
     public void updateFilteredIssueList(Predicate<Issue> predicate) {
         requireNonNull(predicate);
         filteredIssues.setPredicate(predicate);
-        for (Issue i : filteredIssues) {
-            System.out.println("filteredIssues --- " + i.getStatement().getValue());
-        }
         updateFilteredAndSortedIssueList(getCurrentSortType());
-        for (Issue i : filteredAndSortedIssues) {
-            System.out.println("filteredAndSortedIssues --- " + i.getStatement().getValue());
-        }
     }
 
     //=========== Sorted Issue List Accessors =============================================================
