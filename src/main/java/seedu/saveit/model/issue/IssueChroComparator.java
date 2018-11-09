@@ -16,4 +16,9 @@ public class IssueChroComparator implements Comparator<Issue> {
     public String toString() {
         return "Chronological";
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return this == other || other instanceof IssueChroComparator;
+    }
 }

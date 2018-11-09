@@ -41,4 +41,9 @@ public class IssueTagComparator implements Comparator<Issue> {
     public String toString() {
         return "Tag";
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return this == other || other instanceof IssueTagComparator;
+    }
 }

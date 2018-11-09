@@ -163,7 +163,6 @@ public class ModelManager extends ComponentManager implements Model {
     public void sortIssues(IssueSort sortType) {
         updateFilteredAndSortedIssueList(sortType.getComparator());
         versionedSaveIt.setCurrentSortType(sortType.getComparator());
-        indicateSaveItChanged();
     }
 
     //=========== Filtered Issue List Accessors =============================================================
@@ -193,8 +192,14 @@ public class ModelManager extends ComponentManager implements Model {
     //=========== Sorted Issue List Accessors =============================================================
     @Override
     public void updateFilteredAndSortedIssueList(Comparator<Issue> comparator) {
-        filteredAndSortedIssues.setComparator(null);
-        filteredAndSortedIssues.setComparator(comparator);
+        if (comparator != null && !comparator.equals(getCurrentSortType())) {
+            filteredAndSortedIssues.setComparator(null);
+            filteredAndSortedIssues.setComparator(comparator);
+        }
+
+        if (comparator == null) {
+            filteredAndSortedIssues.setComparator(null);
+        }
     }
 
     //=========== Sorted Issue List Accessors =============================================================

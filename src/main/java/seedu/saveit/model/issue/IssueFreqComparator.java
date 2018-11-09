@@ -16,4 +16,9 @@ public class IssueFreqComparator implements Comparator<Issue> {
     public String toString() {
         return "Search Frequency";
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return this == other || other instanceof IssueFreqComparator;
+    }
 }
