@@ -25,8 +25,7 @@ public class VersionedSaveIt extends SaveIt {
      */
     public void commit() {
         removeStatesAfterCurrentPointer();
-        SaveIt saveIt = new SaveIt(this);
-        saveItStateList.add(saveIt);
+        saveItStateList.add(new SaveIt(this));
         currentStatePointer++;
     }
 
@@ -42,8 +41,7 @@ public class VersionedSaveIt extends SaveIt {
             throw new NoUndoableStateException();
         }
         currentStatePointer--;
-        ReadOnlySaveIt saveIt = saveItStateList.get(currentStatePointer);
-        resetData(saveIt);
+        resetData(saveItStateList.get(currentStatePointer));
     }
 
     /**

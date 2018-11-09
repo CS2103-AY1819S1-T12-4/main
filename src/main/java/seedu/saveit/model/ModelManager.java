@@ -241,14 +241,12 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void undoSaveIt() {
         versionedSaveIt.undo();
-        updateFilteredAndSortedIssueList(getCurrentSortType());
         indicateSaveItChanged();
     }
 
     @Override
     public void redoSaveIt() {
         versionedSaveIt.redo();
-        updateFilteredAndSortedIssueList(getCurrentSortType());
         indicateSaveItChanged();
     }
 
