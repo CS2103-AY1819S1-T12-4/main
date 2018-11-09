@@ -320,11 +320,6 @@ public class AddCommandTest {
         }
 
         @Override
-        public ObservableList<Issue> getFilteredIssueList() {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
         public ObservableList<Solution> getFilteredSolutionList() {
             throw new AssertionError("This method should not be called.");
         }

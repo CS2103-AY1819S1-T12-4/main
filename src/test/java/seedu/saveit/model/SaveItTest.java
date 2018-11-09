@@ -11,6 +11,7 @@ import static seedu.saveit.testutil.TypicalSolutions.SOLUTION_STACKOVERFLOW;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.junit.Rule;
@@ -112,6 +113,11 @@ public class SaveItTest {
         @Override
         public Directory getCurrentDirectory() {
             return new Directory(0, 0);
+        }
+
+        @Override
+        public Comparator<Issue> getCurrentSortType() {
+            return null;
         }
     }
 
