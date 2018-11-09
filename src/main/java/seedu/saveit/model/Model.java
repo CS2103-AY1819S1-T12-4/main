@@ -25,6 +25,9 @@ public interface Model {
     /** Reset the current directory. */
     void resetDirectory(Directory currentDirectory);
 
+    /** Reset the current sortType. */
+    void resetSortType(Comparator<Issue> currentSortType);
+
     /** Return the current directory. */
     Directory getCurrentDirectory();
 

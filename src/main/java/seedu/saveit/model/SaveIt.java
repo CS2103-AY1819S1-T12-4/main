@@ -84,7 +84,7 @@ public class SaveIt implements ReadOnlySaveIt {
     /**
      * Update the current sortType.
      */
-    public void setSortType(Comparator<Issue> sortType) {
+    public void setCurrentSortType(Comparator<Issue> sortType) {
         currentSortType = sortType;
     }
 
@@ -95,7 +95,7 @@ public class SaveIt implements ReadOnlySaveIt {
         requireNonNull(newData);
         setIssues(newData.getIssueList());
         setCurrentDirectory(newData.getCurrentDirectory());
-        setSortType(newData.getCurrentSortType());
+        setCurrentSortType(newData.getCurrentSortType());
     }
 
     //// issue-level operations

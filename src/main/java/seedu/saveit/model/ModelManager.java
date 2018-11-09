@@ -13,7 +13,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.fxml.FXML;
 import seedu.saveit.commons.core.ComponentManager;
 import seedu.saveit.commons.core.LogsCenter;
 import seedu.saveit.commons.core.directory.Directory;
@@ -60,6 +59,12 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void resetDirectory(Directory newDirectory) {
         versionedSaveIt.setCurrentDirectory(newDirectory);
+        indicateSaveItChanged();
+    }
+
+    @Override
+    public void resetSortType(Comparator<Issue> newSortType) {
+        versionedSaveIt.setCurrentSortType(newSortType);
         indicateSaveItChanged();
     }
 
@@ -163,7 +168,7 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void sortIssues(IssueSort sortType) {
         updateFilteredAndSortedIssueList(sortType.getComparator());
-        versionedSaveIt.setSortType(sortType.getComparator());
+        resetSortType(sortType.getComparator());
     }
 
     //=========== Filtered Issue List Accessors =============================================================
@@ -241,12 +246,14 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void undoSaveIt() {
         versionedSaveIt.undo();
+        updateFilteredAndSortedIssueList(getCurrentSortType());
         indicateSaveItChanged();
     }
 
     @Override
     public void redoSaveIt() {
         versionedSaveIt.redo();
+        updateFilteredAndSortedIssueList(getCurrentSortType());
         indicateSaveItChanged();
     }
 

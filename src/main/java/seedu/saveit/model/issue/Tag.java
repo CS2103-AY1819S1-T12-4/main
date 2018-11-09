@@ -15,7 +15,7 @@ public class Tag {
             + "and should not more than 20 characters.";
     public static final String TAG_VALIDATION_REGEX = "[\\S]+";
 
-    public static final int lengthLimit = 20;
+    public static final int LENGTH_LIMIT = 20;
 
     public final String tagName;
 
@@ -34,7 +34,7 @@ public class Tag {
      * Returns true if a given string is a valid tag name.
      */
     public static boolean isValidTagName(String test) {
-        return test.matches(TAG_VALIDATION_REGEX) && test.length() <= lengthLimit;
+        return test.matches(TAG_VALIDATION_REGEX) && test.length() <= LENGTH_LIMIT;
     }
 
     /**

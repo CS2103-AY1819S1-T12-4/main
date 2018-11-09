@@ -221,7 +221,6 @@ public class MainWindow extends UiPart<Stage> {
     private void handleJumpToListRequestEvent(JumpToListRequestEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         issueListPanelPlaceholder.getChildren().remove(issueListPanel.getRoot());
-        System.out.println(issueListPanelPlaceholder.getChildren().size());
         issueListPanelPlaceholder.getChildren().add(solutionListPanel.getRoot());
     }
 

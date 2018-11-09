@@ -1,10 +1,13 @@
 package seedu.saveit.commons.events.model;
 
+import java.util.Comparator;
+
 import seedu.saveit.commons.events.BaseEvent;
 import seedu.saveit.model.Issue;
 
-import java.util.Comparator;
-
+/**
+ * Indicates model sortType was changed.
+ */
 public class SortTypeChangedEvent extends BaseEvent {
     public final Comparator<Issue> sortType;
 

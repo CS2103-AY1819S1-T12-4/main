@@ -2,6 +2,8 @@ package seedu.saveit.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.saveit.commons.core.EventsCenter;
+import seedu.saveit.commons.events.model.SortTypeChangedEvent;
 import seedu.saveit.logic.CommandHistory;
 import seedu.saveit.logic.commands.exceptions.CommandException;
 import seedu.saveit.model.Model;
@@ -26,6 +28,8 @@ public class RedoCommand extends Command {
         }
 
         model.redoSaveIt();
+        EventsCenter.getInstance().post(
+                new SortTypeChangedEvent(model.getCurrentSortType()));
         model.updateFilteredIssueList(Model.PREDICATE_SHOW_ALL_ISSUES);
         return new CommandResult(MESSAGE_SUCCESS);
     }

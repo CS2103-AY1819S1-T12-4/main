@@ -1,9 +1,9 @@
 package seedu.saveit.model;
 
+import java.util.Comparator;
+
 import javafx.collections.ObservableList;
 import seedu.saveit.commons.core.directory.Directory;
-
-import java.util.Comparator;
 
 /**
  * Unmodifiable view of an saveIt
