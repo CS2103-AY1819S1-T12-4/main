@@ -36,15 +36,16 @@
 <li><a href="#confirmation-check">4.4. Confirmation Check</a></li>
 <li><a href="#logging">4.5. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
-<li><a href="#new-command-home">4.7. New Command: Home</a></li>
-<li><a href="#gui-enhancement">4.8. GUI Enhancement</a></li>
+<li><a href="#directory-level-model">4.7. Directory Level Model</a></li>
+<li><a href="#ui-enhancement">4.8. UI Enhancement</a></li>
 <li><a href="#edit-feature">4.9. Edit Feature</a></li>
 <li><a href="#retrieve-feature">4.10. Retrieve Feature</a></li>
-<li><a href="#set-primary-feature">4.11. Set Primary feature</a></li>
-<li><a href="#refactor-tag-feature">4.12. Refactor tag Feature</a></li>
-<li><a href="#add-tag-feature">4.13. Add tag Feature</a></li>
-<li><a href="#suggestion-for-find-command-feature">4.14. Suggestion for find command Feature</a></li>
-<li><a href="#command-highlight">4.15. Command Highlight</a></li>
+<li><a href="#set-primary-feature">4.11. Set Primary Feature</a></li>
+<li><a href="#reset-primary-feature">4.12. Reset Primary Feature</a></li>
+<li><a href="#refactor-tag-feature">4.13. Refactor Tag Feature</a></li>
+<li><a href="#add-tag-feature">4.14. Add tag Feature</a></li>
+<li><a href="#suggestion-feature">4.15. Suggestion Feature</a></li>
+<li><a href="#command-highlight">4.16. Command Highlight</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -374,7 +375,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has only one class called <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
+<p><code>Main</code> has only one class called <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -501,13 +502,13 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 <p>The figure above shows the breakdown of the smaller components involved in the <code>UI</code> Component. The <code>UI</code> Component is the interface (abstraction barrier) between the user and the underlying components - <code>Model</code> and <code>Logic</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -535,11 +536,17 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 <div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
-<p>The <code>Logic</code> Component encapsulates the execution of all commands. Each command is represented its own class (e.g. <code>FindCommand.java</code>, <code>AddCommand.java</code>) which all inherit from an abstract <code>Command.java</code> class.</p>
+<p>The <code>Logic</code> Component can be split into two subcomponents:</p>
+</div>
+<div class="paragraph">
+<p><strong>1. Command Logic Subcomponent</strong></p>
+</div>
+<div class="paragraph">
+<p>The command logic subcomponent encapsulates the execution of all commands. Each command is represented its own class (e.g. <code>FindCommand.java</code>, <code>AddCommand.java</code>) which all inherit from an abstract <code>Command.java</code> class.</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -558,13 +565,49 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p><strong>2. Suggestion Logic Subcomponent</strong></p>
+</div>
+<div class="paragraph">
+<p>The suggestion logic subcomponent encapsulates the evaluation of user inputs as it is keyed into the command line, differing from the command logic in that command logic is only executed upon entering the command, whereas suggestion logic is called whenever the user input changes (without the need to enter).</p>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> :
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/logic/SuggestionLogic.java"><code>SuggestionLogic.java</code></a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>SuggestionLogic</code> parses user inputs whenever it changes.</p>
+</li>
+<li>
+<p>This determines which <code>Suggestion</code> object is created by the <code>SuggestionLogicManager</code>.</p>
+</li>
+<li>
+<p>The evaluation of the <code>Suggestion</code> object reads data from the <code>Model</code> (e.g. finds a specific <code>Issue</code>).</p>
+</li>
+<li>
+<p>The result of the evaluation is encapsulated as a <code>SuggestionResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component when an API call is made. The Sequence Diagram is split into two branches of logic:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Command logic:</strong> Shows an example command execution of the <code>delete 1</code> Command, which calls the <code>DeleteCommand</code>.</p>
+</li>
+<li>
+<p><strong>Suggestion logic:</strong> Shows an example suggestion evaluation of the user input <code>edit 1 i/</code>, which calls the <code>CopyExistingSuggestion</code>.</p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
+<img src="images/SDexamplesForLogic.png" alt="SDexamplesForLogic" width="800">
 </div>
-<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 7. Example Interactions Inside the Logic Component for the command and suggestion logic subcomponents.</div>
 </div>
 </div>
 <div class="sect2">
@@ -579,7 +622,7 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 <p>The <code>Model</code> Component contains the classes which are representations of the data stored by the application, and how each data objects are linked with each other.</p>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="ulist">
 <ul>
@@ -607,7 +650,7 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 <div class="ulist">
 <ul>
 <li>
-<p>As a more OOP model, we can store a <code>Tag</code> list in <code>SaveIt</code>, which <code>Issue</code> can reference. This would allow <code>SaveIt</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Issue</code> needing their own <code>Tag</code> object.</p>
+<p>As a more OOP model, we can store a <code>Tag</code> list in <code>SaveIt</code>, which <code>Issue</code> can reference. This will allow <code>SaveIt</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Issue</code> needing their own <code>Tag</code> object.</p>
 </li>
 <li>
 <p>The current model implements a <code>currentDirectory</code> to difference edition of issue and edition of solution with the same edit command. Besides, <code>AddCommand</code>, <code>ClearCommand</code> may also work differently for issues and solutions.</p>
@@ -631,7 +674,7 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 <div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="ulist">
 <ul>
@@ -666,7 +709,7 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 <div class="ulist">
 <ul>
 <li>
-<p>Issue level</p>
+<p>Root level</p>
 <div class="ulist">
 <ul>
 <li>
@@ -682,7 +725,7 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 </div>
 </li>
 <li>
-<p>Solution level</p>
+<p>Issue level</p>
 <div class="ulist">
 <ul>
 <li>
@@ -699,7 +742,7 @@ Note how event is propagated through the <code>EventsCenter</code> to the <code>
 <div class="sect3">
 <h4 id="add-issue"><a class="link" href="#add-issue">4.1.1. Add issue</a></h4>
 <div class="paragraph">
-<p>Add issue happens on the issue level</p>
+<p>Adding a new issue can only happen at the root level</p>
 </div>
 <div class="sect4">
 <h5 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h5>
@@ -717,19 +760,19 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 <div class="title">Figure 10. Add Issue Command Sequence Diagram</div>
 </div>
 <div class="paragraph">
-<p>This diagram gives a clear procedure that how the user input is passed step by step and calling different methods and objects at different sequences.</p>
+<p>This diagram gives a clear procedure that how the user input is passed step by step by calling different methods and objects in different sequences.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="add-solution-to-existing-issue"><a class="link" href="#add-solution-to-existing-issue">4.1.2. Add solution to existing issue</a></h4>
 <div class="paragraph">
-<p>Add solution happens on the solution level</p>
+<p>Adding a new solution can only happen at the issue level</p>
 </div>
 <div class="sect4">
 <h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current implementation</a></h5>
 <div class="paragraph">
-<p>The <code>SaveItParser</code> is used to call <code>AddCommandParser</code> just like how add issue features functions as above mentioned. However, this time, the new solution link and solution remark is provided to <code>AddCommand</code> instead. In order to build a new <code>Issue</code> object, dummy issue statement and dummy issue description will be used. During execution, <code>addSolution</code> method, which was newly added, in Model component will be invoked, to add the solution. The detailed implementation of <code>addSolution</code> in model component is quite simple. Since the list stored in application is immutable, each time, a new issue will be created with original statement and description, then the new solution will be added to that particular issue. Finally, <code>updateIssue</code> method will be called to replace the issue in <code>versionedSaveIt</code>.</p>
+<p>The <code>SaveItParser</code> is used to call <code>AddCommandParser</code> just like how adding issue feature functions as above mentioned. However, this time, the new solution link and solution remark is provided to <code>AddCommand</code> instead. In order to build a new <code>Issue</code> object, dummy issue statement and dummy issue description will be used. During execution, <code>addSolution</code> method, which was newly added, in Model component will be invoked to add the solution. The detailed implementation of <code>addSolution</code> in model component is quite simple. Since the list stored in application is immutable, each time, a new issue will be created with original statement and description, then the new solution will be added to that particular issue. Finally, <code>updateIssue</code> method will be called to replace the issue in <code>versionedSaveIt</code>.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram illustrates how the add solution feature functions</p>
@@ -752,7 +795,7 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Combine AddIssue and AddSolution combined together and distinguishes them at the stage of <code>AddCommandParser</code></p>
+<p><strong>Alternative 1 (current choice):</strong> Combine AddIssue and AddSolution together and distinguish them at the stage of <code>AddCommandParser</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -785,7 +828,7 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Passing a new created issue with dummy issue statement or dummy solution link</p>
+<p><strong>Alternative 1 (current choice):</strong> Pass a newly created issue with dummy issue statement or dummy solution link</p>
 <div class="ulist">
 <ul>
 <li>
@@ -798,7 +841,7 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Overloading Issue constructor so that different issues will be passing to <code>AddCommand</code> accordingly.</p>
+<p><strong>Alternative 2:</strong> Overload Issue constructor so that different issues will be passed to <code>AddCommand</code> accordingly.</p>
 </li>
 <li>
 <p>Pros: Relatively easier to implement</p>
@@ -819,10 +862,10 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.2.1. Current implementation</a></h4>
 <div class="paragraph">
-<p>We use JavaFX <code>SortedList</code> and the Comparator provided by <code>IssueSort</code> to sort the list, <code>ModelManager#getSortedList()</code> to retrieve the sorted list.</p>
+<p>We use JavaFX <code>SortedList</code> and the Comparator provided by <code>SortType</code> to sort the list.</p>
 </div>
 <div class="paragraph">
-<p>In order to allow sort work with filtered list, we implement the new method <code>getFilteredAndSortedList()</code>, which calls <code>getSortedList()</code> and apply it to the filtered list.</p>
+<p>In order to allow sorting to work with the filtered list, we wrap <code>FilteredList</code> with <code>SortedList</code> and retrieve this new list with a new method <code>getFilteredAndSortedList()</code>.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram illustrates how the mechanism works:</p>
@@ -833,31 +876,24 @@ In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> 
 </div>
 <div class="title">Figure 12. Sort Command Sequence Diagram</div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/InitializeComparator.png" alt="InitializeComparator" width="800">
-</div>
-<div class="title">Figure 13. Reference Frame Initialize Comparator</div>
+<div class="paragraph">
+<p>This diagram shows that after the input is parsed, a SortType object is initialized before the SortCommand object.</p>
 </div>
 <div class="paragraph">
-<p>This two diagrams show that after the input is parsed, a IssueSort object is initialized before the SortCommand object.</p>
+<p>As shown in the diagram, a SortType object can provide the required comparator and we use the retrieved Comparator to sort the list when the sort command is executed.</p>
 </div>
 <div class="paragraph">
-<p>As shown in the diagram, an IssueSort object can provide the required comparator with the input String passed from SortCommand.
-We use the retrieved Comparator the sort the list when executing the sort command.</p>
-</div>
-<div class="paragraph">
-<p>The following is a class diagram for IssueSort.</p>
+<p>The following is a class diagram for SortType.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/IssueSort.png" alt="IssueSort" width="800">
+<img src="images/SortType.png" alt="SortType" width="500">
 </div>
-<div class="title">Figure 14. IssueSort Class Diagram</div>
+<div class="title">Figure 13. SortType Class Diagram</div>
 </div>
 <div class="paragraph">
-<p>It shows that Comparator is an attribute of IssueSort class. We create three different classes that implement the Comparator Interface.
-They can serve the three sort type we provide in SaveIt. When more sort type is needed, we can simple create another class implementing Comparator, and add anther case in switch statement.</p>
+<p>It shows that Comparator is an attribute of SortType class. We create three different classes that implement the Comparator Interface.
+They can serve the three sort types (excluding the default one) we provide in SaveIt. When more sort types are needed, we can simply create another class implementing Comparator, and add another case in the switch statement.</p>
 </div>
 </div>
 <div class="sect3">
@@ -874,20 +910,20 @@ They can serve the three sort type we provide in SaveIt. When more sort type is 
 <p>Pros: Consistent sorting. Doesn&#8217;t affect the memory of issue lists.</p>
 </li>
 <li>
-<p>Cons: Need effort to make sure the correct list is retrieved.</p>
+<p>Cons: Need efforts to make sure the correct list is retrieved.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Reconstruct UniqueIssueList directly, sort at Storage</p>
+<p><strong>Alternative 2:</strong> Reconstruct UniqueIssueList directly, sort in Storage</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to understand and implement</p>
+<p>Pros: Easy to understand and implement.</p>
 </li>
 <li>
-<p>Cons: Time consuming.</p>
+<p>Cons: Break the persistence of the backend list.</p>
 </li>
 </ul>
 </div>
@@ -942,7 +978,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new statement. The <code>add</code> command also calls <code>Model#commitSaveIt()</code>, causing another modified SaveIt state to be saved into the <code>saveItStateList</code>.</p>
+<p>Step 3. The user executes <code>add i/Array&#8230;&#8203;</code> to add a new issue. The <code>add</code> command also calls <code>Model#commitSaveIt()</code>, causing another modified SaveIt state to be saved into the <code>saveItStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -962,7 +998,7 @@ If a command fails its execution, it will not call <code>Model#commitSaveIt()</c
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the statement was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoSaveIt()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous SaveIt state, and restores the SaveIt to that state.</p>
+<p>Step 4. The user now decides that adding the issue was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoSaveIt()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous SaveIt state, and restores the SaveIt to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -985,7 +1021,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial S
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 15. The above sequence diagram shows how the undo operation works:</div>
+<div class="title">Figure 14. The above sequence diagram shows how the undo operation works:</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoSaveIt()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the SaveIt to that state.</p>
@@ -1011,7 +1047,7 @@ If the <code>currentStatePointer</code> is at index <code>saveItStateList.size()
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitSaveIt()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>saveItStateList</code>, all SaveIt states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitSaveIt()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>saveItStateList</code>, all SaveIt states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add i/Array &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1022,7 +1058,7 @@ If the <code>currentStatePointer</code> is at index <code>saveItStateList.size()
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
-<div class="title">Figure 16. The above activity diagram summarizes what happens when a user executes a new command:</div>
+<div class="title">Figure 15. The above activity diagram summarizes what happens when a user executes a new command:</div>
 </div>
 </div>
 <div class="sect3">
@@ -1103,20 +1139,29 @@ For the current version, <code>clear</code> is the only command that needs confi
 </div>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.4.1. Current Implementation</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/ClearCommand.png" alt="ClearCommand" width="800">
+</div>
+<div class="title">Figure 16. Clear Command Activity Diagram</div>
+</div>
 <div class="paragraph">
-<p>Instead of letting LogicManager execute the command directly after parsing it, we now check if we need confirmation before the command is executed.</p>
+<p>As shown in the diagram, instead of letting Logic execute the command directly after parsing it, we now check if we need confirmation before the command is executed.</p>
 </div>
 <div class="paragraph">
 <p>In order to connect the confirmation with the command:<br></p>
 </div>
 <div class="paragraph">
-<p>Step 1. We buffer the command that waits for confirmation.<br></p>
+<p>Step 1. We buffer the command that requires confirmation.<br></p>
 </div>
 <div class="paragraph">
-<p>Step 2. Generate the CommandResult according to the confirmation message entered.<br></p>
+<p>Step 2. Wait for the user to input confirmation message.<br></p>
 </div>
 <div class="paragraph">
-<p>Step 3. Clear the buffer.</p>
+<p>Step 3. Clear the buffer.<br></p>
+</div>
+<div class="paragraph">
+<p>Step 4. Generate the CommandResult according to the confirmation message entered.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1146,7 +1191,7 @@ For the current version, <code>clear</code> is the only command that needs confi
 <p>Pros: Easy to implement.</p>
 </li>
 <li>
-<p>Cons: Command information leaked. Inaccurate, e.g. two classes from different package can have the same class name.</p>
+<p>Cons: Command information leaked. Inaccurate, e.g. two classes from different packages can have the same class name.</p>
 </li>
 </ul>
 </div>
@@ -1163,10 +1208,10 @@ For the current version, <code>clear</code> is the only command that needs confi
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Protect CommandBox from Command Class.</p>
+<p>Pros: Protect CommandBox from being accessed by Command, i.e. retrieve the input message in Command Class</p>
 </li>
 <li>
-<p>Cons: Another variable introduced. Need effort to deal with the buffered command properly.</p>
+<p>Cons: Another variable introduced. Need efforts to deal with the buffered command properly.</p>
 </li>
 </ul>
 </div>
@@ -1234,48 +1279,165 @@ For the current version, <code>clear</code> is the only command that needs confi
 </div>
 </div>
 <div class="sect2">
-<h3 id="new-command-home"><a class="link" href="#new-command-home">4.7. New Command: Home</a></h3>
+<h3 id="directory-level-model"><a class="link" href="#directory-level-model">4.7. Directory Level Model</a></h3>
 <div class="paragraph">
-<p>A new command--<code>home</code> is implemented to allow users to return to the root directory after editing a certain issue.</p>
+<p>SaveIt manages a list of issues, with each issue containing a list of solutions.
+ To manage the data with two-level structure, SaveIt implemented a directory model
+  in the Model component and UI component.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.7.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Currently a directory class is maintained in <code>SaveIt</code>. It consist of <code>root</code> level and <code>issue</code> level.
+ The solution level is disabled for now as the complexity of current version of SaveIt
+  does not require the three-level directory system.</p>
+</div>
+<div class="sect4">
+<h5 id="command-execution"><a class="link" href="#command-execution">Command Execution</a></h5>
+<div class="paragraph">
+<p>Before any command is executed,
+ it will query the current directory and determine the command result.
+  Some commands will have different command word and command result at different directory, such as:
+  <code>edit</code>, <code>add</code>. Some commands can only be executed at root level
+  , such as <code>sort</code>, <code>addtag</code>, <code>refactortag</code>, <code>find</code>, <code>findtag</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="home-command"><a class="link" href="#home-command">Home Command</a></h5>
+<div class="paragraph">
+<p>To traverse between <code>root</code> and <code>issue</code> level, a new command <code>home</code> is added to the command list.
+<code>home</code> Command changes the current directory to <code>root</code> level and post <code>DirectoryChangedEvent</code>,
+ which invokes the UI to load the issue list in the list panel. It is shown in the sequence
+ diagram below</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HomeCommandSequenceDiagram.png" alt="HomeCommandSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 17. Home Command Sequence Diagram</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.7.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-manage-the-issues-and-solutions-with-two-level-structure"><a class="link" href="#aspect-how-to-manage-the-issues-and-solutions-with-two-level-structure">Aspect: How to manage the issues and solutions with two-level structure</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Implement a directory level model explicitly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The data structure is clearer. Target users are familiar
+with director level system, such as file system in Linux.</p>
+</li>
+<li>
+<p>Cons: Changing directory may be inconvenient for users.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Manage the issue-solution structure by specifying index in commands.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No need to change the previous structure.</p>
+</li>
+<li>
+<p>Cons:The structure is not clear and the users may be confused.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="gui-enhancement"><a class="link" href="#gui-enhancement">4.8. GUI Enhancement</a></h3>
+<h3 id="ui-enhancement"><a class="link" href="#ui-enhancement">4.8. UI Enhancement</a></h3>
 <div class="paragraph">
-<p>The  figure below shows the expected GUI for SaveIt v1.3.</p>
+<p>The figures below show the current UI for SaveIt v1.4.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UI_Design.png" alt="UI Design" width="800">
+<img src="images/UI.png" alt="UI" width="790">
 </div>
-<div class="title">Figure 17. GUI Draft 1</div>
-</div>
-<div class="paragraph">
-<p>In the above figure, it is shown the left column displays the list of all issues,
- The column in the middle displays solutions of the selected issue. The blank part
-  at bottom right displays the web page of the url as in the solution link.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>*The web page should be able to be accessed via the Internet as well as loaded locally.</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>For SaveIt v1.4, The list of issues and list of solutions can be displayed in the same
- column, as shown below, Besides, the display panel will be used to display the website
- or the content of issue remark.</p>
+<div class="title">Figure 18. SaveIt UI Displaying Issue List</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UI_Design1.png" alt="UI Design1" width="800">
+<img src="images/UI2.png" alt="UI2" width="790">
 </div>
-<div class="title">Figure 18. GUI Draft 2, scenario 1</div>
+<div class="title">Figure 19. SaveIt UI Displaying Solution List</div>
+</div>
+<div class="paragraph">
+<p>In the above figures, the left column is the list panel which displays the list of issues or
+the list of solutions. The browser panel at bottom right displays the web page of the url as in the solution link.
+When no page is loaded, it displays the default page as above. Whenever a solution is selected,
+the browser panel loads the url given in the solution link as below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UI_Design2.png" alt="UI Design2" width="800">
+<img src="images/after%20selecting%20solution.png" alt="after selecting solution" width="790">
 </div>
-<div class="title">Figure 19. GUI Draft 2, scenario 2</div>
+<div class="title">Figure 20. Browser Panel loading Web-Page</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.8.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Currently the list panel implements a two-level structure. When the directory is at root level, it displays
+a list of issues. When the directory is at issue level, it displays the solution list of the selected issue.
+The list panel interacts with other components through <code>DirectoryChangedEvent</code> and <code>JumpToListRequestEvent</code>.
+The sequence diagram is as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UI_Sequence_Diagram_1.png" alt="UI Sequence Diagram 1" width="790">
+</div>
+<div class="title">Figure 21. Change From Solution List to Issue List</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UI_Sequence_Diagram_2.png" alt="UI Sequence Diagram 2" width="790">
+</div>
+<div class="title">Figure 22. Change from Issue List to Solution List</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">4.8.2. Design Consideration</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use one panel and switch between the two list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The panel takes less space. It also represents the directory structure model in UI.</p>
+</li>
+<li>
+<p>Cons: Need to switch between lists. Cannot display the issues while displaying the solutions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use two panels to display the issue list and solution list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Both lists can be viewed at the same time. Implementation is easier.</p>
+</li>
+<li>
+<p>Cons: It takes too much space in the UI.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1284,42 +1446,9 @@ For the current version, <code>clear</code> is the only command that needs confi
 <p>The edit feature allows users to edit any field of the issue and solution.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The edit mechanism is facilitated by <code>editCommandParser</code> and <code>editCommand</code>. Users are allowed to edit any field in the issue list. includes:<br></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>root level</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Issue statement</p>
-</li>
-<li>
-<p>Issue description</p>
-</li>
-<li>
-<p>Issue tags</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Issue level</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Solution link</p>
-</li>
-<li>
-<p>Solution remark</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<p>The edit mechanism is facilitated by <code>editCommandParser</code> and <code>editCommand</code>. Users are allowed to edit any field in the issue list.</p>
 </div>
 <div class="paragraph">
 <p>The <code>editCommandParser</code> extends <code>Parser</code> and implements the following operations:</p>
@@ -1357,11 +1486,11 @@ For the current version, <code>clear</code> is the only command that needs confi
 <div class="ulist">
 <ul>
 <li>
-<p><code>editCommand#execute(Model model, CommandHisotry history)</code></p>
+<p><code>editCommand#execute(Model model, CommandHistory history)</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Analyses the user in the root directory or issue directory. If the user in the root directory but provide solution edit command or in issue level but provide issue edit command<br>
+<p>Analyses the user in the home directory or issue directory. Since the home directory can only edit issues, if user provides solution related command, it will fail to execute. Also, in the issue directory, it only allows to edit solution, it will fail to execute the issue related command. Then it will
 throw <code>CommandException</code> and show wrong directory information.</p>
 </li>
 <li>
@@ -1374,17 +1503,17 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </ul>
 </div>
 <div class="paragraph">
-<p>Please refer to the Sequence Diagram below for the edit operation.</p>
+<p>Please refer to the Sequence Diagram below for the illustration of edit operation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/edit-command-sequence-diagram.jpg" alt="edit command sequence diagram" width="800">
 </div>
-<div class="title">Figure 20. Edit Command Sequence Diagram</div>
+<div class="title">Figure 23. Edit Command Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.9.2. Design Consideration</a></h4>
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">4.9.2. Design Consideration</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1408,7 +1537,7 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 <p>Pros: It will use less memory.</p>
 </li>
 <li>
-<p>Cons: It has lower security if it the issue is the mutable object.</p>
+<p>Cons: It has lower security if the issue is the mutable object.</p>
 </li>
 </ul>
 </div>
@@ -1420,28 +1549,28 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 <div class="sect2">
 <h3 id="retrieve-feature"><a class="link" href="#retrieve-feature">4.10. Retrieve Feature</a></h3>
 <div class="paragraph">
-<p>The retrieve feature allows user to choose a solution link to copy to the system clipboard.</p>
+<p>The retrieve feature allows user to choose a solution link and copy it to the system clipboard.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.10.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The retrieve feature basically takes the user entered index and call <code>getFilteredAndSortedList</code> method in <code>Model</code> to get the selected solution. Then Java <code>Toolkit</code> package is used to copy the url link of solution to the system clipboard.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-primary-feature"><a class="link" href="#set-primary-feature">4.11. Set Primary feature</a></h3>
+<h3 id="set-primary-feature"><a class="link" href="#set-primary-feature">4.11. Set Primary Feature</a></h3>
 <div class="paragraph">
-<p>The set primary feature allows users to choose one solution as primary solution.</p>
+<p>The set primary feature allows users to choose one solution as primary.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.11.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The set primary mechanism is facilitated by the method <code>isPrimarySolution()</code> override by <code>PrimarySolution</code> inheriting from <code>Solution</code>.</p>
+<p>The set primary solution mechanism is facilitated by the method <code>isPrimarySolution()</code>, which is overrode by <code>PrimarySolution</code> inheriting from <code>Solution</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">4.11.2. Design Consideration</a></h4>
+<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">4.11.2. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-distinguish-between-primarysolution-and-solution"><a class="link" href="#aspect-how-to-distinguish-between-primarysolution-and-solution">Aspect: How to distinguish between PrimarySolution and Solution</a></h5>
 <div class="ulist">
@@ -1451,7 +1580,7 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: No flag attribute is introduced. Solution structure remains the same.</p>
+<p>Pros: No flag attribute is introduced. More sustainable.</p>
 </li>
 <li>
 <p>Cons: New object is created. May affect performance.</p>
@@ -1464,10 +1593,23 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to understand.</p>
+<p>Pros: Easy to understand and implement.</p>
 </li>
 <li>
 <p>Cons: Solution constructor is affected. The flag attribute is redundant for non-primary solutions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Store the primary solution index in the solution list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No new constructor and attribute are introduced.</p>
+</li>
+<li>
+<p>Cons: Need to check if the index is affected every time when the solution list is updated.</p>
 </li>
 </ul>
 </div>
@@ -1478,12 +1620,25 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 </div>
 <div class="sect2">
-<h3 id="refactor-tag-feature"><a class="link" href="#refactor-tag-feature">4.12. Refactor tag Feature</a></h3>
+<h3 id="reset-primary-feature"><a class="link" href="#reset-primary-feature">4.12. Reset Primary Feature</a></h3>
+<div class="paragraph">
+<p>The reset primary feature allows users to reset the primary solution and make all solutions normal and not highlighted.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">4.12.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The reset primary solution mechanism goes through the solution list once and checks if a solution is primary or not.
+If it is primary, we replace it with a new Solution object with the same data of the primary solution. If it is not primary, we continue checking until we reach the end of the list.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="refactor-tag-feature"><a class="link" href="#refactor-tag-feature">4.13. Refactor Tag Feature</a></h3>
 <div class="paragraph">
 <p>The refactor tag feature allows users to rename or remove a specified tag for all entries with that tag.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.12.1. Current Implementation</a></h4>
+<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">4.13.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The refactor tag mechanism is facilitated by <code>RefactorTagCommandParser</code> and <code>RefactorCommand</code>.</p>
 </div>
@@ -1500,14 +1655,14 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 <p>Checks the arguments for empty strings and throws a <code>ParseException</code> if an empty string is found.</p>
 </li>
 <li>
-<p>Analyses the argument to check if it is a valid command format. Users are only allowed to use two prefixes in refactor tag command.</p>
+<p>Analyses the argument to check if it is a valid command format. Users are not allowed to provide other prefixes, except <code>t/</code> and <code>n/</code> in refactor tag command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>t/</code> the tag that user wants to refactor, which must be input by the user, otherwise throws <code>ParserException</code> and shows refactor tag command usage message.</p>
+<p><code>t/</code> the tag that user wants to refactor, which must be input by users, otherwise throws <code>ParserException</code> and shows refactor tag command usage message.</p>
 </li>
 <li>
-<p><code>n/</code> the new tag that user wants to replace the original one, which is optional. (if the user does not provide, then remove the original one)</p>
+<p><code>n/</code> the new tag that the user wants to replace the original one with, which is optional. (if the user does not provide, then remove the original one)</p>
 </li>
 </ul>
 </div>
@@ -1527,10 +1682,10 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 <div class="ulist">
 <ul>
 <li>
-<p>update the issue list and return success message if it has edited an issue, otherwise show an unsuccessful message.</p>
+<p>updates the issue list and returns success message if it has edited an issue, otherwise shows an unsuccessful message.</p>
 </li>
 <li>
-<p>It will iterate all the issues in the saveIt, if it contains the old tag, it will replace with the new tag if provided. Then update the list.</p>
+<p>Iterates all the issues in the saveIt, if it contains the old tag, it will replace with the new tag if provided. Then update the list.</p>
 </li>
 </ul>
 </div>
@@ -1542,26 +1697,26 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/refactor-tag.jpeg" alt="refactor tag" width="800">
+<img src="images/refactor-tag-activity-diagram.png" alt="refactor tag activity diagram" width="400">
 </div>
-<div class="title">Figure 21. Refactor Tag Command Activity Diagram</div>
+<div class="title">Figure 24. Refactor Tag Activity Diagram</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">4.12.2. Design Consideration</a></h4>
+<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">4.13.2. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-refactortag-command-parser"><a class="link" href="#aspect-implementation-of-refactortag-command-parser">Aspect: Implementation of RefactorTag command parser.</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (current choice): Allows only to rename or remove the old tags that user input lastly.</p>
+<p><strong>Alternative 1 (current choice):</strong> Allows only to rename or remove the old tags that user input lastly.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: It is easy to implement.</p>
 </li>
 <li>
-<p>Cons: It is inconvenient if the user wants to replace the tags once.</p>
+<p>Cons: It is inconvenient if the user wants to replace multiple tags once.</p>
 </li>
 </ul>
 </div>
@@ -1585,33 +1740,33 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-tag-feature"><a class="link" href="#add-tag-feature">4.13. Add tag Feature</a></h3>
+<h3 id="add-tag-feature"><a class="link" href="#add-tag-feature">4.14. Add tag Feature</a></h3>
 <div class="paragraph">
 <p>The add tag feature allows users to add <code>Tag(s)</code> to specified <code>Indexed</code> issues.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.13.1. Current Implementation</a></h4>
+<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">4.14.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The add tag mechanism is facilitated by <code>AddTagCommandParser</code> and <code>AddTagCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the Sequence Diagram below for the add tag operation.</p>
+<p>Please refer to the Sequence Diagram below for the illustration of add tag operation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/add-tag-sequence-diagram.jpeg" alt="add tag sequence diagram" width="800">
+<img src="images/add-tag-sequence-diagram.jpeg" alt="add tag sequence diagram" width="600">
 </div>
-<div class="title">Figure 22. Add Tag Command Sequence Diagram</div>
+<div class="title">Figure 25. Add Tag Command Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-5"><a class="link" href="#design-consideration-5">4.13.2. Design Consideration</a></h4>
+<h4 id="design-consideration-7"><a class="link" href="#design-consideration-7">4.14.2. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-addtag-command-parser"><a class="link" href="#aspect-implementation-of-addtag-command-parser">Aspect: Implementation of AddTag command parser.</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (current choice):** Allows range of <code>Index</code> to be accepted as index parameter.</p>
+<p><strong>Alternative 1 (current choice):</strong> Allows a range of index and multiple indexes to be accepted as index parameter.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1624,14 +1779,14 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 </li>
 <li>
-<p>Alternative 2: Creates a IndexRange class for index.</p>
+<p>Alternative 2: Creates an <code>IndexRange</code> class for index.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: It is easy to understand and maintain.</p>
 </li>
 <li>
-<p>Cons: It will increase coupling between IndexRange class and Index class</p>
+<p>Cons: It increases coupling between <code>IndexRange</code> class and <code>Index</code> class</p>
 </li>
 </ul>
 </div>
@@ -1642,12 +1797,12 @@ Throw <code>CommandException</code> and show invalid index warning. Otherwise, c
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggestion-for-find-command-feature"><a class="link" href="#suggestion-for-find-command-feature">4.14. Suggestion for find command Feature</a></h3>
+<h3 id="suggestion-feature"><a class="link" href="#suggestion-feature">4.15. Suggestion Feature</a></h3>
 <div class="paragraph">
-<p>The suggestion for find command allows user to quickly find the desired issue in SaveIt by showing a drop-down window when related keyword is matched.</p>
+<p>The suggestion feature allows user to quickly complete commands by showing a drop-down window of suggested values when the user input matches a specific keyword or identifier.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">4.14.1. Current Implementation</a></h4>
+<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">4.15.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The figure below shows a basic relationship between each class.
 The <code>SuggestionLogicManager</code> implements <code>SuggestionLogic</code> interface and overrides the <code>evaluate</code> method. Similarly, <code>IssueNameSuggestion</code>, <code>TagNameSuggestion</code> and <code>CopyExistingSuggestion</code> implement <code>Suggestion</code> interface and override <code>evaluate</code> method.</p>
@@ -1656,67 +1811,239 @@ The <code>SuggestionLogicManager</code> implements <code>SuggestionLogic</code> 
 <div class="content">
 <img src="images/SuggestionClassUML.png" alt="SuggestionClassUML" width="400">
 </div>
-<div class="title">Figure 23. Suggestion Diagram</div>
+<div class="title">Figure 26. SuggestionLogic Class Diagram</div>
 </div>
 <div class="paragraph">
-<p>Since the suggestion component has to retrieve the data from model component to give suggestion according user&#8217;s entered keywords, it is considered as a part of <code>Logic</code> component. By listening to the text field which locates in <code>CommandBox</code>, <code>SuggestionLogicManager</code> will be able to decide which type of suggestion should be given through parsing the prefix from <code>ArgumentTokenizer</code>. Once the <code>parseFindCommandSuggestion</code> is triggered, a new <code>IssueNameSuggestion</code> class will be created. By calling <code>getCurrentIssueStatementSet</code>, <code>IssueNameSuggestion</code> is able to match the user input and thus gives the relevant issue statement as a suggestion. The returned <code>SuggestionResult</code> will be passed to the <code>displaySuggestion</code> method in <code>CommandBox</code>. One thing to be noticed, the drop-down window will be hidden once a user input is matched any given suggestion value.</p>
+<p>Since the suggestion component has to retrieve the data from model component to give a suggestion according to the user&#8217;s input, it is considered as a part of <code>Logic</code> component. By listening to changes in the text field, which is handled in <code>CommandBox</code>, the <code>SuggestionLogicManager</code> will be able to decide which type of suggestion should be given by parsing the following fields:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The command typed</p>
+</li>
+<li>
+<p>The prefixes from <code>ArgumentTokenizer</code></p>
+</li>
+<li>
+<p>The caret position (position of the text cursor in the user input string)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For example, when entering <code>find issueName</code> as the user input, the command is parsed to match <code>SuggestionLogicManager#parseFindCommandSuggestion</code>. The prefixes are then matched accordingly and a new <code>IssueNameSuggestion</code> object will be instantiated. By calling <code>Model#getCurrentIssueStatementSet</code>, <code>IssueNameSuggestion</code> is able to find the relvant issue statements based on the user input. The returned <code>SuggestionResult</code> will be passed to the <code>CommandBox#displaySuggestion</code> method to handle the displaying of the results.</p>
+</div>
+<div class="paragraph">
+<p>One thing to take note of, the drop-down window will be hidden once a user input is matched any given suggestion value.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/IssueNameSuggestionDiagram.png" alt="IssueNameSuggestionDiagram" width="800">
 </div>
-<div class="title">Figure 24. IssueNameSuggestion Sequence</div>
+<div class="title">Figure 27. IssueNameSuggestion Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-6"><a class="link" href="#design-consideration-6">4.14.2. Design Consideration</a></h4>
+<h4 id="design-consideration-8"><a class="link" href="#design-consideration-8">4.15.2. Design Consideration</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-distinguish-value-of-each-field-and-recognize-the-order-of-each-value"><a class="link" href="#aspect-how-to-distinguish-value-of-each-field-and-recognize-the-order-of-each-value">Aspect: How to distinguish value of each field and recognize the order of each value</a></h5>
+<h5 id="aspect-1-architecture-design-of-the-suggestion-logic-subcomponent"><a class="link" href="#aspect-1-architecture-design-of-the-suggestion-logic-subcomponent">Aspect 1: Architecture Design of the Suggestion Logic subcomponent</a></h5>
 <div class="paragraph">
-<p>Since the original tokenizer hashes prefix, there is no way to distinguish the order of each value after prefix. For instance, if several prefixes of tag appear, it is impossible to distinguish each tag using tokenizer.</p>
+<p>The architecture behind the Suggestion Logic subcomponent is designed by mimicking the original <code>Logic</code> component that handles the command logic. This is because the required implementation behind both is actually similar, needing to access both the <code>Ui</code> and the <code>Model</code> components. Hence, the <code>SuggestionLogic</code> and <code>Suggestion</code> are built similar to the original Logic component which has the corresponding classes <code>Logic</code> and <code>Command</code> that serves as interfaces to the <code>Ui</code> and <code>Model</code> components respectively. However, the internal implementation of the internal classes of the Suggesetion Logic subcomponent is different (i.e. <code>Parser</code>).</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Hash Prefix with its relative distance together</p>
+<p><strong>Alternative 1 (current choice):</strong> Create parser methods all within <code>SuggestionLogicManager</code> that parse the user input directly - first parsing them based the commands (handled in <code>SuggestionLogicManager#parseUserInput</code>) and subsequently parsing based on the <code>Prefix</code> that the text cursor is at.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Code has a high readability and easy to understand</p>
+<p>Pros: Keeps the code DRY.</p>
 </li>
 <li>
-<p>Cons: Quite hard to implement as other commands do not require to distinguish the order of each value but suggestion component does. Once hash with prefix and distance, it needs to handle both situation.</p>
+<p>Cons: Deviates from the original internal structure of the Command Logic subcomponent.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Using subString to get each field from command line input</p>
+<p><strong>Alternative 2:</strong> Create parser classes for each command (e.g. <code>EditSuggestionParser</code>) that handles the further parsing of the <code>Prefix</code> and creates the relevant <code>Suggestion</code> object.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Code is more modularized since the parsing is now handled by classes.</p>
 </li>
 <li>
-<p>Cons: Bad readability and code quality, no consistency.</p>
+<p>Cons: Code is repeated in each <code>SuggestionParser</code> class.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>We use the first alternative as it best handles the issue of having duplicate logic. The internal parsing of the user inputs for suggestions differs from the Command Logic in that, Command Logic only has one level of parsing (parsing commands), whereas Suggestion Logic requires two levels (parsing commands and parsing prefixes). In order to ensure the same way of handling the same prefix in different commands (e.g. <code>findtag t/</code> and <code>edit 1 t/</code>), methods are created to do so (e.g. <code>SuggestionLogicManager#handleTagNameSuggestion</code>). This keeps the code DRY and reduces repeats logic in the code.</p>
+</div>
+<div class="paragraph">
+<p>Further abstractions can be made to this in the future as more <code>Suggestion</code>(s) added, by moving the suggestion handlers (<code>SuggestionLogicManager#handleTagNameSuggestion</code>) into a new <code>Suggestion</code> class (instead of an interface) that the specific <code>XYZSuggestion</code>(s) inherit from.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-2-deciding-on-how-to-parse-the-user-input"><a class="link" href="#aspect-2-deciding-on-how-to-parse-the-user-input">Aspect 2: Deciding on how to parse the user input</a></h5>
+<div class="paragraph">
+<p>We have two options to parse the user input and find the prefixes and their values.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use the existing <code>ArgumentTokenizer</code> and <code>ArgumentMultimap</code> to parse the user input</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The logic for separating the prefixes in <code>ArgumentTokenizer</code> and storing them in <code>ArgumentMultimap</code> is similar to what we need to parse our user input. By reusing the code, it prevents us from needing to rewrite code with duplicated logic elsewhere in our code base, which keeps our code DRY.</p>
+</li>
+<li>
+<p>Cons: <code>ArgumentTokenizer</code> and <code>ArgumentMultimap</code> is also used by the command logic subcomponent, by reusing this code in the suggestion logic subcomponent, it increases the coupling between the implementation of the two subcomponents which can result in new issues arising (aspects 3 and 4).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Parse the input by using a separate piece of code (duplicated logic from the <code>ArgumentTokenizer</code> and <code>ArgumentMultimap</code>). Slight modifications will need to be made to the duplicated logic due to differences in implementation.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces the coupling between the two command and suggestion logic subcomponents. Although the logic behind the implementation will be similar to <code>ArgumentTokenizer</code>, having it as a duplicate piece of code means that any changes will not affect and cause bugs in the other subcomponent.</p>
+</li>
+<li>
+<p>Cons: Having it duplicated logic might affect future development, especially when this duplicated logic needs to be modified, then the implementation for both pieces of code will have to be modified as well. If not documented properly, this could cause bugs if only one piece of code was modified.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-3-data-structure-of-prefix"><a class="link" href="#aspect-3-data-structure-of-prefix">Aspect 3: Data structure of Prefix</a></h5>
+<div class="paragraph">
+<p>The original implementation of <code>Prefix</code> only stored the value of the prefix string (e.g. <code>/t</code> or <code>/i</code>), however since the implementation of the suggestion logic subcomponent uses <code>ArgumentMultimap</code>, it requires that the position of the <code>Prefix</code> in the user input string be known as well.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store an additional field <code>position</code> in <code>Prefix</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Since the prefix and its location are related, this keeps all the information pertaining to the prefix encapsulated in a single class, which helps with the modularity of the code.</p>
+</li>
+<li>
+<p>Cons: The command logic subcomponent does not require the <code>position</code> field in <code>Prefix</code>, which results in it being unused. This might be confusing for future developers. This also resulted in having another aspect to consider later on (aspect 4).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Move the implementation and checks for the prefix position out of <code>Prefix</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This does not affect the code implemented in the Command logic subcomponent, and we will have less to fix.</p>
+</li>
+<li>
+<p>Cons: Related pieces of code will be separated (i.e. since the position is stored separately, it is not properly encapsulated).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-4-distinguishing-each-prefix-in-argumentmultimap"><a class="link" href="#aspect-4-distinguishing-each-prefix-in-argumentmultimap">Aspect 4: Distinguishing each Prefix in ArgumentMultimap</a></h5>
+<div class="paragraph">
+<p>The original hashcode used by <code>Prefix</code> only hashes the prefix string, as such, adding a <code>position</code> field will not make a difference since two same prefixes with different positions (e.g. <code>/t &#8230;&#8203; /t</code>) will still hash to the same key. The previous implementation handles this by having the value in the <code>HashMap</code> within <code>ArgumentMultimap</code> store a <code>List&lt;String&gt;</code> which will append all values with the same prefix.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Set the hashcode of <code>Prefix</code> to use both the prefix string and the position.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The prefixes now hash differently if they have the same prefix string but different position, this allows us to have finer control needed for the Suggestion logic subcomponent when handling the prefixes in <code>ArgumentMultimap</code>.</p>
+</li>
+<li>
+<p>Cons: The Command logic subcomponent does not make use of the <code>position</code> field. As such, when attempting to extract out the values of each <code>Prefix</code> at the <code>Parser</code>, it cannot find the values as they are now hashed with the <code>position</code> as this is unknown to the <code>Parser</code> (an indirect result of the coupling due to the chosen implementation in aspect 2).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use the original implementation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Code does not affect the Command logic subcomponent, which already takes up a significant portion of the code base, hence less changes are needed.</p>
+</li>
+<li>
+<p>Cons: The code and logic are not be well encapsulated (for the <code>Prefix</code>) and we will have repeated logic in the codebase.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We eventually chose Alternative 1 as it provides a better structure and encapsulation for our code overall. We also came up with a workaround for Alternative 1&#8217;s cons, by modifying the method <code>ArgumentMultimap#getValue</code>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-highlight"><a class="link" href="#command-highlight">4.15. Command Highlight</a></h3>
+<h3 id="command-highlight"><a class="link" href="#command-highlight">4.16. Command Highlight</a></h3>
 <div class="paragraph">
 <p>The command highlight feature is to differentiate command word, index, prefix and values that user input in Command Line.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">4.15.1. Current Implementation</a></h4>
+<h4 id="current-implementation-15"><a class="link" href="#current-implementation-15">4.16.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The Command Highlight mechanism uses <code>InlineCssTextArea</code> class. It uses listener to detect the change in the <code>commandTextField</code> and check if it is command word, parameter, index or values and assign different colors correspondingly.</p>
+<p>The Command Highlight mechanism uses <code>InlineCssTextArea</code> class. It uses listener to detect the change in the <code>commandTextArea</code> and check if it contains command word, parameter, index or values and assign different colors correspondingly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-9"><a class="link" href="#design-consideration-9">4.16.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-command-highlight-manager"><a class="link" href="#aspect-implementation-of-command-highlight-manager">Aspect: Implementation of command highlight manager.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Check the character in the command box and assign different colors based on precondition.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: easy to implement by checking the prefix, index and command word.</p>
+</li>
+<li>
+<p>Cons: due to the limitation of using the character '/' as part of the prefix, it may still have some corner cases that we cannot cover.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Parse the user command simultaneously when user input command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: if user inputs wrong command format, it will highlight the color correspondingly. Hence, user can correct his input immediately.</p>
+</li>
+<li>
+<p>Cons: difficult to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1781,7 +2108,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 25. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 28. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2095,7 +2422,7 @@ e.g. <code>seedu.saveit.logic.LogicManagerTest</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Update the version number in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp.java</code></a>.</p>
+<p>Update the version number in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/MainApp.java"><code>MainApp.java</code></a>.</p>
 </li>
 <li>
 <p>Generate a JAR file <a href="UsingGradle.html#creating-the-jar-file">using Gradle</a>.</p>
@@ -2138,7 +2465,7 @@ b. Require developers to download those libraries manually (this creates extra w
 <div class="sect2">
 <h3 id="GetStartedProgramming-EachComponent"><a class="link" href="#GetStartedProgramming-EachComponent">A.1. Improving each component</a></h3>
 <div class="paragraph">
-<p>Each individual exercise in this section is component-based (i.e. you would not need to modify the other components to get it to work).</p>
+<p>Each individual exercise in this section is component-based (i.e. you will not need to modify the other components to get it to work).</p>
 </div>
 <h4 id="code-logic-code-component" class="discrete"><code>Logic</code> component</h4>
 <div class="paragraph">
@@ -2169,10 +2496,10 @@ Do take a look at <a href="#Design-Logic">Section 3.3, &#8220;Logic component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Just like we store each individual command word constant <code>COMMAND_WORD</code> inside <code>*Command.java</code> (e.g.  <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/logic/commands/FindCommand.java"><code>FindCommand#COMMAND_WORD</code></a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/logic/commands/DeleteCommand.java"><code>DeleteCommand#COMMAND_WORD</code></a>), you need a new constant for aliases as well (e.g. <code>FindCommand#COMMAND_ALIAS</code>).</p>
+<p>Just like we store each individual command word constant <code>COMMAND_WORD</code> inside <code>*Command.java</code> (e.g.  <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/logic/commands/FindCommand.java"><code>FindCommand#COMMAND_WORD</code></a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/logic/commands/DeleteCommand.java"><code>DeleteCommand#COMMAND_WORD</code></a>), you need a new constant for aliases as well (e.g. <code>FindCommand#COMMAND_ALIAS</code>).</p>
 </li>
 <li>
-<p><a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/logic/parser/SaveItParser.java"><code>SaveItParser</code></a> is responsible for analyzing command words.</p>
+<p><a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/logic/parser/SaveItParser.java"><code>SaveItParser</code></a> is responsible for analyzing command words.</p>
 </li>
 </ul>
 </div>
@@ -2182,7 +2509,7 @@ Do take a look at <a href="#Design-Logic">Section 3.3, &#8220;Logic component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Modify the switch statement in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/logic/parser/SaveItParser.java"><code>SaveItParser#parseCommand(String)</code></a> such that both the proper command word and alias can be used to execute the same intended command.</p>
+<p>Modify the switch statement in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/logic/parser/SaveItParser.java"><code>SaveItParser#parseCommand(String)</code></a> such that both the proper command word and alias can be used to execute the same intended command.</p>
 </li>
 <li>
 <p>Add new tests for each of the aliases that you have added.</p>
@@ -2232,13 +2559,13 @@ Do take a look at <a href="#Design-Model">Section 3.4, &#8220;Model component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>The <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model</code></a> and the <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/saveit.java"><code>saveit</code></a> API need to be updated.</p>
+<p>The <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Model.java"><code>Model</code></a> and the <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/saveit.java"><code>saveit</code></a> API need to be updated.</p>
 </li>
 <li>
 <p>Think about how you can use SLAP to design the method. Where should we place the main logic of deleting tags?</p>
 </li>
 <li>
-<p>Find out which of the existing API methods in  <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Saveit.java"><code>Saveit</code></a> and <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Issue.java"><code>Issue</code></a> classes can be used to implement the tag removal logic. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Saveit.java"><code>Saveit</code></a> allows you to update an issue, and <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Issue.java"><code>Issue</code></a> allows you to update the tags.</p>
+<p>Find out which of the existing API methods in  <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Saveit.java"><code>Saveit</code></a> and <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Issue.java"><code>Issue</code></a> classes can be used to implement the tag removal logic. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Saveit.java"><code>Saveit</code></a> allows you to update an issue, and <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Issue.java"><code>Issue</code></a> allows you to update the tags.</p>
 </li>
 </ul>
 </div>
@@ -2248,10 +2575,10 @@ Do take a look at <a href="#Design-Model">Section 3.4, &#8220;Model component&#8
 <div class="ulist">
 <ul>
 <li>
-<p>Implement a <code>removeTag(Tag)</code> method in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/saveit.java"><code>saveit</code></a>. Loop through each statement, and remove the <code>tag</code> from each statement.</p>
+<p>Implement a <code>removeTag(Tag)</code> method in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/saveit.java"><code>saveit</code></a>. Loop through each statement, and remove the <code>tag</code> from each statement.</p>
 </li>
 <li>
-<p>Add a new API method <code>deleteTag(Tag)</code> in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/ModelManager.java"><code>ModelManager</code></a>. Your <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/ModelManager.java"><code>ModelManager</code></a> should call <code>saveit#removeTag(Tag)</code>.</p>
+<p>Add a new API method <code>deleteTag(Tag)</code> in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/ModelManager.java"><code>ModelManager</code></a>. Your <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/ModelManager.java"><code>ModelManager</code></a> should call <code>saveit#removeTag(Tag)</code>.</p>
 </li>
 <li>
 <p>Add new tests for each of the new public methods that you have added.</p>
@@ -2314,7 +2641,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>The tag labels are created inside <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/IssueCard.java">the <code>IssueCard</code> constructor</a> (<code>new Label(tag.tagName)</code>). <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html">JavaFX&#8217;s <code>Label</code> class</a> allows you to modify the style of each Label, such as changing its color.</p>
+<p>The tag labels are created inside <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/IssueCard.java">the <code>IssueCard</code> constructor</a> (<code>new Label(tag.tagName)</code>). <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Label.html">JavaFX&#8217;s <code>Label</code> class</a> allows you to modify the style of each Label, such as changing its color.</p>
 </li>
 <li>
 <p>Use the .css attribute <code>-fx-background-color</code> to add a color.</p>
@@ -2351,7 +2678,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 </li>
 <li>
-<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> such that <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/ResultDisplay.java"><code>ResultDisplay</code></a> can show a different style on error (currently it shows the same regardless of errors).</p>
+<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> such that <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/ResultDisplay.java"><code>ResultDisplay</code></a> can show a different style on error (currently it shows the same regardless of errors).</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
@@ -2377,10 +2704,10 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> is raised by <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/CommandBox.java"><code>CommandBox</code></a> which also knows whether the result is a success or failure, and is caught by <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/ResultDisplay.java"><code>ResultDisplay</code></a> which is where we want to change the style to.</p>
+<p><a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> is raised by <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/CommandBox.java"><code>CommandBox</code></a> which also knows whether the result is a success or failure, and is caught by <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/ResultDisplay.java"><code>ResultDisplay</code></a> which is where we want to change the style to.</p>
 </li>
 <li>
-<p>Refer to <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/CommandBox.java"><code>CommandBox</code></a> for an example on how to display an error.</p>
+<p>Refer to <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/CommandBox.java"><code>CommandBox</code></a> for an example on how to display an error.</p>
 </li>
 </ul>
 </div>
@@ -2390,10 +2717,10 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> 's constructor so that users of the event can indicate whether an error has occurred.</p>
+<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/commons/events/ui/NewResultAvailableEvent.java"><code>NewResultAvailableEvent</code></a> 's constructor so that users of the event can indicate whether an error has occurred.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/ResultDisplay.java"><code>ResultDisplay#handleNewResultAvailableEvent(NewResultAvailableEvent)</code></a> to react to this event appropriately.</p>
+<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/ResultDisplay.java"><code>ResultDisplay#handleNewResultAvailableEvent(NewResultAvailableEvent)</code></a> to react to this event appropriately.</p>
 </li>
 <li>
 <p>You can write two different kinds of tests to ensure that the functionality works:</p>
@@ -2427,7 +2754,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 </div>
 </li>
 <li>
-<p>Modify the <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to show the total number of issues in the SaveIt.</p>
+<p>Modify the <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to show the total number of issues in the SaveIt.</p>
 <div class="paragraph">
 <p><strong>Before</strong></p>
 </div>
@@ -2456,7 +2783,7 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <p><a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/resources/view/StatusBarFooter.fxml"><code>StatusBarFooter.fxml</code></a> will need a new <code>StatusBar</code>. Be sure to set the <code>GridPane.columnIndex</code> properly for each <code>StatusBar</code> to avoid misalignment!</p>
 </li>
 <li>
-<p><a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> needs to initialize the status bar on application start, and to update it accordingly whenever the SaveIt is updated.</p>
+<p><a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> needs to initialize the status bar on application start, and to update it accordingly whenever the SaveIt is updated.</p>
 </li>
 </ul>
 </div>
@@ -2466,10 +2793,10 @@ Do take a look at <a href="#Design-Ui">Section 3.2, &#8220;UI component&#8221;</
 <div class="ulist">
 <ul>
 <li>
-<p>Modify the constructor of <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of issues when the application just started.</p>
+<p>Modify the constructor of <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/StatusBarFooter.java"><code>StatusBarFooter</code></a> to take in the number of issues when the application just started.</p>
 </li>
 <li>
-<p>Use <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/StatusBarFooter.java"><code>StatusBarFooter#handleSaveItChangedEvent(SaveItChangedEvent)</code></a> to update the number of issues whenever there are new changes to the saveit.</p>
+<p>Use <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/StatusBarFooter.java"><code>StatusBarFooter#handleSaveItChangedEvent(SaveItChangedEvent)</code></a> to update the number of issues whenever there are new changes to the saveit.</p>
 </li>
 <li>
 <p>For tests, modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/guitests/guihandles/StatusBarFooterHandle.java"><code>StatusBarFooterHandle</code></a> by adding a state-saving functionality for the total number of issues status, just like what we did for save location and sync status.</p>
@@ -2519,10 +2846,10 @@ Do take a look at <a href="#Design-Storage">Section 3.5, &#8220;Storage componen
 <div class="ulist">
 <ul>
 <li>
-<p>Add the API method in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/storage/SaveItStorage.java"><code>SaveItStorage</code></a> interface.</p>
+<p>Add the API method in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/storage/SaveItStorage.java"><code>SaveItStorage</code></a> interface.</p>
 </li>
 <li>
-<p>Implement the logic in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/storage/StorageManager.java"><code>StorageManager</code></a> and <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/storage/XmlSaveItStorage.java"><code>XmlSaveItStorage</code></a> class.</p>
+<p>Implement the logic in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/storage/StorageManager.java"><code>StorageManager</code></a> and <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/storage/XmlSaveItStorage.java"><code>XmlSaveItStorage</code></a> class.</p>
 </li>
 </ul>
 </div>
@@ -2585,10 +2912,10 @@ Removes the remark for the first statement.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a <code>RemarkCommand</code> that extends <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/logic/commands/Command.java"><code>Command</code></a>. Upon execution, it should just throw an <code>Exception</code>.</p>
+<p>Add a <code>RemarkCommand</code> that extends <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/logic/commands/Command.java"><code>Command</code></a>. Upon execution, it should just throw an <code>Exception</code>.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/logic/parser/SaveItParser.java"><code>SaveItParser</code></a> to accept a <code>RemarkCommand</code>.</p>
+<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/logic/parser/SaveItParser.java"><code>SaveItParser</code></a> to accept a <code>RemarkCommand</code>.</p>
 </li>
 </ol>
 </div>
@@ -2601,7 +2928,7 @@ Removes the remark for the first statement.</p>
 <p>Add <code>RemarkCommandTest</code> that tests that <code>execute()</code> throws an Exception.</p>
 </li>
 <li>
-<p>Add new test method to <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/address/logic/parser/SaveItParserTest.java"><code>SaveItParserTest</code></a>, which tests that typing "remark" returns an instance of <code>RemarkCommand</code>.</p>
+<p>Add new test method to <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/saveit/logic/parser/SaveItParserTest.java"><code>SaveItParserTest</code></a>, which tests that typing "remark" returns an instance of <code>RemarkCommand</code>.</p>
 </li>
 </ol>
 </div>
@@ -2623,7 +2950,7 @@ Removes the remark for the first statement.</p>
 <p>Add <code>RemarkCommandParser</code> that knows how to parse two arguments, one index and one with prefix 'r/'.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/logic/parser/SaveItParser.java"><code>SaveItParser</code></a> to use the newly implemented <code>RemarkCommandParser</code>.</p>
+<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/logic/parser/SaveItParser.java"><code>SaveItParser</code></a> to use the newly implemented <code>RemarkCommandParser</code>.</p>
 </li>
 </ol>
 </div>
@@ -2640,7 +2967,7 @@ Removes the remark for the first statement.</p>
 for <code>RemarkCommandParser</code>.</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/address/logic/parser/SaveItParserTest.java"><code>SaveItParserTest</code></a> to test that the correct command is generated according to the user input.</p>
+<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/saveit/logic/parser/SaveItParserTest.java"><code>SaveItParserTest</code></a> to test that the correct command is generated according to the user input.</p>
 </li>
 </ol>
 </div>
@@ -2648,7 +2975,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-3-ui-add-a-placeholder-for-remark-in-code-issuecard-code"><a class="link" href="#step-3-ui-add-a-placeholder-for-remark-in-code-issuecard-code">[Step 3] Ui: Add a placeholder for remark in <code>IssueCard</code></a></h5>
 <div class="paragraph">
-<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/IssueCard.java"><code>IssueCard</code></a> s to display a remark for each statement later.</p>
+<p>Let&#8217;s add a placeholder on all our <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/IssueCard.java"><code>IssueCard</code></a> s to display a remark for each statement later.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2659,7 +2986,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>Add a <code>Label</code> with any random text inside <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/resources/view/PersonListCard.fxml"><code>PersonListCard.fxml</code></a>.</p>
 </li>
 <li>
-<p>Add FXML annotation in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/IssueCard.java"><code>IssueCard</code></a> to tie the variable to the actual label.</p>
+<p>Add FXML annotation in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/IssueCard.java"><code>IssueCard</code></a> to tie the variable to the actual label.</p>
 </li>
 </ol>
 </div>
@@ -2677,7 +3004,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-4-model-add-code-remark-code-class"><a class="link" href="#step-4-model-add-code-remark-code-class">[Step 4] Model: Add <code>Remark</code> class</a></h5>
 <div class="paragraph">
-<p>We have to properly encapsulate the remark in our <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Issue.java"><code>Issue</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
+<p>We have to properly encapsulate the remark in our <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Issue.java"><code>Issue</code></a> class. Instead of just using a <code>String</code>, let&#8217;s follow the conventional class structure that the codebase already uses by adding a <code>Remark</code> class.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2685,7 +3012,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>Remark</code> to model component (you can copy from <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/statement/Remark.java"><code>Remark</code></a>, remove the regex and change the names accordingly).</p>
+<p>Add <code>Remark</code> to model component (you can copy from <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/statement/Remark.java"><code>Remark</code></a>, remove the regex and change the names accordingly).</p>
 </li>
 <li>
 <p>Modify <code>RemarkCommand</code> to now take in a <code>Remark</code> instead of a <code>String</code>.</p>
@@ -2706,7 +3033,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-5-model-modify-code-issue-code-to-support-a-code-remark-code-field"><a class="link" href="#step-5-model-modify-code-issue-code-to-support-a-code-remark-code-field">[Step 5] Model: Modify <code>Issue</code> to support a <code>Remark</code> field</a></h5>
 <div class="paragraph">
-<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Issue.java"><code>Issue</code></a>.</p>
+<p>Now we have the <code>Remark</code> class, we need to actually use it inside <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Issue.java"><code>Issue</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2714,13 +3041,13 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add <code>getRemark()</code> in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Issue.java"><code>Issue</code></a>.</p>
+<p>Add <code>getRemark()</code> in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Issue.java"><code>Issue</code></a>.</p>
 </li>
 <li>
 <p>You may assume that the user will not be able to use the <code>add</code> and <code>edit</code> commands to modify the remarks field (i.e. the statement will be created without a remark).</p>
 </li>
 <li>
-<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/util/SampleDataUtil.java/"><code>SampleDataUtil</code></a> to add remarks for the sample data (delete your <code>saveit.xml</code> so that the application will load the sample data when you launch it.)</p>
+<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/util/SampleDataUtil.java/"><code>SampleDataUtil</code></a> to add remarks for the sample data (delete your <code>saveit.xml</code> so that the application will load the sample data when you launch it.)</p>
 </li>
 </ol>
 </div>
@@ -2728,7 +3055,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-6-storage-add-code-remark-code-field-to-code-xmladaptedissue-code-class"><a class="link" href="#step-6-storage-add-code-remark-code-field-to-code-xmladaptedissue-code-class">[Step 6] Storage: Add <code>Remark</code> field to <code>XmlAdaptedIssue</code> class</a></h5>
 <div class="paragraph">
-<p>We now have <code>Remark</code> s for <code>Issue</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/storage/XmlAdaptedIssue.java"><code>XmlAdaptedIssue</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
+<p>We now have <code>Remark</code> s for <code>Issue</code> s, but they will be gone when we exit the application. Let&#8217;s modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/storage/XmlAdaptedIssue.java"><code>XmlAdaptedIssue</code></a> to include a <code>Remark</code> field so that it will be saved.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2754,7 +3081,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-6b-test-add-withremark-for-code-issuebuilder-code"><a class="link" href="#step-6b-test-add-withremark-for-code-issuebuilder-code">[Step 6b] Test: Add withRemark() for <code>IssueBuilder</code></a></h5>
 <div class="paragraph">
-<p>Since <code>Issue</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/address/testutil/IssueBuilder.java"><code>IssueBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/model/Issue.java"><code>Issue</code></a>.</p>
+<p>Since <code>Issue</code> can now have a <code>Remark</code>, we should add a helper method to <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/saveit/testutil/IssueBuilder.java"><code>IssueBuilder</code></a>, so that users are able to create remarks when building a <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/model/Issue.java"><code>Issue</code></a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Tests:</strong></p>
@@ -2762,10 +3089,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/address/testutil/IssueBuilder.java"><code>IssueBuilder</code></a>. This method will create a new <code>Remark</code> for the statement that it is currently building.</p>
+<p>Add a new method <code>withRemark()</code> for <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/saveit/testutil/IssueBuilder.java"><code>IssueBuilder</code></a>. This method will create a new <code>Remark</code> for the statement that it is currently building.</p>
 </li>
 <li>
-<p>Try and use the method on any sample <code>Issue</code> in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/address/testutil/TypicalPersons.java"><code>TypicalPersons</code></a>.</p>
+<p>Try and use the method on any sample <code>Issue</code> in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/saveit/testutil/TypicalPersons.java"><code>TypicalPersons</code></a>.</p>
 </li>
 </ol>
 </div>
@@ -2773,7 +3100,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="sect4">
 <h5 id="step-7-ui-connect-code-remark-code-field-to-code-issuecard-code"><a class="link" href="#step-7-ui-connect-code-remark-code-field-to-code-issuecard-code">[Step 7] Ui: Connect <code>Remark</code> field to <code>IssueCard</code></a></h5>
 <div class="paragraph">
-<p>Our remark label in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/IssueCard.java"><code>IssueCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
+<p>Our remark label in <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/IssueCard.java"><code>IssueCard</code></a> is still a placeholder. Let&#8217;s bring it to life by binding it with the actual <code>remark</code> field.</p>
 </div>
 <div class="paragraph">
 <p><strong>Main:</strong></p>
@@ -2781,7 +3108,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/address/ui/IssueCard.java"><code>IssueCard</code></a>'s constructor to bind the <code>Remark</code> field to the <code>Issue</code> 's remark.</p>
+<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/main/java/seedu/saveit/ui/IssueCard.java"><code>IssueCard</code></a>'s constructor to bind the <code>Remark</code> field to the <code>Issue</code> 's remark.</p>
 </li>
 </ol>
 </div>
@@ -2791,7 +3118,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/address/ui/testutil/GuiTestAssert.java"><code>GuiTestAssert#assertCardDisplaysIssue(&#8230;&#8203;)</code></a> so that it will compare the now-functioning remark label.</p>
+<p>Modify <a href="https://github.com/CS2103-AY1819S1-T12-4/main/tree/master/src/test/java/seedu/saveit/ui/testutil/GuiTestAssert.java"><code>GuiTestAssert#assertCardDisplaysIssue(&#8230;&#8203;)</code></a> so that it will compare the now-functioning remark label.</p>
 </li>
 </ol>
 </div>
@@ -3557,11 +3884,11 @@ Expected: Similar to previous.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Editing an issue in root directory</p>
+<p>Editing an issue in home directory</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: User is in root directory</p>
+<p>Prerequisites: User is in home directory</p>
 </li>
 <li>
 <p>Test case: <code>edit 1 i/problem</code><br>
@@ -3682,4 +4009,4 @@ Expected: The invalid command error it shown in the status message. The issue li
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 18:14:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:59:43 UTC</div></div></div></body></html>

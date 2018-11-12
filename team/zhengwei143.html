@@ -1,46 +1,63 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tan Zheng Wei - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">SaveIt</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Zheng Wei - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-saveit"><a class="link" href="#project-saveit">PROJECT: SaveIt</a></h2>
-<div class="sectionbody">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">SaveIt</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Zheng Wei - Project Portfolio</h1></div><div id="content"><h1 id="project-saveit" class="sect0"><a class="link" href="#project-saveit">PROJECT: SaveIt</a></h1>
 <hr>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">1. Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document outlines the contributions that <strong>Tan Zheng Wei</strong> has made to the <strong>SaveIt</strong> project.</p>
+</div>
+<div class="paragraph">
+<p><strong>SaveIt</strong> is targetted at programmer, and aims to help the user store and keep track of problems and solutions that they encounter. The application is meant to replace traditional use of bookmarks on browsers, and is customized especially for programmers, to make it easier for them to search for previously found solutions online. <strong>SaveIt</strong> is a desktop application that uses the Command Line Interface (CLI) as a mode to interact with it.</p>
+</div>
+<div class="paragraph">
+<p><strong>SaveIt</strong> is a project that is built over the course of CS2103T with a group of five members including myself.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>SaveIt​ is geared at keeping track of the issues that the user finds and to link it with the email found on google.
-More importantly, SaveIt is ​optimized for those who prefer to work with a Command Line Interface​ (CLI) while still having the benefits of a Graphical User Interface (GUI).
-If you can type fast, SaveIt can help you search the same statement that save previously faster than traditional GUI apps.
-== Summary of contributions</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: Suggestion Logic Subcomponent</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: This is a component of the codebase that allows the application to make suggestions to the user as they type.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This assists the user to type in commands, by automatically suggesting some possible values that the user might want to enter, it allows the user to complete the command much faster and with less effort.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: The architecture is built in a way that allows easy additions of other types of suggestions by future developers.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Other enhancements</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Feature: Search for Issues - <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/60">#60</a>.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Feature: Searching Issues by Tags - <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/89">#89</a>.</p>
+</li>
+<li>
+<p>Feature: Suggestion to copy existing fields to the command line - <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/120">#120</a>.</p>
+</li>
+<li>
+<p>Architecture: Designed and implemented the overall architecture of the Suggestion Component - <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/167">#167</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=zhengwei143&amp;sort=displayName&amp;since=2018-09-12&amp;until=2018-11-10&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Functional code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -51,20 +68,17 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Manage milestones and issues on the repository</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
+<p>Testing</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Additional tests written that covers the new features and Suggestion component - <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/178">#178</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/230">#230</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/242">#242</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/245">#245</a></p>
 </li>
 </ul>
 </div>
@@ -74,7 +88,7 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Update images of diagrams for User Guide and Developer Guide, as well as documentation for new features - <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/73">#73</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/74">#74</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/127">#127</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/254">#254</a></p>
 </li>
 </ul>
 </div>
@@ -84,45 +98,224 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Reported bugs and suggestions for other teams in the class - <a href="https://github.com/CS2103-AY1819S1-T10-2/main/issues/84">#84</a>, <a href="https://github.com/CS2103-AY1819S1-T10-2/main/issues/91">#91</a>, <a href="https://github.com/CS2103-AY1819S1-T10-2/main/issues/95">#95</a></p>
 </li>
 </ul>
 </div>
 </li>
-<li>
-<p>Tools:</p>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="locating-issues-by-statement-code-f-find-code"><a class="link" href="#locating-issues-by-statement-code-f-find-code">3.1. Locating issues by statement: <code>(f)find</code></a></h3>
+<div class="paragraph">
+<p>Finds issues whose statement contain any of the given search queries.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find [KEYWORDS&#8230;&#8203;]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
+<p>The issues matching the keywords (based on their statements or descriptions) will be displayed on the issue list.</p>
 </li>
 <li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>There can be more than 1 keywords</p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>find python</code></p>
+</li>
+<li>
+<p><code>find python java</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case-insensitive. e.g hans will match Hans</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. ‘kill port’ will match ‘port kill’</p>
+</li>
+<li>
+<p>Searches through the issue statement.</p>
+</li>
+<li>
+<p>The keywords can partially match the statement.</p>
+</li>
+<li>
+<p>Issues matching at least one keyword will be returned.</p>
+</li>
+<li>
+<p>Searching the keyword will increment the search frequency of the issue (so that it can be ordered accordingly later on).</p>
+</li>
+<li>
+<p>This command can only be executed in the home directory.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-issues-by-tags-code-ft-findtag-code"><a class="link" href="#locating-issues-by-tags-code-ft-findtag-code">3.2. Locating issues by tags: <code>(ft)findtag</code></a></h3>
+<div class="paragraph">
+<p>Finds issues that contain the tags entered in the search queries.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The issues with matching tags (given the keywords) will be displayed on the issue list.</p>
+</li>
+<li>
+<p>There can be more than 1 keywords representing multiple tags</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>findtag t/java</code></p>
+</li>
+<li>
+<p><code>findtag t/cplusplus t/segmentationFault</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case-sensitive</p>
+</li>
+<li>
+<p>The keywords must match exactly to the tag names of the issue&#8217;s tags</p>
+</li>
+<li>
+<p>If multiple tags are searched, only issues containing <strong>all</strong> the searched tags will be displayed</p>
+</li>
+<li>
+<p>A matched issue can have other tags (aside from the ones searched).
+e.g <code>issue[cplusplus][segmentation]</code> will match with a single searched tag <code>[cplusplus]</code></p>
+</li>
+<li>
+<p>This command can only be executed in the home directory.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autosuggesting-existing-tags-in-findbytag-command"><a class="link" href="#autosuggesting-existing-tags-in-findbytag-command">3.3. Autosuggesting existing tags in findByTag command</a></h3>
+<div class="paragraph">
+<p>To prevent the user from creating many similar tags / duplicates, whenever the user creates a record with a tag, or modifies a record’s tag, the application searches for similar tags in the system and prompts the user with a list of similar tags.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/autosuggest-tag.png" alt="autosuggest tag" width="600">
+</div>
+<div class="title">Figure 1. Autosuggesting of existing tags</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggesting-to-copy-existing-values"><a class="link" href="#suggesting-to-copy-existing-values">3.4. Suggesting to copy existing values</a></h3>
+<div class="paragraph">
+<p>When editing fields in an issue (e.g. Editing an issue statement), if only slight modifications are required, the user will have to copy paste the existing issue statement and modify it, or type it out again.
+To make things more convenient, after the application prompts the user if they want to copy the existing value onto the command line.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/copy-existing.png" alt="copy existing" width="790">
+</div>
+<div class="title">Figure 2. Copying existing fields</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -130,33 +323,248 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">4.1. Logic component</a></h3>
+<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
 </div>
+<div class="title">Figure 3. Structure of the Logic Component</div>
 </div>
-<div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
-<div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>The <code>Logic</code> Component can be split into two subcomponents:</p>
+</div>
+<div class="paragraph">
+<p><strong>1. Command Logic Subcomponent</strong></p>
+</div>
+<div class="paragraph">
+<p>The command logic subcomponent encapsulates the execution of all commands. Each command is represented its own class (e.g. <code>FindCommand.java</code>, <code>AddCommand.java</code>) which all inherit from an abstract <code>Command.java</code> class.</p>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> :
+<a href="{repoURL}/src/main/java/seedu/saveit/logic/Logic.java"><code>Logic.java</code></a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses the <code>SaveItParser</code> class to parse the user command.</p>
+</li>
+<li>
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a statement) and/or raise events.</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>2. Suggestion Logic Subcomponent</strong></p>
+</div>
+<div class="paragraph">
+<p>The suggestion logic subcomponent encapsulates the evaluation of user inputs as it is keyed into the command line, differing from the command logic in that command logic is only executed upon entering the command, whereas suggestion logic is called whenever the user input changes (without the need to enter).</p>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> :
+<a href="{repoURL}/src/main/java/seedu/saveit/logic/SuggestionLogic.java"><code>SuggestionLogic.java</code></a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>SuggestionLogic</code> parses user inputs whenever it changes.</p>
+</li>
+<li>
+<p>This determines which <code>Suggestion</code> object is created by the <code>SuggestionLogicManager</code>.</p>
+</li>
+<li>
+<p>The evaluation of the <code>Suggestion</code> object reads data from the <code>Model</code> (e.g. finds a specific <code>Issue</code>).</p>
+</li>
+<li>
+<p>The result of the evaluation is encapsulated as a <code>SuggestionResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component when an API call is made. The Sequence Diagram is split into two branches of logic:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Command logic:</strong> Shows an example command execution of the <code>delete 1</code> Command, which calls the <code>DeleteCommand</code>.</p>
+</li>
+<li>
+<p><strong>Suggestion logic:</strong> Shows an example suggestion evaluation of the user input <code>edit 1 i/</code>, which calls the <code>CopyExistingSuggestion</code>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SDexamplesForLogic.png" alt="SDexamplesForLogic" width="800">
+</div>
+<div class="title">Figure 4. Example Interactions Inside the Logic Component for the command and suggestion logic subcomponents.</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.1.1. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-1-architecture-design-of-the-suggestion-logic-subcomponent"><a class="link" href="#aspect-1-architecture-design-of-the-suggestion-logic-subcomponent">Aspect 1: Architecture Design of the Suggestion Logic subcomponent</a></h5>
+<div class="paragraph">
+<p>The architecture behind the Suggestion Logic subcomponent is designed by mimicking the original <code>Logic</code> component that handles the command logic. This is because the required implementation behind both is actually similar, needing to access both the <code>Ui</code> and the <code>Model</code> components. Hence, the <code>SuggestionLogic</code> and <code>Suggestion</code> are built similar to the original Logic component which has the corresponding classes <code>Logic</code> and <code>Command</code> that serves as interfaces to the <code>Ui</code> and <code>Model</code> components respectively. However, the internal implementation of the internal classes of the Suggesetion Logic subcomponent is different (i.e. <code>Parser</code>).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create parser methods all within <code>SuggestionLogicManager</code> that parse the user input directly - first parsing them based the commands (handled in <code>SuggestionLogicManager#parseUserInput</code>) and subsequently parsing based on the <code>Prefix</code> that the text cursor is at.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Keeps the code DRY.</p>
+</li>
+<li>
+<p>Cons: Deviates from the original internal structure of the Command Logic subcomponent.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create parser classes for each command (e.g. <code>EditSuggestionParser</code>) that handles the further parsing of the <code>Prefix</code> and creates the relevant <code>Suggestion</code> object.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Code is more modularized since the parsing is now handled by classes.</p>
+</li>
+<li>
+<p>Cons: Code is repeated in each <code>SuggestionParser</code> class.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We use the first alternative as it best handles the issue of having duplicate logic. The internal parsing of the user inputs for suggestions differs from the Command Logic in that, Command Logic only has one level of parsing (parsing commands), whereas Suggestion Logic requires two levels (parsing commands and parsing prefixes). In order to ensure the same way of handling the same prefix in different commands (e.g. <code>findtag t/</code> and <code>edit 1 t/</code>), methods are created to do so (e.g. <code>SuggestionLogicManager#handleTagNameSuggestion</code>). This keeps the code DRY and reduces repeats logic in the code.</p>
+</div>
+<div class="paragraph">
+<p>Further abstractions can be made to this in the future as more <code>Suggestion</code>(s) added, by moving the suggestion handlers (<code>SuggestionLogicManager#handleTagNameSuggestion</code>) into a new <code>Suggestion</code> class (instead of an interface) that the specific <code>XYZSuggestion</code>(s) inherit from.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 18:14:54 UTC</div></div></div></body></html>
+<div class="sect4">
+<h5 id="aspect-2-deciding-on-how-to-parse-the-user-input"><a class="link" href="#aspect-2-deciding-on-how-to-parse-the-user-input">Aspect 2: Deciding on how to parse the user input</a></h5>
+<div class="paragraph">
+<p>We have two options to parse the user input and find the prefixes and their values.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use the existing <code>ArgumentTokenizer</code> and <code>ArgumentMultimap</code> to parse the user input</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The logic for separating the prefixes in <code>ArgumentTokenizer</code> and storing them in <code>ArgumentMultimap</code> is similar to what we need to parse our user input. By reusing the code, it prevents us from needing to rewrite code with duplicated logic elsewhere in our code base, which keeps our code DRY.</p>
+</li>
+<li>
+<p>Cons: <code>ArgumentTokenizer</code> and <code>ArgumentMultimap</code> is also used by the command logic subcomponent, by reusing this code in the suggestion logic subcomponent, it increases the coupling between the implementation of the two subcomponents which can result in new issues arising (aspects 3 and 4).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Parse the input by using a separate piece of code (duplicated logic from the <code>ArgumentTokenizer</code> and <code>ArgumentMultimap</code>). Slight modifications will need to be made to the duplicated logic due to differences in implementation.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces the coupling between the two command and suggestion logic subcomponents. Although the logic behind the implementation will be similar to <code>ArgumentTokenizer</code>, having it as a duplicate piece of code means that any changes will not affect and cause bugs in the other subcomponent.</p>
+</li>
+<li>
+<p>Cons: Having it duplicated logic might affect future development, especially when this duplicated logic needs to be modified, then the implementation for both pieces of code will have to be modified as well. If not documented properly, this could cause bugs if only one piece of code was modified.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-3-data-structure-of-prefix"><a class="link" href="#aspect-3-data-structure-of-prefix">Aspect 3: Data structure of Prefix</a></h5>
+<div class="paragraph">
+<p>The original implementation of <code>Prefix</code> only stored the value of the prefix string (e.g. <code>/t</code> or <code>/i</code>), however since the implementation of the suggestion logic subcomponent uses <code>ArgumentMultimap</code>, it requires that the position of the <code>Prefix</code> in the user input string be known as well.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store an additional field <code>position</code> in <code>Prefix</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Since the prefix and its location are related, this keeps all the information pertaining to the prefix encapsulated in a single class, which helps with the modularity of the code.</p>
+</li>
+<li>
+<p>Cons: The command logic subcomponent does not require the <code>position</code> field in <code>Prefix</code>, which results in it being unused. This might be confusing for future developers. This also resulted in having another aspect to consider later on (aspect 4).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Move the implementation and checks for the prefix position out of <code>Prefix</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This does not affect the code implemented in the Command logic subcomponent, and we will have less to fix.</p>
+</li>
+<li>
+<p>Cons: Related pieces of code will be separated (i.e. since the position is stored separately, it is not properly encapsulated).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-4-distinguishing-each-prefix-in-argumentmultimap"><a class="link" href="#aspect-4-distinguishing-each-prefix-in-argumentmultimap">Aspect 4: Distinguishing each Prefix in ArgumentMultimap</a></h5>
+<div class="paragraph">
+<p>The original hashcode used by <code>Prefix</code> only hashes the prefix string, as such, adding a <code>position</code> field will not make a difference since two same prefixes with different positions (e.g. <code>/t &#8230;&#8203; /t</code>) will still hash to the same key. The previous implementation handles this by having the value in the <code>HashMap</code> within <code>ArgumentMultimap</code> store a <code>List&lt;String&gt;</code> which will append all values with the same prefix.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Set the hashcode of <code>Prefix</code> to use both the prefix string and the position.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The prefixes now hash differently if they have the same prefix string but different position, this allows us to have finer control needed for the Suggestion logic subcomponent when handling the prefixes in <code>ArgumentMultimap</code>.</p>
+</li>
+<li>
+<p>Cons: The Command logic subcomponent does not make use of the <code>position</code> field. As such, when attempting to extract out the values of each <code>Prefix</code> at the <code>Parser</code>, it cannot find the values as they are now hashed with the <code>position</code> as this is unknown to the <code>Parser</code> (an indirect result of the coupling due to the chosen implementation in aspect 2).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use the original implementation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Code does not affect the Command logic subcomponent, which already takes up a significant portion of the code base, hence less changes are needed.</p>
+</li>
+<li>
+<p>Cons: The code and logic are not be well encapsulated (for the <code>Prefix</code>) and we will have repeated logic in the codebase.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We eventually chose Alternative 1 as it provides a better structure and encapsulation for our code overall. We also came up with a workaround for Alternative 1&#8217;s cons, by modifying the method <code>ArgumentMultimap#getValue</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:59:43 UTC</div></div></div></body></html>

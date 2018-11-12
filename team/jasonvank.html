@@ -1,63 +1,35 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Fan Wenkai - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">SaveIt</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Fan Wenkai - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-saveit"><a class="link" href="#project-saveit">1. PROJECT: SaveIt</a></h2>
-<div class="sectionbody">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">SaveIt</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Fan Wenkai - Project Portfolio</h1></div><div id="content"><h1 id="project-saveit" class="sect0"><a class="link" href="#project-saveit">PROJECT: SaveIt</a></h1>
 <hr>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">1. Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project portfolio is intended to document my contributions to the development of SaveIt App.</p>
+</div>
+<div class="paragraph">
+<p><strong>SaveIt</strong> is an issue tracker application targeting programmers. It provides a platform for storing, managing and viewing their programming related issues during daily practices. It was developed as part of the module requirements for CS2103T (Software Engineering).</p>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">2. Overview</a></h2>
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>This document is written for summarizing my contributions in the project SaveIt.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">3. Summary of contributions</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>SaveIt is a platform for you to keep track of issues that you encounter and the corresponding solutions that you found on through your search engine.
-More importantly, SaveIt is ​optimized for those who prefer to work with a Command Line Interface​ (CLI) while still having the benefits of a Graphical User Interface (GUI).</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancements</strong>:</p>
+<p><strong>Major enhancement</strong>: Enhance <strong>the ability to edit <code>issue</code>, <code>solution</code> and <code>tag</code></strong>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Improved <strong>Edit</strong> Command feature</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: It allows a user to edit any fields in the issue and solution.</p>
+<p>What it does: This feature allows a user to edit any fields in an issue and solution. Also it improves flexibility to edit tags. (Relevant commands: <code>edit</code>, <code>addtag</code> and <code>refactortag</code>)</p>
 </li>
 <li>
-<p>Justification: The current data structure is an issue is bound to multiple solutions. Since a solution includes a solution link and a solution remark, users should be able to edit any field in a solution instead of replacing the whole solution.</p>
+<p>Justification: This feature improves this application significantly, by reducing the amount of time needed to edit existing entries, instead of deleting the issue and adding a new issue.</p>
 </li>
 <li>
-<p>Highlights: It requires a depth analysis for different conditions whether the command is valid. Also, we need to tell the user if he is in the wrong directory. It improves the efficiency to edit their issues and solutions.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Implemented <strong>Add Tags</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: It allows the user to add tags to specified issues.</p>
-</li>
-<li>
-<p>Justification: This feature allows users to add tags to an issue if they forgot to add tags when they create an issue. It is troublesome to replace all the issues when using <code>edit</code> command.</p>
-</li>
-<li>
-<p>Highlights: It requires a depth analysis to decide whether the command should be accepted. It is flexible to users as they can provide a range of indexes or some discrete indexes to add tags in one execution.</p>
-</li>
-</ul>
-</div>
+<p>Highlights: This feature allows users to edit issue and solution easily. Also, they can add tags by range of indexes and change tags for all issue entries easily. It requires a depth analysis of different conditions to judge if the command is valid.</p>
 </li>
 </ul>
 </div>
@@ -67,19 +39,19 @@ More importantly, SaveIt is ​optimized for those who prefer to work with a Com
 <div class="ulist">
 <ul>
 <li>
-<p>Implemented <code>refactortag</code> command: Allows users to rename or remove a specific tag for all entries with that tag.</p>
+<p>Implement <code>command highlight</code> feature: Allows users to differentiate their inputs by highlighting command word, index, parameters and values in different colors.</p>
 </li>
 <li>
-<p>Implemented <code>command highlight</code> feature: Allows users to differentiate their inputs by highlight command word,  parameters and values in different colors.</p>
+<p>Implement <code>command alias</code> feature: Allows users to type less command words but achieve the same functionality.</p>
 </li>
 <li>
-<p>Implemented <code>command alias</code> feature: Allows users to type command words less but achieving the same functionality.</p>
+<p>Morph the application from AddressBook Level 4 to SaveIt app. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/30">#30</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/44">#44</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=jasonvank">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=jasonvank">Functional code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -87,9 +59,64 @@ More importantly, SaveIt is ​optimized for those who prefer to work with a Com
 <ul>
 <li>
 <p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Manage releases v1.1, v1.3.* - v1.4.* (6 releases) on GitHub.</p>
+</li>
+<li>
+<p>Manage milestones and check issue status on GitHub.</p>
+</li>
+<li>
+<p>Set up <code>Code Coverage</code> and <code>Code Quality</code> badges for tracking of project status.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Write additional tests for existing features to increase coverage. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/216">#216</a></p>
+</li>
+<li>
+<p>Improve Solution link validation <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/162">#162</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/164">#164</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Draft the User Guide for the team. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/1">#1</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/76">#76</a></p>
+</li>
+<li>
+<p>Modify the app name to SaveIt and create app logo</p>
+</li>
+<li>
+<p>Update team landing page <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/183">#183</a></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/31">#31</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/32">#32</a>
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/180">#180</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/215">#215</a>.</p>
+</li>
+<li>
+<p>Report bugs and suggestions for other team members in the group::
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/103">103</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/131">131</a>,
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/132">132</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/133">133</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/134">134</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/201">201</a></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -99,7 +126,7 @@ More importantly, SaveIt is ​optimized for those who prefer to work with a Com
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">4. Contributions to the User Guide</a></h2>
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -111,10 +138,329 @@ More importantly, SaveIt is ​optimized for those who prefer to work with a Com
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="editing-code-e-edit-code"><a class="link" href="#editing-code-e-edit-code">3.1. Editing: <code>(e)edit</code></a></h3>
+<div class="paragraph">
+<p>Edits an issue in the SaveIt App.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit INDEX [i/NEW_ISSUE] [d/NEW_DESCRIPTION] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits a solution in an exit solution in the issue.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit INDEX s/NEW_SOLUTION_LINK r/NEW_SOLUTION_REMARK</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Select an issue before editing the solution.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 3 i/git command t/git</code><br>
+Edits the issue statement and the tag of the third issue to become <code>git command</code> and <code>git</code> respectively.</p>
+</li>
+<li>
+<p><code>edit 1 i/map function d/how to use map</code><br>
+Edits the issue statement and  description of the first issue to become <code>map function</code> and <code>how to use map</code> respectively.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/edit-issue.png" alt="edit issue" width="790">
+</div>
+<div class="title">Figure 1. Edits issue statement and tag of an issue</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select 1</code><br>
+Selects the first issue.</p>
+</li>
+<li>
+<p><code>edit 1 s/https://github.com/joshnh/Git-Commands</code><br>
+Edits the first solution link to be <code><a href="https://github.com/joshnh/Git-Commands" class="bare">https://github.com/joshnh/Git-Commands</a></code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/edit-solution.png" alt="edit solution" width="790">
+</div>
+<div class="title">Figure 2. Edits solution link and remark of a solution</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the issue at the specified <code>INDEX</code>, which refers to the index number shown in the displayed issue list.</p>
+</li>
+<li>
+<p>Edits the solution at the specified <code>Index</code>, which refers to the index number shown in the displayed solution list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (1, 2, 3&#8230;&#8203;), otherwise it will be considered as invalid command.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Removes all the tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="refactoring-tag-code-rt-refactortag-code"><a class="link" href="#refactoring-tag-code-rt-refactortag-code">3.2. Refactoring tag: <code>(rt)refactortag</code></a></h3>
+<div class="paragraph">
+<p>Renames or removes a specific tag for all entries with that tag.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>refactortag t/OLD_TAG [n/NEW_TAG]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Replace the old tag with the new tag provided</p>
+</li>
+<li>
+<p>Remove the old tag if the user does not provide a new tag</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>refactortag t/notSolved n/solved</code><br>
+Changes all issue entries tagged with <code>notSolved</code> to be tagged with <code>solved</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/refactor-tag2.png" alt="refactor tag2" width="790">
+</div>
+<div class="title">Figure 3. Refactor tag （rename)</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>refactortag t/solved</code><br>
+Removes the tag <code>solved</code> from all issue entries.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The old tag must be provided.</p>
+</li>
+<li>
+<p>If user provides multiple old tags or new tags, only take the last one as an effect.</p>
+</li>
+<li>
+<p>If the new tag exits in the issue already, it will only remove the old tag.</p>
+</li>
+<li>
+<p>The order of the issues may be updated if the user uses sort command.</p>
+</li>
+<li>
+<p>This command can only be executed in the home directory.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-tag-code-at-addtag-code"><a class="link" href="#adding-tag-code-at-addtag-code">3.3. Adding tag: <code>(at)addtag</code></a></h3>
+<div class="paragraph">
+<p>Adds tags for issue(s).</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addtag INDEX t/TAG1 [t/TAG2]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>addtag 1 t/python</code><br>
+Adds the <code>python</code> tag to the first issue in the issue list.</p>
+</li>
+<li>
+<p><code>addtag 2 t/python t/java</code><br>
+Adds the <code>python</code> and <code>java</code> tag to the second issue in the issue list.</p>
+</li>
+<li>
+<p><code>addtag 1 2 3 t/difficult</code><br>
+Adds the <code>difficult</code> tag to the first, second and third issues in the issue list.</p>
+</li>
+<li>
+<p><code>addtag 1-4 t/TIL t/java</code><br>
+Adds the <code>TIL</code> tag from first to fourth issues in the issue list.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/add-tag.png" alt="add tag" width="790">
+</div>
+<div class="title">Figure 4. Add tag (range index)</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>It will not take any action if the tag exits in the issue.</p>
+</li>
+<li>
+<p>The INDEX refers to the index number shown in the issue list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> (1, 2, 3&#8230;&#8203;), otherwise it will be considered as invalid command.</p>
+</li>
+<li>
+<p>The range of the index can be used.</p>
+</li>
+<li>
+<p>The lower limit of the range must be smaller than or equal to the upper limit (2-4, 2-2).</p>
+</li>
+<li>
+<p>The range cannot be used with multiple index(es) together.</p>
+</li>
+<li>
+<p>The order of the issues may be updated if the user uses sort command.</p>
+</li>
+<li>
+<p>This command can only be executed in home directory.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="highlighting-command-parameters"><a class="link" href="#highlighting-command-parameters">3.4. Highlighting command parameters</a></h3>
+<div class="paragraph">
+<p>When the user types the command in the command line, it is difficult for user to distinguish his inputs and parameters. Hence highlighted command is essential to help user to differentiate the parameters and values that he inputs.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-highlight1.png" alt="command highlight1" width="400">
+</div>
+<div class="title">Figure 5. Command highlight 1</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command-highlight2.png" alt="command highlight2" width="400">
+</div>
+<div class="title">Figure 6. Command highlight 2</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index will be highlighted only for certain commands that requires index (e.g. <code>edit</code>, <code>select</code>).</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">5. Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -126,5 +472,323 @@ More importantly, SaveIt is ​optimized for those who prefer to work with a Com
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="edit-feature"><a class="link" href="#edit-feature">4.1. Edit Feature</a></h3>
+<div class="paragraph">
+<p>The edit feature allows users to edit any field of the issue and solution.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 18:14:54 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The edit mechanism is facilitated by <code>editCommandParser</code> and <code>editCommand</code>. Users are allowed to edit any field in the issue list.</p>
+</div>
+<div class="paragraph">
+<p>The <code>editCommandParser</code> extends <code>Parser</code> and implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editCommandParser#parser(String args)</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Checks the arguments for empty strings and throws a <code>ParseException</code> if empty string is found.</p>
+</li>
+<li>
+<p>Analyses the argument to check if it is a valid command format. If it is a valid format, it will set the corresponding filed using <code>EditDescriptor</code>. There are two types format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>edit issue: edit Index i/statement d/description t/tag1 t/tag2 &#8230;&#8203;</p>
+</li>
+<li>
+<p>edit solution: <code>edit Index s/https://www.dummysolutionlink.com r/remark</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If it fails to parse the command, it will throw <code>ParseException</code> and display edit command usage message.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editCommand#execute(Model model, CommandHistory history)</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Analyses the user in the home directory or issue directory. Since the home directory can only edit issues, if user provides solution related command, it will fail to execute. Also, in the issue directory, it only allows to edit solution, it will fail to execute the issue related command. Then it will
+throw <code>CommandException</code> and show wrong directory information.</p>
+</li>
+<li>
+<p>Checks if the user index in editDescriptor is larger than the size of the issue list or solution list.<br>
+Throw <code>CommandException</code> and show invalid index warning. Otherwise, call the function <code>model.updateIssue(issueToEdit, editedIssue)</code> to update issue list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Please refer to the Sequence Diagram below for the illustration of edit operation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/edit-command-sequence-diagram.jpg" alt="edit command sequence diagram" width="800">
+</div>
+<div class="title">Figure 7. Edit Command Sequence Diagram</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.1.2. Design Consideration</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Update the whole issue fields when every single field needs to edit.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement in current implementation.</p>
+</li>
+<li>
+<p>Cons: It may have performance issues regarding memory usage.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Update the specific data field instead of updating the whole issue.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It will use less memory.</p>
+</li>
+<li>
+<p>Cons: It has lower security if the issue is the mutable object.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="refactor-tag-feature"><a class="link" href="#refactor-tag-feature">4.2. Refactor Tag Feature</a></h3>
+<div class="paragraph">
+<p>The refactor tag feature allows users to rename or remove a specified tag for all entries with that tag.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The refactor tag mechanism is facilitated by <code>RefactorTagCommandParser</code> and <code>RefactorCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>RefactorTagCommandParser</code> extends <code>Parser</code> and implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>refactorTagCommandParser#parser(String args)</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Checks the arguments for empty strings and throws a <code>ParseException</code> if an empty string is found.</p>
+</li>
+<li>
+<p>Analyses the argument to check if it is a valid command format. Users are not allowed to provide other prefixes, except <code>t/</code> and <code>n/</code> in refactor tag command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>t/</code> the tag that user wants to refactor, which must be input by users, otherwise throws <code>ParserException</code> and shows refactor tag command usage message.</p>
+</li>
+<li>
+<p><code>n/</code> the new tag that the user wants to replace the original one with, which is optional. (if the user does not provide, then remove the original one)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If it fails to parse the command, it will throw <code>ParseException</code> and display refactor tag command usage message.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>refactorTagCommand#execute(Model model, CommandHisotry history)</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>updates the issue list and returns success message if it has edited an issue, otherwise shows an unsuccessful message.</p>
+</li>
+<li>
+<p>Iterates all the issues in the saveIt, if it contains the old tag, it will replace with the new tag if provided. Then update the list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Please refer to the Sequence Diagram below for the refactor tag operation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/refactor-tag-activity-diagram.png" alt="refactor tag activity diagram" width="400">
+</div>
+<div class="title">Figure 8. Refactor Tag Activity Diagram</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.2.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-refactortag-command-parser"><a class="link" href="#aspect-implementation-of-refactortag-command-parser">Aspect: Implementation of RefactorTag command parser.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Allows only to rename or remove the old tags that user input lastly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement.</p>
+</li>
+<li>
+<p>Cons: It is inconvenient if the user wants to replace multiple tags once.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Allows to rename or remove multiple old tags with multiple new tags.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is convenient for users to replace or remove the tags once.</p>
+</li>
+<li>
+<p>Cons: It is not clear for users to see the changes since tags are displayed disordered.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-tag-feature"><a class="link" href="#add-tag-feature">4.3. Add tag Feature</a></h3>
+<div class="paragraph">
+<p>The add tag feature allows users to add <code>Tag(s)</code> to specified <code>Indexed</code> issues.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The add tag mechanism is facilitated by <code>AddTagCommandParser</code> and <code>AddTagCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the Sequence Diagram below for the illustration of add tag operation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/add-tag-sequence-diagram.jpeg" alt="add tag sequence diagram" width="600">
+</div>
+<div class="title">Figure 9. Add Tag Command Sequence Diagram</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-3"><a class="link" href="#design-consideration-3">4.3.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-addtag-command-parser"><a class="link" href="#aspect-implementation-of-addtag-command-parser">Aspect: Implementation of AddTag command parser.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Allows a range of index and multiple indexes to be accepted as index parameter.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is efficient to add multiple <code>Tags</code> to multiple issues instead of doing it singly.</p>
+</li>
+<li>
+<p>Cons: It has to consider various conditions of the user input.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Creates an <code>IndexRange</code> class for index.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to understand and maintain.</p>
+</li>
+<li>
+<p>Cons: It increases coupling between <code>IndexRange</code> class and <code>Index</code> class</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-highlight"><a class="link" href="#command-highlight">4.4. Command Highlight</a></h3>
+<div class="paragraph">
+<p>The command highlight feature is to differentiate command word, index, prefix and values that user input in Command Line.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Command Highlight mechanism uses <code>InlineCssTextArea</code> class. It uses listener to detect the change in the <code>commandTextArea</code> and check if it contains command word, parameter, index or values and assign different colors correspondingly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-4"><a class="link" href="#design-consideration-4">4.4.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-command-highlight-manager"><a class="link" href="#aspect-implementation-of-command-highlight-manager">Aspect: Implementation of command highlight manager.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Check the character in the command box and assign different colors based on precondition.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: easy to implement by checking the prefix, index and command word.</p>
+</li>
+<li>
+<p>Cons: due to the limitation of using the character '/' as part of the prefix, it may still have some corner cases that we cannot cover.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Parse the user command simultaneously when user input command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: if user inputs wrong command format, it will highlight the color correspondingly. Hence, user can correct his input immediately.</p>
+</li>
+<li>
+<p>Cons: difficult to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:59:43 UTC</div></div></div></body></html>

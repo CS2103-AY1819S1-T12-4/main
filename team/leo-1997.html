@@ -1,46 +1,71 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Li Changrui - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">SaveIt</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T12-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Li Changrui - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-saveit"><a class="link" href="#project-saveit">PROJECT: SaveIt</a></h2>
+<h2 id="project-saveit"><a class="link" href="#project-saveit">1. PROJECT: SaveIt</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="overview"><a class="link" href="#overview">2. Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>SaveIt​ is geared at keeping track of the issues that the user finds and to link it with the email found on google.
-More importantly, SaveIt is ​optimized for those who prefer to work with a Command Line Interface​ (CLI) while still having the benefits of a Graphical User Interface (GUI).
-If you can type fast, SaveIt can help you search the same statement that save previously faster than traditional GUI apps.
-== Summary of contributions</p>
+<p>This document is to summarize and elaborate all my contributions to the project.
+Our project, SaveIt, is a issue tracker application which is morphed from AddressBook4.</p>
+</div>
+<div class="paragraph">
+<p>SaveIt dedicates to providing a platform for storing, managing and viewing their programming related issues during daily practice for the programmers. Its main features include adding new issue and solution, managing existing issues as well as finding existing issues. It is especially designed for the user who prefers command line interface (CLI) as all the commands require command line input. It also preserves the benefits of a Graphical User Interface (GUI) at the same time. If you can type fast, SaveIt can help you search the same issue that save previously faster than traditional GUI apps.</p>
+</div>
+<div class="paragraph">
+<p>The project is implemented for applying and showing the learning outcomes of CS2103T, and it is done by a group of five CS2103T students including myself.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">3. Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section is to summarize and explain my contributions towards this project.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: add the <strong>solution filed to model structure along with enable adding solution or issue</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: It constitutes the basic model structure by adding new issue and new solution into SaveIt. This allows all the following features to be carried out in SaveIt.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature improves the product significantly as a user can now add more issues and solutions to the application. This is the most important and fundamental function our application aims to achieve.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This enhancement involves not only model component but also GUI, storage components in the application and it requires a lot of effort to build it properly. The add command on the other hand needs to handle different requests in different directories.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Implement basic autosuggestion feature for find and findByTag command. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/107">#107</a></p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=leo-1997">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Refactor autosuggestion component. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/168">#168</a></p>
+</li>
+<li>
+<p>Add retrieve command to copy the solution link to system clipboard. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/85">#85</a></p>
+</li>
+<li>
+<p>Refactor the application from AddressBook Level 4 to SaveIt. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/4">#4</a> <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/56">#56</a> <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/68">#68</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=leo-1997">Functional code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -51,7 +76,20 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Manage milestones and check issue status on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Improve JUnit tests:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Rewrite existing failing tests and add new tests:
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/219">#219</a>,
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/233">#233</a>,
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/253">#253</a></p>
 </li>
 </ul>
 </div>
@@ -61,10 +99,13 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Update the Auto-Suggestion window(Pull requests <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/168">#168</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Update ArgumentMultimap to enable hashing the prefix with its relative position(Pull requests <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/165">#165</a>)</p>
+</li>
+<li>
+<p>Write additional tests for existing features to increase coverage from 79% to 81% (Pull requests <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/219">#219</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/233">#223</a>)</p>
 </li>
 </ul>
 </div>
@@ -74,7 +115,7 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Modify the undo/redo implementation diagrams to fit current edition of Developer Guide: (Pull requests <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/243">#243</a>)</p>
 </li>
 </ul>
 </div>
@@ -84,29 +125,10 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Review PRs (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/169">#169</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/170">#170</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/180">#180</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/208">#208</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/215">#215</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Report bugs and suggestions for other teammates in the group (<a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/188">#188</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/197">#197</a> <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/199">#199</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/200">#200</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/202">#202</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/204">#204</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/222">#222</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/223">#223</a>)</p>
 </li>
 </ul>
 </div>
@@ -115,14 +137,11 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">4. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -134,10 +153,209 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="adding-code-a-add-code"><a class="link" href="#adding-code-a-add-code">4.1. Adding: <code>(a)add</code></a></h3>
+<div class="paragraph">
+<p>Adds an issue to the SaveIt App.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add i/ISSUE_STATEMENT d/DESCRIPTION [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Adds a solution to an existing issue in SaveIt App.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add s/SOLUTION_LINK r/REMARK</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Select an issue before adding a solution</p>
+</li>
+<li>
+<p>The link validation check only provides most basic format checking</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>add i/ArrayIndexOutOfBound d/issue description t/unsolved</code><br>
+Adds a new issue which has a issue statment called <code>ArrayIndexOutOfBounds</code> and issue description called <code>issue description</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddingNewIssue.png" alt="AddingNewIssue" width="700">
+</div>
+<div class="title">Figure 1. Add new issue to the issue list</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select 3</code></p>
+</li>
+<li>
+<p><code>add s/www.stackoverflow.com r/use functional programming</code><br>
+Adds a new solution which has a solution link called <code>www.stackoverflow.com</code> and a solution remark called <code>use functional programming</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddingNewSolution.png" alt="AddingNewSolution" width="700">
+</div>
+<div class="title">Figure 2. Add new solution to the third issue in the issue list</div>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The order of the issues may be updated if the user uses sort command.</p>
+</li>
+<li>
+<p>If multiple identical prefixes are entered, the last prefix value will be accepted</p>
+</li>
+<li>
+<p>An issue can have only one statement and description</p>
+</li>
+<li>
+<p>An issue can have any number of tags (including 0)</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed issue list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> and <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>The index cannot be bigger than the number of issues.</p>
+</li>
+<li>
+<p>User needs to select the issue index to add a solution to that issue</p>
+</li>
+<li>
+<p>A solution contains one solution link and one remark</p>
+</li>
+<li>
+<p>User can add solutions to the same issue continuously</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="retrieving-a-solution-link-code-rv-retrieve-code"><a class="link" href="#retrieving-a-solution-link-code-rv-retrieve-code">4.2. Retrieving a solution link: <code>(rv)retrieve</code></a></h3>
+<div class="paragraph">
+<p>Retrieves the solution link so that the link is copied to the system clipboard</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>retrieve INDEX</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Select an issue before retrieving solution link</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>retrieve 1</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number on the solution list of a certain issue.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The index cannot be bigger than the number of solutions of a certain issue.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autosuggesting-existing-issue-in-find-command"><a class="link" href="#autosuggesting-existing-issue-in-find-command">4.3. Autosuggesting existing issue in find command</a></h3>
+<div class="paragraph">
+<p>To prevent the issue list is so large such that user can hardly remember all the issues, whenever user types in any keyword in find command, SaveIt will auto suggest any related issue name according to the keyword entered.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindIssueAutoSuggestion.png" alt="FindIssueAutoSuggestion" width="500">
+</div>
+<div class="title">Figure 3. Autosuggesting of exsiting issues statements</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">5. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -149,14 +367,189 @@ If you can type fast, SaveIt can help you search the same statement that save pr
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect2">
+<h3 id="add-feature"><a class="link" href="#add-feature">5.1. Add feature</a></h3>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>The add command can add both issue and solution to SaveIt. It includes two levels:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Root level</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Issue statement</p>
+</li>
+<li>
+<p>Issue description</p>
+</li>
+<li>
+<p>Issue tags</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Issue level</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Solution link</p>
+</li>
+<li>
+<p>Solution remark</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="add-issue"><a class="link" href="#add-issue">5.1.1. Add issue</a></h4>
+<div class="paragraph">
+<p>Adding a new issue can only happen at the root level</p>
+</div>
+<div class="sect4">
+<h5 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h5>
+<div class="paragraph">
+<p>The <code>SaveItParser</code> is used to call <code>AddCommandParser</code> so as to pass the entered issue. In order to build a new <code>Issue</code> object, a dummy solution link and dummy solution remark will be used. After that, <code>AddCommand</code> is invoked which will ask model to add the issue to the <code>Model</code> component.
+In order to store the new issue inside the SaveIt, <code>VersionedSaveIt</code> will be invoked and it will add issue to the <code>UniqueIssueList</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the add new issue feature functions:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddNewIssue.png" alt="AddNewIssue" width="800">
+</div>
+<div class="title">Figure 4. Add Issue Command Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>This diagram gives a clear procedure that how the user input is passed step by step by calling different methods and objects in different sequences.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 18:14:54 UTC</div></div></div></body></html>
+</div>
+<div class="sect3">
+<h4 id="add-solution-to-existing-issue"><a class="link" href="#add-solution-to-existing-issue">5.1.2. Add solution to existing issue</a></h4>
+<div class="paragraph">
+<p>Adding a new solution can only happen at the issue level</p>
+</div>
+<div class="sect4">
+<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current implementation</a></h5>
+<div class="paragraph">
+<p>The <code>SaveItParser</code> is used to call <code>AddCommandParser</code> just like how adding issue feature functions as above mentioned. However, this time, the new solution link and solution remark is provided to <code>AddCommand</code> instead. In order to build a new <code>Issue</code> object, dummy issue statement and dummy issue description will be used. During execution, <code>addSolution</code> method, which was newly added, in Model component will be invoked to add the solution. The detailed implementation of <code>addSolution</code> in model component is quite simple. Since the list stored in application is immutable, each time, a new issue will be created with original statement and description, then the new solution will be added to that particular issue. Finally, <code>updateIssue</code> method will be called to replace the issue in <code>versionedSaveIt</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the add solution feature functions</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddNewSolution.png" alt="AddNewSolution" width="800">
+</div>
+<div class="title">Figure 5. Add Solution Command Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>This diagram shows the sequence that how add solution command is executed. It could be also noticed that it is basically similar to that of add new issue feature besides it invokes updateIssue method in Model component rather than addIssue method.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">5.1.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-add-solutions-executes"><a class="link" href="#aspect-how-add-solutions-executes">Aspect: How add solutions executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Combine AddIssue and AddSolution together and distinguish them at the stage of <code>AddCommandParser</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Consistent syntax between the two features, so the command is more user-friendly.</p>
+</li>
+<li>
+<p>Cons: Need to put more effort on distinguishing the difference between these two requests, <code>AddCommandParser</code> is relatively complex compared to the other parser component.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Build a new command especially for adding solution</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: The command set becomes too complex for the user.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-add-command-distinguishes-between-adding-solution-and-adding-issue"><a class="link" href="#aspect-how-add-command-distinguishes-between-adding-solution-and-adding-issue">Aspect: How add command distinguishes between adding solution and adding issue</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Pass a newly created issue with dummy issue statement or dummy solution link</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Consistent coding style and less change on logic structure</p>
+</li>
+<li>
+<p>Cons: Quite complex implementation compared to other command</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Overload Issue constructor so that different issues will be passed to <code>AddCommand</code> accordingly.</p>
+</li>
+<li>
+<p>Pros: Relatively easier to implement</p>
+</li>
+<li>
+<p>Cons: Lots of changes on structure.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="retrieve-feature"><a class="link" href="#retrieve-feature">5.2. Retrieve Feature</a></h3>
+<div class="paragraph">
+<p>The retrieve feature allows user to choose a solution link and copy it to the system clipboard.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">5.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The retrieve feature basically takes the user entered index and call <code>getFilteredAndSortedList</code> method in <code>Model</code> to get the selected solution. Then Java <code>Toolkit</code> package is used to copy the url link of solution to the system clipboard.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggestion-feature"><a class="link" href="#suggestion-feature">5.3. Suggestion Feature</a></h3>
+<div class="paragraph">
+<p>The suggestion feature allows user to quickly complete commands by showing a drop-down window of suggested values when the user input matches a specific keyword or identifier.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">5.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The figure below shows a basic relationship between each class.
+The <code>SuggestionLogicManager</code> implements <code>SuggestionLogic</code> interface and overrides the <code>evaluate</code> method. Similarly, <code>IssueNameSuggestion</code>, <code>TagNameSuggestion</code> and <code>CopyExistingSuggestion</code> implement <code>Suggestion</code> interface and override <code>evaluate</code> method.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SuggestionClassUML.png" alt="SuggestionClassUML" width="400">
+</div>
+<div class="title">Figure 6. SuggestionLogic Class Diagram</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:59:43 UTC</div></div></div></body></html>

@@ -13,14 +13,15 @@
 <p>This document is written for summarizing my contributions in the project SaveIt.</p>
 </div>
 <div class="paragraph">
-<p>SaveIt is geared at keeping track of the issues that the user finds and to link it with the email found on google.
-More importantly, SaveIt is ​optimized for those who prefer to work with a Command Line Interface​ (CLI) while still having the benefits of a Graphical User Interface (GUI).
-It is designed for programmers who are used to CLI applications and are good at typing.</p>
+<p>SaveIt is geared at keeping track of the issues and solutions that the user finds online.
+It is designed for programmers who are used to Command Line Interface​ (CLI) applications and are good at typing while still having the benefits of a Graphical User Interface (GUI).</p>
 </div>
 <div class="paragraph">
-<p>SaveIt​ is implemented for applying CS2103 learning outcomes and show understanding of the software design.
-It is implemented by a group of CS2103 students, including myself. My key contribution is sort command.
-SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, the application used for teaching Software Engineering principles.</p>
+<p>SaveIt​ is implemented for applying CS2103 learning outcomes and showing understanding of the software design.
+It is implemented by a group of CS2103 students, including myself. My key contribution is <strong>sort command and User Interface (UI) related with this function</strong>.</p>
+</div>
+<div class="paragraph">
+<p>SaveIt is written in Java and JavaFX and is morphed from AddressBook-level4, the application used for teaching Software Engineering principles.</p>
 </div>
 </div>
 </div>
@@ -30,17 +31,17 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to sort issue list</strong></p>
+<p><strong>Major enhancement</strong>: Add <strong>the ability to sort issue list</strong> and UI of the sort type</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: It allows the user to sort issues shown.</p>
+<p>What it does: It allows the user to sort issues shown in the list.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can view the issues in the order that they want, helping them to organize issues better.</p>
+<p>Justification: This feature improves the product significantly because it helps the user to view the issues in the order that they want so that they can organize the record of issues better. That can help users to search and learn more efficiently.</p>
 </li>
 <li>
-<p>Highlights: This command changed the way how issues are listed in the application. It needs effort to combine sorting and filtering together properly.</p>
+<p>Highlights: This command changes the way how issues are listed in the application. It needs efforts to combine sorting and filtering together properly and make sure the correct issue can be retrieved from the sorted list. Backend structure also needs to be changed for comparing the issues in different order.</p>
 </li>
 </ul>
 </div>
@@ -50,13 +51,13 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p>Added a confirmation check for clear command.</p>
+<p>Add the ability to set and reset the primary solution. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/177">#177</a></p>
 </li>
 <li>
-<p>Added the ability to set and reset primary solution.</p>
+<p>Add confirmation check for danger command (i.e. clear command for current version). <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/116">#116</a></p>
 </li>
 <li>
-<p>Update solution structure.</p>
+<p>Improve Solution structure. <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/180">#180</a></p>
 </li>
 </ul>
 </div>
@@ -73,7 +74,7 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p>Managed milestones and checked issue status on GitHub</p>
+<p>Manage milestones and checked issue status on GitHub</p>
 </li>
 </ul>
 </div>
@@ -83,7 +84,7 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p>Updated tests to fit mid-v1.2 features (Pull requests <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/52">#52</a>)</p>
+<p>Update tests to fit mid-v1.2 features: <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/52">#52</a></p>
 </li>
 </ul>
 </div>
@@ -103,16 +104,12 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/25">#25</a>,
-<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/32">#32</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/77">#77</a>,
-<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/123">#123</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/168">#168</a>,
-<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/169">#169</a>,https://github.com/CS2103-AY1819S1-T12-4/main/pull/178[#178],</p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/168">#168</a>,
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/169">#169</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/pull/178">#178</a>,</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other team members in the group:  <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/111">111</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/115">115</a></p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+<p>Report bugs and suggestions for other team members in the group: <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/111">111</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/115">115</a>,
+<a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/203">203</a>, <a href="https://github.com/CS2103-AY1819S1-T12-4/main/issues/237">237</a></p>
 </li>
 </ul>
 </div>
@@ -140,10 +137,10 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="sect2">
 <h3 id="sorting-the-list-of-issues-code-sr-sort-code"><a class="link" href="#sorting-the-list-of-issues-code-sr-sort-code">4.1. Sorting the list of issues: <code>(sr)sort</code></a></h3>
 <div class="paragraph">
-<p>Sorts the list of issue according to a specified sort type.</p>
+<p>Sorts the list of issues according to a specified sort type.</p>
 </div>
 <div class="paragraph">
-<p>The list always follow this sort type until another sort command is executed.</p>
+<p>The list <strong>always follows the specified sort type</strong> until another sort command is executed.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>sort</code></p>
@@ -158,7 +155,7 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p>Sort the issue list based on the time when they are added. The first issue added has the highest priority.</p>
+<p>Sorts the issues based on the time when they are created. The first issue created has the highest priority.</p>
 </li>
 </ul>
 </div>
@@ -179,7 +176,10 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p>Sort the issue list by their last modified time chronologically. The last modified one has the highest priority.</p>
+<p>Sorts the issues by their last modified time chronologically. The last modified one has the highest priority.</p>
+</li>
+<li>
+<p>Creation is considered as a modification, i.e. last modified time is set to the created time when an issue is added.</p>
 </li>
 </ul>
 </div>
@@ -200,7 +200,7 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p>Sort the issue list based on search frequency. The one which matches the search keywords most frequently has the highest priority.</p>
+<p>Sorts the issues by their search frequency. The one which matches the search keywords most frequently has the highest priority.</p>
 </li>
 </ul>
 </div>
@@ -221,12 +221,28 @@ SaveIt is written in Java and JavaFX, and is morphed from AddressBook-level4, th
 <div class="ulist">
 <ul>
 <li>
-<p>Sort the issue list by their tag in alphabetical order.
-If their first tags start with the same character, the following tags are compared until there is a difference or one tag set comes to the end.
-In the second case, the issue with fewer tags is give higher priority.</p>
+<p>Sorts the issues by each issue&#8217;s tag set in a lexicographical order, following ASCII lexicography.</p>
 </li>
 <li>
-<p>Sort the issues without tags at the end of the display issue list.</p>
+<p>Puts the issues without tags at the end of the displayed issue list.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can only be executed in the home directory.</p>
 </li>
 </ul>
 </div>
@@ -242,11 +258,42 @@ In the second case, the issue with fewer tags is give higher priority.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>sort</p>
+<p><code>sort</code></p>
 </li>
 <li>
-<p>sort freq</p>
+<p><code>edit 1 d/First edited issue</code> (edit to update last modified time)<br>
+<code>edit 4 d/Second edited issue</code><br>
+<code>add i/Third created issue d/Third created issue</code> (add a new issue)<br>
+<code>sort chro</code></p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/sort-chro-command.png" alt="sort chro command" width="790">
+</div>
+<div class="title">Figure 1. Sort Chro Command</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find ArrayIndexOutOfBounds</code> (find to update search frequency)<br>
+<code>list</code><br>
+<code>find ClassNotFoundException</code><br>
+<code>find ClassNotFoundException</code><br>
+<code>list</code><br>
+<code>sort freq</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/sort-freq-command.png" alt="sort freq command" width="790">
+</div>
+<div class="title">Figure 2. Sort Freq Command</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>sort tag</p>
 </li>
@@ -254,9 +301,9 @@ In the second case, the issue with fewer tags is give higher priority.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/sort-command.png" alt="sort command" width="790">
+<img src="../images/sort-tag-command.png" alt="sort tag command" width="790">
 </div>
-<div class="title">Figure 1. Sort Tag Command</div>
+<div class="title">Figure 3. Sort Tag Command</div>
 </div>
 </div>
 </div>
@@ -264,7 +311,7 @@ In the second case, the issue with fewer tags is give higher priority.</p>
 <div class="sect2">
 <h3 id="clearing-all-entries-code-c-clear-code"><a class="link" href="#clearing-all-entries-code-c-clear-code">4.2. Clearing all entries : <code>(c)clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all issues from the saveIt App.</p>
+<p>Clears all issues and their solutions from SaveIt.</p>
 </div>
 <div class="paragraph">
 <p>Format:  <code>clear</code></p>
@@ -281,6 +328,25 @@ In the second case, the issue with fewer tags is give higher priority.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/clear-command-ask-for-confirmation.png" alt="clear command ask for confirmation" width="400">
+</div>
+<div class="title">Figure 4. Clear Command - Ask for confirmation</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Yes</code> or <code>Y</code> (confirm the clear decision)</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/clear-command-confirmed.png" alt="clear command confirmed" width="400">
+</div>
+<div class="title">Figure 5. Clear Command - Confirmed</div>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -293,10 +359,10 @@ In the second case, the issue with fewer tags is give higher priority.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>User need confirm to execute this operation.</p>
+<p>The user needs to confirm this command before the operation can be executed.</p>
 </li>
 <li>
-<p>User can undo this operation to restore the issue lists.</p>
+<p>The user can undo this operation to restore the issue lists.</p>
 </li>
 </ul>
 </div>
@@ -314,7 +380,7 @@ In the second case, the issue with fewer tags is give higher priority.</p>
 <p>If there is an existing primary solution, <code>setprimary</code> will reset the primary solution to the latest one.</p>
 </div>
 <div class="paragraph">
-<p>The primary solution is shown on the top of the solution list and is highlighted.</p>
+<p>The primary solution is shown on the top of the solution list and is highlighted in white.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>setprimary INDEX</code></p>
@@ -335,10 +401,40 @@ In the second case, the issue with fewer tags is give higher priority.</p>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>The index cannot be bigger than the number of issues.</p>
+<p>The index cannot be larger than the number of solutions of this issue.</p>
 </li>
 <li>
-<p>This command can only be executed <strong>after you select an issue or a solution</strong>.</p>
+<p>This command can only be executed in the issue or solution directory.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="resetting-the-primary-solution-code-rp-resetprimary-code"><a class="link" href="#resetting-the-primary-solution-code-rp-resetprimary-code">4.4. Resetting the primary solution: <code>(rp)resetprimary</code></a></h3>
+<div class="paragraph">
+<p>Resets the primary solution and make all solutions normal and not highlighted.</p>
+</div>
+<div class="paragraph">
+<p>Even if there is no primary solution, this command can still be executed, but no change will be shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>resetprimary</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command can only be executed in the issue or solution directory.</p>
 </li>
 </ul>
 </div>
@@ -363,31 +459,119 @@ In the second case, the issue with fewer tags is give higher priority.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="confirmation-check"><a class="link" href="#confirmation-check">5.1. Confirmation Check</a></h3>
+<h3 id="sort-feature"><a class="link" href="#sort-feature">5.1. Sort feature</a></h3>
+<div class="paragraph">
+<p>The sort command can sort an issue list shown in the GUI.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">5.1.1. Current implementation</a></h4>
+<div class="paragraph">
+<p>We use JavaFX <code>SortedList</code> and the Comparator provided by <code>SortType</code> to sort the list.</p>
+</div>
+<div class="paragraph">
+<p>In order to allow sorting to work with the filtered list, we wrap <code>FilteredList</code> with <code>SortedList</code> and retrieve this new list with a new method <code>getFilteredAndSortedList()</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the mechanism works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortCommandSequenceDiagram.png" alt="SortCommandSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 6. Sort Command Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>This diagram shows that after the input is parsed, a SortType object is initialized before the SortCommand object.</p>
+</div>
+<div class="paragraph">
+<p>As shown in the diagram, a SortType object can provide the required comparator and we use the retrieved Comparator to sort the list when the sort command is executed.</p>
+</div>
+<div class="paragraph">
+<p>The following is a class diagram for SortType.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortType.png" alt="SortType" width="500">
+</div>
+<div class="title">Figure 7. SortType Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>It shows that Comparator is an attribute of SortType class. We create three different classes that implement the Comparator Interface.
+They can serve the three sort types (excluding the default one) we provide in SaveIt. When more sort types are needed, we can simply create another class implementing Comparator, and add another case in the switch statement.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">5.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-sort-executes"><a class="link" href="#aspect-how-sort-executes">Aspect: How sort executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Combine SortedList and FilteredList, sort at GUI side</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Consistent sorting. Doesn&#8217;t affect the memory of issue lists.</p>
+</li>
+<li>
+<p>Cons: Need efforts to make sure the correct list is retrieved.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Reconstruct UniqueIssueList directly, sort in Storage</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to understand and implement.</p>
+</li>
+<li>
+<p>Cons: Break the persistence of the backend list.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="confirmation-check"><a class="link" href="#confirmation-check">5.2. Confirmation Check</a></h3>
 <div class="paragraph">
 <p>Some commands that can affect the users' experience significantly need to be paid attention to and confirmation should be provided before they are executed.
 For the current version, <code>clear</code> is the only command that needs confirmation.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">5.1.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">5.2.1. Current Implementation</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ClearCommand.png" alt="ClearCommand" width="800">
+</div>
+<div class="title">Figure 8. Clear Command Activity Diagram</div>
+</div>
 <div class="paragraph">
-<p>Instead of letting LogicManager execute the command directly after parsing it, we now check if we need confirmation before the command is executed.</p>
+<p>As shown in the diagram, instead of letting Logic execute the command directly after parsing it, we now check if we need confirmation before the command is executed.</p>
 </div>
 <div class="paragraph">
 <p>In order to connect the confirmation with the command:<br></p>
 </div>
 <div class="paragraph">
-<p>Step 1. We buffer the command that waits for confirmation.<br></p>
+<p>Step 1. We buffer the command that requires confirmation.<br></p>
 </div>
 <div class="paragraph">
-<p>Step 2. Generate the CommandResult according to the confirmation message entered.<br></p>
+<p>Step 2. Wait for the user to input confirmation message.<br></p>
 </div>
 <div class="paragraph">
-<p>Step 3. Clear the buffer.</p>
+<p>Step 3. Clear the buffer.<br></p>
+</div>
+<div class="paragraph">
+<p>Step 4. Generate the CommandResult according to the confirmation message entered.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">5.1.2. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">5.2.2. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-distinguish-commands-that-need-confirmation"><a class="link" href="#aspect-how-to-distinguish-commands-that-need-confirmation">Aspect: How to distinguish commands that need confirmation</a></h5>
 <div class="ulist">
@@ -413,7 +597,7 @@ For the current version, <code>clear</code> is the only command that needs confi
 <p>Pros: Easy to implement.</p>
 </li>
 <li>
-<p>Cons: Command information leaked. Inaccurate, e.g. two classes from different package can have the same class name.</p>
+<p>Cons: Command information leaked. Inaccurate, e.g. two classes from different packages can have the same class name.</p>
 </li>
 </ul>
 </div>
@@ -430,10 +614,10 @@ For the current version, <code>clear</code> is the only command that needs confi
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Protect CommandBox from Command Class.</p>
+<p>Pros: Protect CommandBox from being accessed by Command, i.e. retrieve the input message in Command Class</p>
 </li>
 <li>
-<p>Cons: Another variable introduced. Need effort to deal with the buffered command properly.</p>
+<p>Cons: Another variable introduced. Need efforts to deal with the buffered command properly.</p>
 </li>
 </ul>
 </div>
@@ -456,14 +640,79 @@ For the current version, <code>clear</code> is the only command that needs confi
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">6. PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect2">
+<h3 id="set-primary-feature"><a class="link" href="#set-primary-feature">5.3. Set Primary Feature</a></h3>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>The set primary feature allows users to choose one solution as primary.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">5.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The set primary solution mechanism is facilitated by the method <code>isPrimarySolution()</code>, which is overrode by <code>PrimarySolution</code> inheriting from <code>Solution</code>.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 18:14:54 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">5.3.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-distinguish-between-primarysolution-and-solution"><a class="link" href="#aspect-how-to-distinguish-between-primarysolution-and-solution">Aspect: How to distinguish between PrimarySolution and Solution</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use PrimarySolution as a subclass of Solution</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No flag attribute is introduced. More sustainable.</p>
+</li>
+<li>
+<p>Cons: New object is created. May affect performance.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Add a flag attribute to Solution</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to understand and implement.</p>
+</li>
+<li>
+<p>Cons: Solution constructor is affected. The flag attribute is redundant for non-primary solutions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Store the primary solution index in the solution list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No new constructor and attribute are introduced.</p>
+</li>
+<li>
+<p>Cons: Need to check if the index is affected every time when the solution list is updated.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reset-primary-feature"><a class="link" href="#reset-primary-feature">5.4. Reset Primary Feature</a></h3>
+<div class="paragraph">
+<p>The reset primary feature allows users to reset the primary solution and make all solutions normal and not highlighted.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">5.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The reset primary solution mechanism goes through the solution list once and checks if a solution is primary or not.
+If it is primary, we replace it with a new Solution object with the same data of the primary solution. If it is not primary, we continue checking until we reach the end of the list.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:59:43 UTC</div></div></div></body></html>
